@@ -31,6 +31,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.3"
+    }
+
 }
 
 dependencies {
@@ -42,6 +50,7 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    implementation(project(mapOf("path" to ":designsystem")))
     androidTestImplementation(platform(libs.compose.bom))
 
 
@@ -54,7 +63,8 @@ dependencies {
     implementation(libs.viewModelLifecycle)
     implementation(libs.coil)
     implementation(libs.lottie)
-   implementation(libs.splashScreen)
+    implementation(libs.splashScreen)
+    debugImplementation(libs.androidx.ui.tooling)
 
 
 }
