@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7d3aafcc-40a5-48b6-8475-39c8fd873c71" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../designsystem/consumer-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../designsystem/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../home/data/consumer-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../home/data/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../home/domain/consumer-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../home/domain/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../home/presentation/consumer-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../home/presentation/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sonna/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sonna/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../content/presentation/ui/src/main/java/com/giraffe/ui/ContentScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../content/presentation/ui/src/main/java/com/giraffe/ui/ContentScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../content/presentation/viewmodel/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../content/presentation/viewmodel/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/../gradle/libs.versions.toml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2alIG55jYfGNqkz3hrFGVFmiCwa" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "android.gradle.sync.needed": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/khaled/lol/project/app",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7d3aafcc-40a5-48b6-8475-39c8fd873c71" name="Changes" comment="" />
+      <created>1704886640988</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704886640988</updated>
+    </task>
+    <servers />
+  </component>
+</project>

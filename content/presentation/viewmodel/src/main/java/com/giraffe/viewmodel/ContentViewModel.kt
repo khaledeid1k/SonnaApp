@@ -9,7 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-//@HiltViewModel
+@HiltViewModel
 class ContentViewModel @Inject constructor(
     val getSurahesUseCase: GetSurahesUseCase,
     val insertSurahUseCase: InsertSurahUseCase

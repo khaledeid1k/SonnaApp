@@ -43,7 +43,7 @@ import com.giraffe.viewmodel.ContentViewModel
 
 @Composable
 fun ContentScreen(
-    mViewModel: ContentViewModel //= hiltViewModel()
+    mViewModel: ContentViewModel = hiltViewModel()
 ) {
     ContentScreenContent()
 }

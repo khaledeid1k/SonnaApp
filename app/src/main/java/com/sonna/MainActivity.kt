@@ -21,8 +21,8 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    @Inject
-    lateinit var contentViewModel: ContentViewModel
+//    @Inject
+//    lateinit var contentViewModel: ContentViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     //Greeting("Android")
-                    ContentScreen(contentViewModel)
+                    ContentScreen()
                 }
             }
         }

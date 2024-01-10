@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
+    kotlin("kapt")
 }
 
 android {
@@ -51,4 +52,7 @@ dependencies {
     implementation(libs.viewModel)
     implementation(libs.viewModelEx)
     implementation(libs.viewModelLifecycle)
+
+    kapt (libs.hilt.android.compiler)
+
 }
