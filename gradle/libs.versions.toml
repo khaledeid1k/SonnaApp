@@ -8,6 +8,16 @@ espresso-core = "3.5.1"
 lifecycle-runtime-ktx = "2.6.2"
 activity-compose = "1.8.2"
 compose-bom = "2023.03.00"
+coil= "2.5.0"
+viewModel="2.6.2"
+viewModelLife="2.2.0"
+viewModelEx="2.2.0"
+lottie = "3.4.0"
+splash = "1.0.0-beta02"
+uiTooling = "1.5.4"
+appcompat = "1.6.1"
+material = "1.11.0"
+
 appcompat = "1.6.1"
 material = "1.11.0"
 hilt-android = "2.48"
@@ -51,10 +61,21 @@ viewModelLifecycle= { group = "androidx.lifecycle", name = "lifecycle-runtime-kt
 
 
 
+viewModel= { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewModel" }
+viewModelEx= { group = "androidx.lifecycle", name = "lifecycle-extensions", version.ref = "viewModelEx" }
+viewModelLifecycle= { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "viewModelLife" }
+lottie= { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
+coil= { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+splashScreen= { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "uiTooling" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 hiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hilt-android" }
 
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
 
