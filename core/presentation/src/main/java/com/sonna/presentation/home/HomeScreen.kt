@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.designsystem.theme.Spacing16
 import com.example.designsystem.R
 import com.example.designsystem.theme.SonnaAppTheme
@@ -21,7 +22,8 @@ import com.sonna.presentation.home.composables.Title
 
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(homeViewModel :HomeViewModel= hiltViewModel()) {
+
 }
 
 

@@ -10,9 +10,14 @@ class ContentRepositoryImp(
     private val remoteDataSource: ContentRemoteDataSource,
     private val contentLocalDataSource: ContentLocalDataSource
 ): ContentRepository {
-    override suspend fun getSurahes(): com.sonna.domain.entity.quran.AllSurahesEntity {
+    override suspend fun getSurahes(): AllSurahesEntity {
         return remoteDataSource.getSurahes().toEntity()
     }
+
+    override suspend fun getSLastHadith(): String {
+        return "hadith"
+    }
+
     override suspend fun insertSurah(surahEntity: com.sonna.domain.entity.quran.SurahEntity): Long {
         return contentLocalDataSource.insertSurah(surahEntity.toModel())
     }
