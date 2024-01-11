@@ -59,7 +59,7 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:presentation"))
     implementation(project(":designsystem"))
-
+    implementation(libs.core.ktx)
     implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
     implementation(libs.ui)
