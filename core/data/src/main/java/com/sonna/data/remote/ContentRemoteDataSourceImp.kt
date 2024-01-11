@@ -1,4 +1,4 @@
-package com.giraffe.data.remote
+package com.sonna.data.remote
 
 class ContentRemoteDataSourceImp(
     private val contentApiServices: ContentApiServices

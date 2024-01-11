@@ -1,4 +1,4 @@
-package com.giraffe.data.remote.response.quran
+package com.sonna.data.remote.response.quran
 
 data class AllSurahesResponse(
     val code: Int,

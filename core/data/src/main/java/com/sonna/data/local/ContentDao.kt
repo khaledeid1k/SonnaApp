@@ -1,9 +1,9 @@
-package com.giraffe.data.local
+package com.sonna.data.local
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
-import com.giraffe.data.local.model.SurahModel
+import com.sonna.data.local.model.SurahModel
 
 @Dao
 interface ContentDao {
