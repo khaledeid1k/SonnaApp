@@ -1,4 +1,4 @@
-package com.example.presentation.ui.composables
+package com.sonna.presentation.home.composables
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

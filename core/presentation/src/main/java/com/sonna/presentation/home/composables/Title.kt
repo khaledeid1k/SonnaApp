@@ -1,4 +1,4 @@
-package com.example.presentation.ui.composables
+package com.sonna.presentation.home.composables
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text

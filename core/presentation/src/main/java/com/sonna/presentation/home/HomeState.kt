@@ -1,4 +1,4 @@
-package com.example.presentation.ui
+package com.sonna.presentation.home
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp

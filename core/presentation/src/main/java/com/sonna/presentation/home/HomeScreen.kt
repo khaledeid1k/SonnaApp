@@ -1,5 +1,6 @@
-package com.example.presentation.ui
+package com.sonna.presentation.home
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -15,8 +16,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.designsystem.theme.Spacing16
 import com.example.designsystem.R
 import com.example.designsystem.theme.SonnaAppTheme
-import com.example.presentation.ui.composables.HomeCardItem
-import com.example.presentation.ui.composables.Title
+import com.sonna.presentation.home.composables.HomeCardItem
+import com.sonna.presentation.home.composables.Title
 
 
 @Composable
@@ -25,6 +26,7 @@ fun HomeScreen() {
 
 
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeContent(homeState: HomeState) {
     Column {
