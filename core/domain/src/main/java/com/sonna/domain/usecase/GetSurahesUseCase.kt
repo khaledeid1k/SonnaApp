@@ -1,6 +1,6 @@
-package com.giraffe.domain.usecase
+package com.sonna.domain.usecase
 
-import com.giraffe.domain.repository.ContentRepository
+import com.sonna.domain.repository.ContentRepository
 
 class GetSurahesUseCase(
     private val contentRepository: ContentRepository

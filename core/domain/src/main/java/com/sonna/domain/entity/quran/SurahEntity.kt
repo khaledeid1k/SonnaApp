@@ -1,4 +1,4 @@
-package com.giraffe.domain.entity.quran
+package com.sonna.domain.entity.quran
 
 data class SurahEntity(
     val englishName: String,
