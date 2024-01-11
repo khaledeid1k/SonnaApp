@@ -1,10 +1,10 @@
-package com.giraffe.viewmodel
+package com.sonna.presentation.content
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.giraffe.domain.usecase.GetSurahesUseCase
-import com.giraffe.domain.usecase.InsertSurahUseCase
+import com.sonna.domain.usecase.InsertSurahUseCase
+import com.sonna.domain.usecase.GetSurahesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

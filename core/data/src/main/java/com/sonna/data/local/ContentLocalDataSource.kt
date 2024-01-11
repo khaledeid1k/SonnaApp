@@ -1,6 +1,6 @@
-package com.giraffe.data.local
+package com.sonna.data.local
 
-import com.giraffe.data.local.model.SurahModel
+import com.sonna.data.local.model.SurahModel
 
 interface ContentLocalDataSource {
     suspend fun insertSurah(surahModel: SurahModel):Long
