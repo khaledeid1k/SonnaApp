@@ -14,9 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.designsystem.theme.Spacing16
-import com.example.designsystem.R
-import com.example.designsystem.theme.SonnaAppTheme
+import com.sonna.common.theme.Spacing16
+import com.sonna.common.R
+import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.presentation.home.composables.HomeCardItem
 import com.sonna.presentation.home.composables.Title
 import com.sonna.viewmodel.home.HomeViewModel
@@ -61,6 +61,6 @@ fun HomeContent(homeState: HomeState) {
 @Composable
 fun HomeScreenPreview() {
     SonnaAppTheme {
-       // HomeContent()
+        HomeContent(HomeState())
     }
 }

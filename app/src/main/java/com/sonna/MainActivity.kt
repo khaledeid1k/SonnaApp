@@ -10,7 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.designsystem.theme.SonnaAppTheme
+import com.sonna.common.theme.SonnaAppTheme
+
 import com.sonna.presentation.content.ContentScreen
 import dagger.hilt.android.AndroidEntryPoint
 

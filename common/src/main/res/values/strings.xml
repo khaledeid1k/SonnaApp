@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Sonna App</string>
+    <string name="popular">"Popular "</string>
+    <string name="quran">"Quran "</string>
+    <string name="hadith">"Hadith "</string>
+    <string name="listening">"Listening "</string>
+    <string name="azkar">"Azkar "</string>
+</resources>

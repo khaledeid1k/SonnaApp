@@ -34,7 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.designsystem.R
+import com.sonna.common.R
 import com.sonna.viewmodel.content.ContentViewModel
 
 @Composable

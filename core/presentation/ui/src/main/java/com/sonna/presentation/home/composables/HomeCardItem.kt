@@ -21,11 +21,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.example.designsystem.theme.Radius23
-import com.example.designsystem.theme.SonnaAppTheme
-import com.example.designsystem.theme.Spacing16
-import com.example.designsystem.theme.TextSize16
-import com.example.designsystem.R
+import com.sonna.common.theme.Radius23
+import com.sonna.common.theme.Spacing16
+import com.sonna.common.theme.TextSize16
+import com.sonna.common.R
+import com.sonna.common.theme.SonnaAppTheme
 
 
 @Composable

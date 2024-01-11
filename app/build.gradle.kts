@@ -61,7 +61,6 @@ dependencies {
     implementation(project(":core:presentation:ui"))
     implementation(project(":core:presentation:viewmodel"))
     implementation(project(":core:domain"))
-    implementation(project(":designsystem"))
     implementation(libs.core.ktx)
     implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
@@ -69,6 +68,7 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    implementation(project(mapOf("path" to ":common")))
     debugImplementation(libs.ui.tooling)
 
     implementation(libs.hilt.android)

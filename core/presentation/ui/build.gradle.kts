@@ -30,7 +30,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":designsystem"))
     implementation(project(":core:presentation:viewmodel"))
 
     implementation(libs.core.ktx)
@@ -40,6 +39,7 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    implementation(project(mapOf("path" to ":common")))
     androidTestImplementation(platform(libs.compose.bom))
     debugImplementation(libs.ui.tooling)
 
