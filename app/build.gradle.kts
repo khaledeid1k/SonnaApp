@@ -59,6 +59,7 @@ dependencies {
     implementation(project(":core:data:local"))
     implementation(project(":core:data:repository"))
     implementation(project(":core:presentation:ui"))
+    implementation(project(":core:presentation:viewmodel"))
     implementation(project(":core:domain"))
     implementation(project(":designsystem"))
     implementation(libs.core.ktx)
@@ -68,8 +69,6 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
-    implementation(project(mapOf("path" to ":core:presentation:viewmodel")))
-    androidTestImplementation(platform(libs.compose.bom))
     debugImplementation(libs.ui.tooling)
 
     implementation(libs.hilt.android)
@@ -83,9 +82,7 @@ dependencies {
     implementation(libs.room.runtime)
     ksp(libs.room.compiler)
 
-    implementation(libs.viewModel)
-    implementation(libs.viewModelEx)
-    implementation(libs.viewModelLifecycle)
+
 
 
 }
