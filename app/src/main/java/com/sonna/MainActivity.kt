@@ -10,7 +10,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.designsystem.ConfigData
 import com.example.designsystem.theme.SonnaAppTheme
 import com.giraffe.ui.ContentScreen
 import dagger.hilt.android.AndroidEntryPoint

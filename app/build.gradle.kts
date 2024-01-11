@@ -1,10 +1,10 @@
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.hiltAndroid)
-    //id ("kotlin-kapt")
-    kotlin("kapt")
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -44,7 +44,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.5.8"
     }
     packaging {
         resources {
@@ -55,37 +55,31 @@ android {
 
 dependencies {
 
-    implementation(libs.core.ktx)
-    implementation(libs.lifecycle.runtime.ktx)
+    implementation(project(":content:data"))
+    implementation(project(":content:domain"))
+    implementation(project(":content:presentation:ui"))
+    implementation(project(":content:presentation:viewmodel"))
+    implementation(project(":designsystem"))
+
     implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
     implementation(libs.ui)
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
-    implementation(project(":content:data"))
-    implementation(project(":content:domain"))
-    implementation(project(":content:presentation:ui"))
-    implementation(project(":content:presentation:viewmodel"))
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
     androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
-    debugImplementation(libs.ui.test.manifest)
 
     implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+    ksp(libs.hilt.android.compiler)
+
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
+
     implementation(libs.room.ktx)
     implementation(libs.room.runtime)
-    kapt(libs.room.compiler)
-    kapt (libs.hilt.android.compiler)
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
-    implementation("io.coil-kt:coil-compose:2.5.0")
+    ksp(libs.room.compiler)
 
     implementation(libs.viewModel)
     implementation(libs.viewModelEx)
