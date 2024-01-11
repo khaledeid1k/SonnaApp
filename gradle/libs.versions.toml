@@ -1,6 +1,7 @@
 [versions]
 agp = "8.2.0-alpha12"
-kotlin = "1.8.10"
+hiltNavigationCompose = "1.1.0"
+kotlin = "1.9.22"
 core-ktx = "1.9.0"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
@@ -15,24 +16,20 @@ viewModelEx="2.2.0"
 lottie = "3.4.0"
 splash = "1.0.0-beta02"
 uiTooling = "1.5.4"
-appcompat = "1.6.1"
-material = "1.11.0"
-
-appcompat = "1.6.1"
-material = "1.11.0"
 hilt-android = "2.48"
+ksp = "1.9.10-1.0.13"
 hilt-android-compiler = "2.48"
 retrofit = "2.9.0"
 converter-gson = "2.9.0"
 room-ktx = "2.6.1"
 room-runtime = "2.6.1"
 room-compiler = "2.6.1"
-viewModel = "2.6.2"
-viewModelEx = "2.2.0"
-viewModelLife = "2.6.2"
 
 [libraries]
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
@@ -43,11 +40,8 @@ ui = { group = "androidx.compose.ui", name = "ui" }
 ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+
 material3 = { group = "androidx.compose.material3", name = "material3" }
-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt-android" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt-android-compiler" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
@@ -58,24 +52,13 @@ room-compiler = { group = "androidx.room", name = "room-compiler", version.ref =
 viewModel= { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewModel" }
 viewModelEx= { group = "androidx.lifecycle", name = "lifecycle-extensions", version.ref = "viewModelEx" }
 viewModelLifecycle= { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "viewModelLife"}
-
-
-
-viewModel= { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewModel" }
-viewModelEx= { group = "androidx.lifecycle", name = "lifecycle-extensions", version.ref = "viewModelEx" }
-viewModelLifecycle= { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "viewModelLife" }
 lottie= { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
 coil= { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 splashScreen= { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "uiTooling" }
-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 hiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hilt-android" }
-
-androidLibrary = { id = "com.android.library", version.ref = "agp" }
-
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
