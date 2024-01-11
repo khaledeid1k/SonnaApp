@@ -1,5 +1,8 @@
 package com.sonna.di
 
+import com.sonna.remote.ContentApiServices
+import com.sonna.remote.ContentRemoteDataSource
+import com.sonna.remote.ContentRemoteDataSourceImp
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -51,14 +54,14 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideContentApiServices(@Quran retrofit: Retrofit): com.sonna.data.remote.ContentApiServices {
-        return retrofit.create(com.sonna.data.remote.ContentApiServices::class.java)
+    fun provideContentApiServices(@Quran retrofit: Retrofit): ContentApiServices {
+        return retrofit.create(ContentApiServices::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideRemoteDataSource(contentApiServices: com.sonna.data.remote.ContentApiServices): com.sonna.data.remote.ContentRemoteDataSource {
-        return com.sonna.data.remote.ContentRemoteDataSourceImp(contentApiServices)
+    fun provideRemoteDataSource(contentApiServices: ContentApiServices): ContentRemoteDataSource {
+        return ContentRemoteDataSourceImp(contentApiServices)
     }
 }
 

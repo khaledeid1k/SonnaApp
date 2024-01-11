@@ -24,6 +24,8 @@ converter-gson = "2.9.0"
 room-ktx = "2.6.1"
 room-runtime = "2.6.1"
 room-compiler = "2.6.1"
+appcompat = "1.6.1"
+material = "1.11.0"
 
 [libraries]
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
@@ -56,6 +58,8 @@ lottie= { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" 
 coil= { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 splashScreen= { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "uiTooling" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
