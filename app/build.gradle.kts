@@ -55,10 +55,9 @@ android {
 
 dependencies {
 
-    implementation(project(":content:data"))
-    implementation(project(":content:domain"))
-    implementation(project(":content:presentation:ui"))
-    implementation(project(":content:presentation:viewmodel"))
+    implementation(project(":core:data"))
+    implementation(project(":core:domain"))
+    implementation(project(":core:presentation"))
     implementation(project(":designsystem"))
 
     implementation(libs.activity.compose)
