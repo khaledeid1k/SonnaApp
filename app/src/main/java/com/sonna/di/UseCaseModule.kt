@@ -1,8 +1,8 @@
 package com.sonna.di
 
-import com.giraffe.domain.repository.ContentRepository
-import com.giraffe.domain.usecase.GetSurahesUseCase
-import com.giraffe.domain.usecase.InsertSurahUseCase
+import com.sonna.domain.repository.ContentRepository
+import com.sonna.domain.usecase.GetSurahesUseCase
+import com.sonna.domain.usecase.InsertSurahUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,12 +13,12 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object UseCaseModule {
     @Provides
-    fun provideGetSurahesUseCase(contentRepository: ContentRepository): GetSurahesUseCase {
-        return GetSurahesUseCase(contentRepository)
+    fun provideGetSurahesUseCase(contentRepository: com.sonna.domain.repository.ContentRepository): com.sonna.domain.usecase.GetSurahesUseCase {
+        return com.sonna.domain.usecase.GetSurahesUseCase(contentRepository)
     }
 
     @Provides
-    fun provideInsertSurahUseCase(contentRepository: ContentRepository): InsertSurahUseCase {
-        return InsertSurahUseCase(contentRepository)
+    fun provideInsertSurahUseCase(contentRepository: com.sonna.domain.repository.ContentRepository): com.sonna.domain.usecase.InsertSurahUseCase {
+        return com.sonna.domain.usecase.InsertSurahUseCase(contentRepository)
     }
 }

@@ -1,17 +1,12 @@
 package com.sonna.di
 
-import com.giraffe.data.remote.ContentApiServices
-import com.giraffe.data.remote.ContentRemoteDataSource
-import com.giraffe.data.remote.ContentRemoteDataSourceImp
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Named
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
@@ -56,14 +51,14 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideContentApiServices(@Quran retrofit: Retrofit): ContentApiServices {
-        return retrofit.create(ContentApiServices::class.java)
+    fun provideContentApiServices(@Quran retrofit: Retrofit): com.sonna.data.remote.ContentApiServices {
+        return retrofit.create(com.sonna.data.remote.ContentApiServices::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideRemoteDataSource(contentApiServices: ContentApiServices): ContentRemoteDataSource {
-        return ContentRemoteDataSourceImp(contentApiServices)
+    fun provideRemoteDataSource(contentApiServices: com.sonna.data.remote.ContentApiServices): com.sonna.data.remote.ContentRemoteDataSource {
+        return com.sonna.data.remote.ContentRemoteDataSourceImp(contentApiServices)
     }
 }
 

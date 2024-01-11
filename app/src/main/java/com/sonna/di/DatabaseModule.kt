@@ -2,9 +2,6 @@ package com.sonna.di
 
 import android.content.Context
 import androidx.room.Room
-import com.giraffe.data.local.ContentDao
-import com.giraffe.data.local.ContentLocalDataSource
-import com.giraffe.data.local.ContentLocalDataSourceImp
 import com.sonna.database.AppDatabase
 import dagger.Module
 import dagger.Provides
@@ -28,13 +25,13 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideContentDao(appDataBase: AppDatabase): ContentDao {
+    fun provideContentDao(appDataBase: AppDatabase): com.sonna.data.local.ContentDao {
         return appDataBase.getContentDao()
     }
 
     @Provides
     @Singleton
-    fun provideContentLocalDataSource(contentDao: ContentDao): ContentLocalDataSource {
-        return ContentLocalDataSourceImp(contentDao)
+    fun provideContentLocalDataSource(contentDao: com.sonna.data.local.ContentDao): com.sonna.data.local.ContentLocalDataSource {
+        return com.sonna.data.local.ContentLocalDataSourceImp(contentDao)
     }
 }
