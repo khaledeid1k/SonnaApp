@@ -1,13 +1,11 @@
-package com.sonna.presentation.home
+package com.sonna.screens.home
 
-import android.content.res.Configuration
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.items
@@ -16,13 +14,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.Wallpapers
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.sonna.common.R
 import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.common.theme.dimension
-import com.sonna.presentation.home.composables.HomeCardItem
-import com.sonna.presentation.home.composables.Title
+import com.sonna.screens.home.composables.HomeCardItem
+import com.sonna.screens.home.composables.Title
 import com.sonna.viewmodel.home.HomeViewModel
 
 

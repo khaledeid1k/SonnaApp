@@ -1,4 +1,4 @@
-package com.sonna.presentation
+package com.sonna.screens
 
 import org.junit.Test
 
