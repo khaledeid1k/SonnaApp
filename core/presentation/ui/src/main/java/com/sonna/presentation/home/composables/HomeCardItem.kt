@@ -21,11 +21,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sonna.common.theme.Radius23
-import com.sonna.common.theme.Spacing16
-import com.sonna.common.theme.TextSize16
 import com.sonna.common.R
 import com.sonna.common.theme.SonnaAppTheme
+import com.sonna.common.theme.dimension
 
 
 @Composable
@@ -41,22 +39,22 @@ fun HomeCardItem(
             .height(height)
             .fillMaxWidth(),
         colors =CardDefaults.cardColors(containerColor = color),
-        shape = RoundedCornerShape(Radius23)
+        shape = RoundedCornerShape(MaterialTheme.dimension.radius23)
     ) {
         Box(
             modifier = modifier.fillMaxSize()
         ) {
             Title(
                 modifier = Modifier
-                    .padding(top = Spacing16, start = Spacing16)
+                    .padding(top =MaterialTheme. dimension.spacing16, start =MaterialTheme. dimension.spacing16)
                 ,
                 text = stringResource(id = title),
-                textsStyle = MaterialTheme.typography.titleMedium.copy(fontSize = TextSize16)
+                textsStyle = MaterialTheme.typography.titleSmall
             )
             Image(
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
-                    .padding(end = Spacing16, bottom = Spacing16)
+                    .padding(end = MaterialTheme.dimension.spacing16, bottom = MaterialTheme.dimension.spacing16)
                 ,
                 painter = painterResource(id = image),
                 contentDescription = ""

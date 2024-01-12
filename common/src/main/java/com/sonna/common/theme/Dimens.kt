@@ -1,19 +1,23 @@
 package com.sonna.common.theme
 
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
-//region Text Size Dimensions
-val TextSize20 = 20.sp
-val TextSize16 = 16.sp
-//endregion
+data class Dimens(
 
 // region Radius Dimensions
-val Radius23 = 23.dp
+    val radius23: Dp = 23.dp,
 //endregion
 
 
 //region Space Dimensions
-val Spacing16 = 16.dp
+    val spacing16: Dp = 16.dp,
 //endregion
 
+// region  height
+    val height163: Dp = 163.dp,
+    val height191: Dp = 191.dp,
+
+//endregion
+
+)
