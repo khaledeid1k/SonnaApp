@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.sonna.presentation"
+    namespace = "com.sonna.screens"
     compileSdk = 34
 
     defaultConfig {
