@@ -12,6 +12,10 @@ import com.sonna.common.R
 val montserrat = FontFamily(
     Font(R.font.montserrat_bold))
 
+val amiri = FontFamily(
+    Font(R.font.amiri_egular),
+    Font(R.font.amiri_bold))
+
 val Typography = Typography(
     titleMedium = TextStyle(
         fontSize = 20.sp,
@@ -23,5 +27,11 @@ val Typography = Typography(
         fontFamily = montserrat,
         fontWeight = FontWeight.Bold
     ),
+    bodyMedium =  TextStyle(
+        fontSize = 30.sp,
+        fontFamily = amiri,
+        fontWeight = FontWeight.Normal,
+        lineHeight = 50.sp
+    )
 
 )
