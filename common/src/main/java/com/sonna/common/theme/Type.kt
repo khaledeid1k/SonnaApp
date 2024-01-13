@@ -27,11 +27,16 @@ val Typography = Typography(
         fontFamily = montserrat,
         fontWeight = FontWeight.Bold
     ),
-    bodyMedium =  TextStyle(
+    bodyMedium = TextStyle(
         fontSize = 30.sp,
         fontFamily = amiri,
+        fontWeight = FontWeight.Bold,
+        lineHeight = 60.sp
+    ),
+    bodySmall = TextStyle(
+        fontSize = 22.sp,
+        fontFamily = amiri,
         fontWeight = FontWeight.Normal,
-        lineHeight = 50.sp
     )
 
 )
