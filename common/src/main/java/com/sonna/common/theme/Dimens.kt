@@ -12,6 +12,7 @@ data class Dimens(
 
 //region Space Dimensions
     val spacing16: Dp = 16.dp,
+    val spacing10: Dp = 10.dp,
 //endregion
 
 // region  height
