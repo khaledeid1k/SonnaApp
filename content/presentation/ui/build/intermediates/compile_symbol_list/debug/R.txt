@@ -1,0 +1,2 @@
+int drawable cardbg 0x0
+int drawable quran 0x0
