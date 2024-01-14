@@ -61,21 +61,13 @@ fun DetailsHeader(
             ) {
                 Text(
                     text = surahName,
-                    style = MaterialTheme.typography.bodyMedium.copy(
-                        platformStyle = PlatformTextStyle(
-                            includeFontPadding = false,
-                        ),
-                    ),
+                    style = MaterialTheme.typography.bodyMedium
 
                     )
                 if (showBasmala) {
                     Text(
                         text = "بسم الله الرحمن الرحيم",
-                        style = MaterialTheme.typography.bodySmall.copy(
-                            platformStyle = PlatformTextStyle(
-                                includeFontPadding = false,
-                            ),
-                        ),
+                        style = MaterialTheme.typography.bodySmall
                     )
                 }
             }
