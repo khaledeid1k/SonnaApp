@@ -5,4 +5,6 @@
     <string name="hadith">"Hadith "</string>
     <string name="listening">"Listening "</string>
     <string name="azkar">"Azkar "</string>
+    <string name="general">"General "</string>
+    <string name="setting">"Setting "</string>
 </resources>
