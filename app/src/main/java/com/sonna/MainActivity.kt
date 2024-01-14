@@ -12,7 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.sonna.common.theme.SonnaAppTheme
 
-import com.sonna.presentation.content.ContentScreen
+import com.sonna.presentation.details.DetailsScreen
+import com.sonna.screens.content.ContentScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,7 +26,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ContentScreen()
+                    //ContentScreen()
+                    DetailsScreen()
                 }
             }
         }

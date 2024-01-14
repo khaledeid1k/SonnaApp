@@ -16,9 +16,12 @@ data class Dimens(
 //endregion
 
 // region  height
+    val height126: Dp = 126.dp,
     val height163: Dp = 163.dp,
     val height191: Dp = 191.dp,
 
 //endregion
-
+//padding
+    val padding16: Dp = 16.dp,
+    val padding24: Dp = 24.dp,
 )

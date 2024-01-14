@@ -1,0 +1,3 @@
+com.giraffe.ui
+drawable cardbg
+drawable quran
