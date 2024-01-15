@@ -17,8 +17,13 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/auth" />
             <option value="$PROJECT_DIR$/auth/data" />
+            <option value="$PROJECT_DIR$/auth/data/local" />
+            <option value="$PROJECT_DIR$/auth/data/remote" />
+            <option value="$PROJECT_DIR$/auth/data/repository" />
             <option value="$PROJECT_DIR$/auth/domain" />
             <option value="$PROJECT_DIR$/auth/presentation" />
+            <option value="$PROJECT_DIR$/auth/presentation/ui" />
+            <option value="$PROJECT_DIR$/auth/presentation/viewmodel" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/data" />
@@ -31,8 +36,13 @@
             <option value="$PROJECT_DIR$/core/presentation/viewmodel" />
             <option value="$PROJECT_DIR$/messenger" />
             <option value="$PROJECT_DIR$/messenger/data" />
+            <option value="$PROJECT_DIR$/messenger/data/local" />
+            <option value="$PROJECT_DIR$/messenger/data/remote" />
+            <option value="$PROJECT_DIR$/messenger/data/repository" />
             <option value="$PROJECT_DIR$/messenger/domain" />
             <option value="$PROJECT_DIR$/messenger/presentation" />
+            <option value="$PROJECT_DIR$/messenger/presentation/ui" />
+            <option value="$PROJECT_DIR$/messenger/presentation/viewmodel" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
