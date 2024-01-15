@@ -7,4 +7,12 @@
     <string name="azkar">"Azkar "</string>
     <string name="general">"General "</string>
     <string name="setting">"Setting "</string>
+    <string name="quran_setting">"Quran Setting"</string>
+    <string name="surahe">"Surah"</string>
+    <string name="aya">"Aya"</string>
+    <string name="reader">"Reader"</string>
+    <string name="time_show_aya">"Time show aya"</string>
+    <string name="show_when_open_phone">"Show when open phone"</string>
+    <string name="download_surah">"Download surah"</string>
+    <string name="prevent_show_quran">"Prevent show quran"</string>
 </resources>
