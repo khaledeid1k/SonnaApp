@@ -26,13 +26,16 @@ data class Dimens(
 //endregion
 
 //region width
+    val width8: Dp = 8.dp,
     val width19: Dp = 19.dp,
     val width50: Dp = 50.dp,
     val width202: Dp = 202.dp,
 //endregion
 
 // region  size
+    val size10: Dp = 10.dp,
     val size30: Dp = 30.dp,
+    val size70: Dp = 70.dp,
 //endregion
 
 //region  padding
