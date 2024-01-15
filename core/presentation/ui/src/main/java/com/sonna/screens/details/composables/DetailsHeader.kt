@@ -1,4 +1,4 @@
-package com.sonna.presentation.details.composables
+package com.sonna.screens.details.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement

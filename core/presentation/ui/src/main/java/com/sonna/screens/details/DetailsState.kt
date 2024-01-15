@@ -1,4 +1,4 @@
-package com.sonna.presentation.details
+package com.sonna.screens.details
 
 data class DetailsState(
     val hasBasmala: Boolean = true,

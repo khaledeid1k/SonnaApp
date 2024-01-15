@@ -1,4 +1,4 @@
-package com.sonna.presentation.details
+package com.sonna.screens.details
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,8 +13,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.sonna.common.theme.dimension
-import com.sonna.presentation.details.composables.DetailsHeader
-import com.sonna.presentation.details.composables.VerseItem
+import com.sonna.screens.details.composables.DetailsHeader
+import com.sonna.screens.details.composables.VerseItem
 import com.sonna.viewmodel.details.DetailsViewModel
 
 @Composable
