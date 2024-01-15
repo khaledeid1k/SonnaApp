@@ -42,14 +42,11 @@ fun SettingDetailsQuranContent() {
             valueOfFeature ="AL Fatha" ,
         )
         ) {}
-
-
         ValueSettingDetails(SettingDetailState(
             iconOfItem = R.drawable.aya,
             nameOfItem=R.string.aya,
             valueOfFeature ="AL Fatha" ,
         )) {}
-        SpacerVertical(MaterialTheme.dimension.spacing10)
         ValueSettingDetails(SettingDetailState(
             iconOfItem = R.drawable.quran_reader,
             nameOfItem=R.string.reader,

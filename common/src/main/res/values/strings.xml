@@ -15,4 +15,12 @@
     <string name="show_when_open_phone">"Show when open phone"</string>
     <string name="download_surah">"Download surah"</string>
     <string name="prevent_show_quran">"Prevent show quran"</string>
+    <string name="hadith_setting">"Hadith Setting"</string>
+    <string name="hadith_book">"Hadith book"</string>
+    <string name="time_show_hadith">"Time show hadith"</string>
+    <string name="download_book_hadith">"Download hadith book"</string>
+    <string name="prevent_show_hadith">"Prevent show hadith"</string>
+
+
+
 </resources>
