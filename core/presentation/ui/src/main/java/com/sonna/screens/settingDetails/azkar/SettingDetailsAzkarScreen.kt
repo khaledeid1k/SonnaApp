@@ -31,7 +31,7 @@ fun SettingDetailsAzkarContent() {
         .verticalScroll(rememberScrollState())
     ) {
         BackHeader(title = R.string.azkar_setting) {}
-        SpacerVertical(MaterialTheme.dimension.spacing16)
+        SpacerVertical(spaceSize=MaterialTheme.dimension.spacing16)
 
         ValueSettingDetails(
             SettingDetailState(

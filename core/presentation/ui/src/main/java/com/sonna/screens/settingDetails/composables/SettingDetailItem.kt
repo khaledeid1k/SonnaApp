@@ -35,7 +35,7 @@ fun ValueSettingDetails(
     changeValueOfSetting: () -> Unit,
     itemClick: () -> Unit={}) {
 Column {
-    SpacerVertical(MaterialTheme.dimension.spacing10)
+    SpacerVertical(spaceSize=MaterialTheme.dimension.spacing10)
     Row(
         modifier = Modifier
             .wrapContentSize()
@@ -69,7 +69,7 @@ Column {
         )
 
     }
-    SpacerVertical(MaterialTheme.dimension.spacing10)
+    SpacerVertical(spaceSize=MaterialTheme.dimension.spacing10)
     Divider(Modifier.padding(vertical = MaterialTheme.dimension.padding4).alpha(2f),thickness = MaterialTheme.dimension.thickness1)
 
 }
@@ -82,7 +82,7 @@ fun SwitchSettingDetails(settingDetailState: SettingDetailState,
 
     var checked by remember { mutableStateOf(false) }
     Column {
-        SpacerVertical(MaterialTheme.dimension.spacing10)
+        SpacerVertical(spaceSize=MaterialTheme.dimension.spacing10)
 
 
         Row(
@@ -117,7 +117,7 @@ fun SwitchSettingDetails(settingDetailState: SettingDetailState,
                 }
             )
         }
-        SpacerVertical(MaterialTheme.dimension.spacing10)
+        SpacerVertical(spaceSize=MaterialTheme.dimension.spacing10)
         Divider(
             Modifier
                 .padding(vertical = MaterialTheme.dimension.padding4)

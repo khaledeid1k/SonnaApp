@@ -33,7 +33,7 @@ fun SettingDetailsQuranContent() {
         .verticalScroll(rememberScrollState())
     ) {
         BackHeader(title = R.string.quran_setting) {}
-        SpacerVertical(MaterialTheme.dimension.spacing16)
+        SpacerVertical(spaceSize=MaterialTheme.dimension.spacing16)
 
         ValueSettingDetails(
             SettingDetailState(
