@@ -35,7 +35,7 @@ val Typography = Typography(
         )
     ),
     titleSmall = TextStyle(
-        fontSize = 16.sp,
+        fontSize = 14.sp,
         fontFamily = montserrat,
         fontWeight = FontWeight.Bold,
         platformStyle = PlatformTextStyle(
@@ -58,6 +58,15 @@ val Typography = Typography(
         platformStyle = PlatformTextStyle(
             includeFontPadding = false,
         )
+    )  ,
+
+    labelSmall = TextStyle(
+        fontSize = 11.sp,
+        fontFamily = montserrat,
+        platformStyle = PlatformTextStyle(
+            includeFontPadding = false,
+        ),
+
     )
 
 )
