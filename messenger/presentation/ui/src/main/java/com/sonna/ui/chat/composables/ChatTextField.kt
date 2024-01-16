@@ -1,4 +1,4 @@
-package com.sonna.presentation.chat.composables
+package com.sonna.ui.chat.composables
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding

@@ -1,4 +1,4 @@
-package com.sonna.presentation.chat
+package com.sonna.ui.chat
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,9 +15,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.sonna.common.theme.dimension
-import com.sonna.presentation.chat.composables.ChatTextField
-import com.sonna.presentation.chat.composables.MessageItem
-import com.sonna.presentation.conversations.composables.ConversationCard
+import com.sonna.ui.chat.composables.ChatTextField
+import com.sonna.ui.chat.composables.MessageItem
+import com.sonna.ui.conversations.composables.ConversationCard
 import com.sonna.viewmodel.ChatViewModel
 
 @Composable
