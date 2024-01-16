@@ -1,7 +1,5 @@
 package com.sonna.screens.settingDetails.composables
 
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -26,7 +24,6 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.sonna.common.R
 import com.sonna.common.composables.SpacerVertical
 import com.sonna.common.theme.dimension
 import com.sonna.screens.settingDetails.SettingDetailState
@@ -35,12 +32,14 @@ import com.sonna.screens.settingDetails.SettingDetailState
 @Composable
 fun ValueSettingDetails(
     settingDetailState: SettingDetailState,
-    changeValueOfSetting: () -> Unit) {
+    changeValueOfSetting: () -> Unit,
+    itemClick: () -> Unit={}) {
 Column {
     SpacerVertical(MaterialTheme.dimension.spacing10)
     Row(
         modifier = Modifier
-            .wrapContentSize(),
+            .wrapContentSize()
+            .clickable { itemClick() },
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -131,7 +130,7 @@ fun SwitchSettingDetails(settingDetailState: SettingDetailState,
 @Preview
 @Composable
 fun ValueSettingDetailsPreview() {
-    ValueSettingDetails(settingDetailState=SettingDetailState()){}
+    ValueSettingDetails(settingDetailState=SettingDetailState(),{}){}
 }
 
 

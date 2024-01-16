@@ -41,14 +41,12 @@ fun SettingDetailsHadithContent() {
                 iconOfItem = R.drawable.hadith_book,
                 nameOfItem= R.string.hadith_book,
                 valueOfFeature ="AL Fatha" ,
-            )
-        ) {}
-
+            ), itemClick = {},changeValueOfSetting={})
         ValueSettingDetails(SettingDetailState(
             iconOfItem = R.drawable.time,
             nameOfItem=R.string.time_show_hadith,
             valueOfFeature ="AL Fatha" ,
-        )) {}
+        ), itemClick = {},changeValueOfSetting={})
         SwitchSettingDetails(SettingDetailState(
             iconOfItem = R.drawable.open,
             nameOfItem=R.string.show_when_open_phone,
@@ -58,7 +56,7 @@ fun SettingDetailsHadithContent() {
             iconOfItem = R.drawable.download,
             nameOfItem=R.string.download_book_hadith,
             valueOfFeature ="AL Fatha" ,
-        )) {}
+        ), itemClick = {},changeValueOfSetting={})
 
         SwitchSettingDetails(SettingDetailState(
             iconOfItem = R.drawable.close,
