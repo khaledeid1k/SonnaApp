@@ -42,7 +42,7 @@ fun BottomOfPop(nameOfSura:String,
             painter = painterResource(id = R.drawable.favorite),
             contentDescription = ""
         )
-        SpacerHorizontal(MaterialTheme.dimension.spacing10)
+        SpacerHorizontal(spaceSize = MaterialTheme.dimension.spacing10)
 
         Text(
             style = MaterialTheme.typography.bodySmall,

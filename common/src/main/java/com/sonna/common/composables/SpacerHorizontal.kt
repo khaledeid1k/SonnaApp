@@ -10,8 +10,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun SpacerHorizontal(spaceSize: Dp =0.dp) {
-    Spacer(modifier = Modifier.width(spaceSize))
+fun SpacerHorizontal(
+    modifier: Modifier = Modifier,
+    spaceSize: Dp =0.dp) {
+    Spacer(modifier = modifier.width(spaceSize))
 
 
 }
