@@ -1,4 +1,4 @@
-package com.sonna.presentation.conversations
+package com.sonna.ui.conversations
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.sonna.common.theme.dimension
-import com.sonna.presentation.conversations.composables.ConversationCard
+import com.sonna.ui.conversations.composables.ConversationCard
 import com.sonna.viewmodel.ConversationsViewModel
 
 @Composable

@@ -1,4 +1,4 @@
-package com.sonna.presentation.conversations.composables
+package com.sonna.ui.conversations.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

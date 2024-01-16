@@ -35,7 +35,7 @@ fun HeaderOfPop(
             painter = painterResource(id = R.drawable.play),
             contentDescription = ""
         )
-        SpacerHorizontal(MaterialTheme.dimension.spacing16)
+        SpacerHorizontal(spaceSize = MaterialTheme.dimension.spacing16)
         Icon(
             modifier = Modifier.wrapContentSize().clickable { done() },
             painter = painterResource(id = R.drawable.done),
@@ -48,7 +48,7 @@ fun HeaderOfPop(
             contentDescription = ""
         )
 
-        SpacerHorizontal(MaterialTheme.dimension.spacing16)
+        SpacerHorizontal(spaceSize = MaterialTheme.dimension.spacing16)
         Icon(
             modifier = Modifier.wrapContentSize().clickable { close() },
             painter = painterResource(id = R.drawable.close),
