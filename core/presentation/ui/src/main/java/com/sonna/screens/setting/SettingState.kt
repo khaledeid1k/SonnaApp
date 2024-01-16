@@ -8,7 +8,7 @@ data class SettingState(
     val settingComponents: List<SettingComponent> = listOf(
         SettingComponent(iconOfItem = R.drawable.quarn, nameOfItem = R.string.quran),
         SettingComponent(iconOfItem = R.drawable.hadith, nameOfItem = R.string.hadith),
-        SettingComponent(iconOfItem = R.drawable.zekr, nameOfItem = R.string.hadith),
+        SettingComponent(iconOfItem = R.drawable.zekr, nameOfItem = R.string.azkar),
         SettingComponent(iconOfItem = R.drawable.general_setting, nameOfItem = R.string.general),
 
         )

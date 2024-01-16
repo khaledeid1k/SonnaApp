@@ -1,10 +1,36 @@
 <resources>
     <string name="app_name">Sonna App</string>
-    <string name="popular">"Popular "</string>
-    <string name="quran">"Quran "</string>
-    <string name="hadith">"Hadith "</string>
-    <string name="listening">"Listening "</string>
-    <string name="azkar">"Azkar "</string>
-    <string name="general">"General "</string>
-    <string name="setting">"Setting "</string>
+    <string name="popular">"Popular"</string>
+    <string name="quran">"Quran"</string>
+    <string name="hadith">"Hadith"</string>
+    <string name="sheikhs">"Sheikhs"</string>
+    <string name="azkar">"Azkar"</string>
+    <string name="general">"General"</string>
+    <string name="setting">"Settings"</string>
+    <string name="quran_setting">"Quran Settings"</string>
+    <string name="surah">"Surah"</string>
+    <string name="aya">"Aya"</string>
+    <string name="reader">"Reader"</string>
+    <string name="time_show_aya">"Time show aya"</string>
+    <string name="show_when_open_phone">"Show when open phone"</string>
+    <string name="download_surah">"Download surah"</string>
+    <string name="prevent_show_quran">"Prevent show quran"</string>
+    <string name="hadith_setting">"Hadith Settings"</string>
+    <string name="hadith_book">"Hadith book"</string>
+    <string name="time_show_hadith">"Time show hadith"</string>
+    <string name="download_book_hadith">"Download hadith book"</string>
+    <string name="prevent_show_hadith">"Prevent show hadith"</string>
+    <string name="general_setting">"General Settings"</string>
+    <string name="contact_us">"Contact Us"</string>
+    <string name="font_size">"Font size"</string>
+    <string name="help_support">"Help Support"</string>
+    <string name="language">"Language"</string>
+    <string name="azkar_setting">"Azkar Settings"</string>
+    <string name="night_azkar">"Night Azkar"</string>
+    <string name="morning_azkar">"Morning Azkar"</string>
+    <string name="sleeping_azkar">"Sleeping Azkar"</string>
+    <string name="notification">"Notification"</string>
+
+
+
 </resources>
