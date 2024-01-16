@@ -26,7 +26,7 @@ fun InputTextField(
     onTrailingClick: () -> Unit = {},
 ) {
     Column {
-        Text(text = label, style = MaterialTheme.typography.titleLarge)
+        Text(text = label, style = MaterialTheme.typography.titleMedium)
         BaseTextField(
             placeholder = placeholder,
             trailingIcon = trailingIcon,
