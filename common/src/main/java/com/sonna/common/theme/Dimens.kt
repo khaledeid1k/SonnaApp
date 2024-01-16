@@ -6,6 +6,8 @@ import androidx.compose.ui.unit.dp
 data class Dimens(
 
 // region Radius Dimensions
+    val radius0: Dp = 0.dp,
+    val radius10: Dp = 10.dp,
     val radius16: Dp = 16.dp,
     val radius23: Dp = 23.dp,
 //endregion

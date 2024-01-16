@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Done
 import androidx.compose.material3.Card
@@ -21,28 +22,37 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.sonna.common.theme.dimension
 
 @Composable
 fun ConversationCard(
     userImg: String = "",
     username: String,
-    lastMessage: String,
-    lastSeen: String,
-    isOnline: Boolean = true
+    subTitle: String,
+    trailingTitle: String="",
+    isOnline: Boolean? = null,
+    roundedCorner: Dp = 10.dp
+
+
 ) {
-    Card {
+    Card (
+        shape = RoundedCornerShape(roundedCorner)
+    ){
         Row(
             modifier = Modifier.padding(MaterialTheme.dimension.padding8),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Box {
-                Box(
-                    modifier = Modifier
-                        .size(MaterialTheme.dimension.size10)
-                        .clip(CircleShape)
-                        .background(if (isOnline) Color.Green else Color.Red)
-                )
+                if (isOnline!=null) {
+                    Box(
+                        modifier = Modifier
+                            .size(MaterialTheme.dimension.size10)
+                            .clip(CircleShape)
+                            .background(if (isOnline == true) Color.Green else Color.Red)
+                    )
+                }
                 UserAvatar(userImg)
             }
             Spacer(modifier = Modifier.width(MaterialTheme.dimension.width8))
@@ -55,12 +65,18 @@ fun ConversationCard(
                     verticalAlignment = Alignment.CenterVertically
                 ){
                     //SeenCheck()
-                    Icon(imageVector=Icons.Rounded.Done,contentDescription = null, tint = Color.LightGray)
-                    Text(text = lastMessage, style = MaterialTheme.typography.labelSmall)
+                    if (roundedCorner!=0.dp) {
+                        Icon(
+                            imageVector = Icons.Rounded.Done,
+                            contentDescription = null,
+                            tint = Color.LightGray
+                        )
+                    }
+                    Text(text = subTitle, style = MaterialTheme.typography.labelSmall)
                 }
             }
             Text(
-                text = if (isOnline) "" else lastSeen,
+                text = if (isOnline == true) "" else trailingTitle,
                 style = MaterialTheme.typography.labelSmall
             )
         }

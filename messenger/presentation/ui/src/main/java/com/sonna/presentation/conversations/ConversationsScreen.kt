@@ -31,8 +31,8 @@ fun ConversationsContent() {
             items(5){
                 ConversationCard(
                     username = "Mohannad Ahmed",
-                    lastMessage = "hello",
-                    lastSeen = "03:00 am\n7/10/2023",
+                    subTitle = "hello",
+                    trailingTitle = "03:00 am\n7/10/2023",
                     isOnline = false
                 )
             }

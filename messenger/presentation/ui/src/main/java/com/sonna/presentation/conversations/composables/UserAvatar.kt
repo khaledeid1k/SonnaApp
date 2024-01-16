@@ -14,7 +14,7 @@ import com.sonna.common.R
 import com.sonna.common.theme.dimension
 
 @Composable
-fun UserAvatar(userImg: String) {
+fun UserAvatar(userImg: String = "") {
     Image(
         modifier = Modifier
             .size(MaterialTheme.dimension.size70)
