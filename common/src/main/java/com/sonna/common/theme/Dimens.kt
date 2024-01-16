@@ -38,17 +38,24 @@ data class Dimens(
     val size10: Dp = 10.dp,
     val size30: Dp = 30.dp,
     val size70: Dp = 70.dp,
+    val size150: Dp = 150.dp,
 //endregion
 
 //region  padding
     val padding4: Dp = 4.dp,
     val padding8: Dp = 8.dp,
     val padding16: Dp = 16.dp,
+    val padding32: Dp = 32.dp,
     val padding24: Dp = 24.dp,
-    //endregion
-    //
-    // region  thickness
-    val thickness1: Dp = 1.dp,
+//endregion
 
+// region  thickness
+    val thickness1: Dp = 1.dp,
+    val thickness4: Dp = 4.dp,
+//endregion
+
+
+    // region  elevation
+    val elevation4: Dp = 4.dp,
     //endregion
 )
