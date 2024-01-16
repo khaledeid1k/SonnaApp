@@ -31,7 +31,6 @@ android {
 
 dependencies {
     implementation(project(":core:presentation:viewmodel"))
-
     implementation(libs.core.ktx)
     implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
@@ -42,9 +41,7 @@ dependencies {
     implementation(project(mapOf("path" to ":common")))
     androidTestImplementation(platform(libs.compose.bom))
     debugImplementation(libs.ui.tooling)
-
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
     ksp(libs.hilt.android.compiler)
-
 }
