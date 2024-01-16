@@ -38,7 +38,7 @@ fun SettingDetailsQuranContent() {
         ValueSettingDetails(
             SettingDetailState(
             iconOfItem = R.drawable.surah,
-            nameOfItem=R.string.surahe,
+            nameOfItem=R.string.surah,
             valueOfFeature ="AL Fatha" ,
         ), itemClick = {},changeValueOfSetting={})
         ValueSettingDetails(SettingDetailState(

@@ -18,7 +18,7 @@ data class HomeState(
         Category(height = 191.dp, image = R.drawable.hadith,
             color = greenishYellow, title = R.string.hadith),
         Category(height = 191.dp, image = R.drawable.shek,
-            color = darkGreenishOrange, title = R.string.listening),
+            color = darkGreenishOrange, title = R.string.sheikhs),
         Category(height = 163.dp, image = R.drawable.zekr,
             color = darkBlueWithRedTint, title = R.string.azkar),
     ) ,
