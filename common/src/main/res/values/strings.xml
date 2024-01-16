@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Sonna App</string>
-    <string name="popular">"Popular "</string>
-    <string name="quran">"Quran "</string>
-    <string name="hadith">"Hadith "</string>
-    <string name="listening">"Listening "</string>
-    <string name="azkar">"Azkar "</string>
-    <string name="general">"General "</string>
+    <string name="popular">"Popular"</string>
+    <string name="quran">"Quran"</string>
+    <string name="hadith">"Hadith"</string>
+    <string name="listening">"Listening"</string>
+    <string name="azkar">"Azkar"</string>
+    <string name="general">"General"</string>
     <string name="setting">"Settings"</string>
     <string name="quran_setting">"Quran Settings"</string>
     <string name="surahe">"Surah"</string>
@@ -25,6 +25,11 @@
     <string name="font_size">"Font size"</string>
     <string name="help_support">"Help Support"</string>
     <string name="language">"Language"</string>
+    <string name="azkar_setting">"Azkar Settings"</string>
+    <string name="night_azkar">"Night Azkar"</string>
+    <string name="morning_azkar">"Morning Azkar"</string>
+    <string name="sleeping_azkar">"Sleeping Azkar"</string>
+    <string name="notification">"Notification"</string>
 
 
 
