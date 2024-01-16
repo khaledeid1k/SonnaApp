@@ -1,2 +1,2 @@
-package com.sonna.ui.login
+package com.sonna.ui.forgetpassword
 

@@ -3,7 +3,6 @@ package com.sonna.ui.login
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -28,13 +27,13 @@ import com.sonna.viewmodel.LoginViewModel
 
 @Composable
 fun LoginScreen(
-    mViewModel:LoginViewModel = hiltViewModel()
-){
+    mViewModel: LoginViewModel = hiltViewModel()
+) {
     LoginContent()
 }
 
 @Composable
-fun LoginContent(){
+fun LoginContent() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -47,21 +46,24 @@ fun LoginContent(){
                 .weight(1f)
                 .fillMaxWidth(),
             verticalArrangement = Arrangement.Center
-        ){
+        ) {
             Text(text = "Login", style = MaterialTheme.typography.displayLarge)
             Row {
-                Text(text = "Welcome Back, ", style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold))
+                Text(
+                    text = "Welcome Back, ",
+                    style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
+                )
                 Text(text = "Login to continue", style = MaterialTheme.typography.headlineSmall)
             }
         }
         InputTextField(
-            label = "username",
-            placeholder = "username",
+            label = "Username",
+            placeholder = "Enter your username",
         )
         SpacerVertical(spaceSize = MaterialTheme.dimension.height11)
         InputTextField(
-            label = "password",
-            placeholder = "password",
+            label = "Password",
+            placeholder = "Enter your password",
             visualTransformation = PasswordVisualTransformation(),
             trailingIcon = Icons.Filled.Face,
             onTrailingClick = {}
@@ -69,7 +71,8 @@ fun LoginContent(){
         SpacerVertical(spaceSize = MaterialTheme.dimension.height11)
         Text(
             modifier = Modifier.fillMaxWidth(),
-            text = "Forget Password?", textAlign = TextAlign.End)
+            text = "Forget Password?", textAlign = TextAlign.End
+        )
         SpacerVertical(spaceSize = MaterialTheme.dimension.height50)
         Button(
             modifier = Modifier.fillMaxWidth(),
@@ -83,6 +86,6 @@ fun LoginContent(){
 
 @Preview(showBackground = true)
 @Composable
-fun LoginPreview(){
+fun LoginPreview() {
     LoginScreen()
 }
