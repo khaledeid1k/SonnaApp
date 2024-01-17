@@ -1,4 +1,4 @@
-package com.sonna.screens.settingDetails
+package com.sonna.screens.setting_details
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

@@ -1,4 +1,4 @@
-package com.sonna.screens.settingDetails.composables
+package com.sonna.screens.setting_details.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -26,7 +26,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.sonna.common.composables.SpacerVertical
 import com.sonna.common.theme.dimension
-import com.sonna.screens.settingDetails.SettingDetailState
+import com.sonna.screens.setting_details.SettingDetailState
 
 
 @Composable

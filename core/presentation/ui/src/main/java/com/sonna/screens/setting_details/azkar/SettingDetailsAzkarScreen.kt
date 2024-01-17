@@ -1,4 +1,4 @@
-package com.sonna.screens.settingDetails.azkar
+package com.sonna.screens.setting_details.azkar
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,9 +14,9 @@ import com.sonna.common.composables.SpacerVertical
 import com.sonna.common.previews.ThemePreviews
 import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.common.theme.dimension
-import com.sonna.screens.settingDetails.SettingDetailState
-import com.sonna.screens.settingDetails.composables.SwitchSettingDetails
-import com.sonna.screens.settingDetails.composables.ValueSettingDetails
+import com.sonna.screens.setting_details.SettingDetailState
+import com.sonna.screens.setting_details.composables.SwitchSettingDetails
+import com.sonna.screens.setting_details.composables.ValueSettingDetails
 
 
 @Composable
