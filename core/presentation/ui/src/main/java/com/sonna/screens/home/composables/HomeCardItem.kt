@@ -22,6 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sonna.common.R
+import com.sonna.common.composables.Title
 import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.common.theme.dimension
 

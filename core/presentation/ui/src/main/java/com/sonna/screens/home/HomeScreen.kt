@@ -19,7 +19,7 @@ import com.sonna.common.R
 import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.common.theme.dimension
 import com.sonna.screens.home.composables.HomeCardItem
-import com.sonna.screens.home.composables.Title
+import com.sonna.common.composables.Title
 import com.sonna.viewmodel.home.HomeViewModel
 
 

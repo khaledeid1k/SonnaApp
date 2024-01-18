@@ -1,4 +1,4 @@
-package com.sonna.screens.home.composables
+package com.sonna.common.composables
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
