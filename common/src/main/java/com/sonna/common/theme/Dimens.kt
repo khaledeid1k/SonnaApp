@@ -7,6 +7,7 @@ data class Dimens(
 
 // region Radius Dimensions
     val radius0: Dp = 0.dp,
+    val radius6: Dp = 6.dp,
     val radius10: Dp = 10.dp,
     val radius16: Dp = 16.dp,
     val radius23: Dp = 23.dp,
@@ -20,6 +21,7 @@ data class Dimens(
 // region  height
     val height11: Dp = 11.dp,
     val height14: Dp = 14.dp,
+    val height40: Dp = 40.dp,
     val height50: Dp = 50.dp,
     val height126: Dp = 126.dp,
     val height163: Dp = 163.dp,
@@ -31,12 +33,16 @@ data class Dimens(
     val width8: Dp = 8.dp,
     val width19: Dp = 19.dp,
     val width50: Dp = 50.dp,
+    val width80: Dp = 80.dp,
+    val width100: Dp = 100.dp,
     val width202: Dp = 202.dp,
 //endregion
 
 // region  size
     val size10: Dp = 10.dp,
     val size30: Dp = 30.dp,
+    val size50: Dp = 50.dp,
+    val size60: Dp = 60.dp,
     val size70: Dp = 70.dp,
     val size150: Dp = 150.dp,
 //endregion

@@ -8,7 +8,7 @@ data class SheikhsState(
     val sheikhs: List<SheikhState> = listOf(
         SheikhState(
             photoSheik = R.drawable.shek_gamal,
-            nameOfSheik = R.string.gamal_mohammed,
+            nameOfSheik = R.string.gamal_ali,
             hintAboutSheik = R.string.azhar_preacher
         )
     )

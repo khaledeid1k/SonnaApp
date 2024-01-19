@@ -67,6 +67,14 @@ val Typography = Typography(
             includeFontPadding = false,
         ),
 
+
+
+    ) ,
+    displayLarge = TextStyle(
+        fontFamily = montserrat,
+        fontSize = 40.sp,
+        fontWeight = FontWeight.Bold,
+        lineHeight = 60.sp,
     )
 
 )
