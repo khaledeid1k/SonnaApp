@@ -24,6 +24,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.sonna.common.composables.DividerLine
 import com.sonna.common.composables.SpacerVertical
 import com.sonna.common.theme.dimension
 import com.sonna.screens.setting_details.SettingDetailState
@@ -70,8 +71,7 @@ Column {
 
     }
     SpacerVertical(spaceSize=MaterialTheme.dimension.spacing10)
-    Divider(Modifier.padding(vertical = MaterialTheme.dimension.padding4).alpha(2f),thickness = MaterialTheme.dimension.thickness1)
-
+    DividerLine()
 }
 }
 
@@ -118,11 +118,7 @@ fun SwitchSettingDetails(settingDetailState: SettingDetailState,
             )
         }
         SpacerVertical(spaceSize=MaterialTheme.dimension.spacing10)
-        Divider(
-            Modifier
-                .padding(vertical = MaterialTheme.dimension.padding4)
-                .alpha(2f), thickness = MaterialTheme.dimension.thickness1
-        )
+         DividerLine()
 
     }
 
