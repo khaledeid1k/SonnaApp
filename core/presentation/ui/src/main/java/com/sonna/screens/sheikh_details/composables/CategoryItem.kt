@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -21,12 +22,12 @@ import com.sonna.common.theme.dimension
 import com.sonna.screens.sheikh_details.Category
 
 @Composable
-fun CategoriesItem(category : Category) {
+fun CategoriesItem(modifier:Modifier=Modifier ,category : Category) {
     Row (
-        horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.padding(
+        modifier = modifier .fillMaxWidth().padding(
             start = MaterialTheme.dimension.spacing16,
+            end = MaterialTheme.dimension.spacing16,
             top= MaterialTheme.dimension.padding16
         )){
 
