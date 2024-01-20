@@ -23,11 +23,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import com.sonna.common.composables.SpacerHorizontal
 import com.sonna.common.theme.dimension
-import com.sonna.screens.sheikh_details.PopularVoiceState
+import com.sonna.screens.sheikh_details.Voice
 
 
 @Composable
-fun PopularVoicesItem(popularVoiceState:PopularVoiceState,clickMore:()->Unit) {
+fun VoicesItem(voice:Voice, clickMore:()->Unit) {
     Row (
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically,
@@ -36,7 +36,7 @@ fun PopularVoicesItem(popularVoiceState:PopularVoiceState,clickMore:()->Unit) {
             top=MaterialTheme.dimension.padding16
             )){
 
-        Text(text = popularVoiceState.numberOfVoice.toString())
+        Text(text = voice.numberOfVoice.toString())
 
         Image(
             contentScale = ContentScale.Crop,
@@ -45,16 +45,16 @@ fun PopularVoicesItem(popularVoiceState:PopularVoiceState,clickMore:()->Unit) {
                 .width(MaterialTheme.dimension.width80)
                 .clip(RoundedCornerShape( MaterialTheme.dimension.spacing16))
                 .padding(horizontal = MaterialTheme.dimension.spacing16),
-            painter = painterResource(id = popularVoiceState.picture),
+            painter = painterResource(id = voice.picture),
             contentDescription = "")
 
         Column {
-            Text( text = popularVoiceState.nameOfVoice,
+            Text( text = voice.nameOfVoice,
                 style=MaterialTheme.typography.titleSmall,
 
             )
 
-            Text(text = popularVoiceState.time,
+            Text(text = voice.time,
                 modifier = Modifier.alpha(0.7f),
                 style = MaterialTheme.typography.labelSmall)
         }
