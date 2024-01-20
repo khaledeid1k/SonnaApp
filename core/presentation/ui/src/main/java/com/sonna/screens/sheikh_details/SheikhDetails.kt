@@ -4,8 +4,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -22,7 +22,7 @@ import com.sonna.common.theme.dimension
 import com.sonna.screens.sheikh_details.composables.AboutSheikh
 import com.sonna.screens.sheikh_details.composables.HeaderOfSheikhDetails
 import com.sonna.screens.sheikh_details.composables.Voices
-import com.sonna.screens.sheikh_details.composables.SheikhControlPanel
+import com.sonna.screens.sheikh_details.composables.ControlPanel
 import com.sonna.common.composables.SonnaBottomSheet
 
 @Composable
@@ -31,19 +31,20 @@ fun SheikhDetailsScreen() {
 }
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SheikhDetailsContent(sheikhDetailsState: SheikhDetailsState) {
     var stateBottomSheetVisibility by rememberSaveable { mutableStateOf(false) }
 
+    val rememberScrollState = rememberScrollState()
     SonnaScaffold(
         titleOfTopBar = sheikhDetailsState.nameOfSheikh,
+        isAppBarExisting = true,
         navigationBack = {},
-    ) { paddingValues, scrollState ->
+    ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(scrollState)
+                .verticalScroll(rememberScrollState)
                 .padding(paddingValues)
                 .clickable {}
         ) {
@@ -51,9 +52,10 @@ fun SheikhDetailsContent(sheikhDetailsState: SheikhDetailsState) {
             HeaderOfSheikhDetails(
                 sheikhName = sheikhDetailsState.nameOfSheikh,
                 sheikhPic = sheikhDetailsState.sheikhPic,
-                scrollState = scrollState, clickBack = {})
+                scrollState= rememberScrollState,
+                clickBack = {})
 
-            SheikhControlPanel(
+            ControlPanel(
                 hintAboutSheikh = sheikhDetailsState.hintAboutSheikh,
                 clickFavorite = {},
                 clickMore = {},
@@ -83,10 +85,10 @@ fun SheikhDetailsContent(sheikhDetailsState: SheikhDetailsState) {
 
             Voices(
                 title = R.string.categories,
-                voices = sheikhDetailsState.categoryVoices, clickMore = {})
+                voices = sheikhDetailsState.categories, clickMore = {})
             DividerLine(modifier = Modifier.padding(vertical = MaterialTheme.dimension.padding16))
 
-            AboutSheikh(sheikhDetailsState.aboutState)
+            AboutSheikh(sheikhDetailsState.about)
 
         }
 

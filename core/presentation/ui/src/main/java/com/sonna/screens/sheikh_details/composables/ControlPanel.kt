@@ -21,21 +21,24 @@ import com.sonna.common.composables.SpacerHorizontal
 import com.sonna.common.theme.dimension
 
 @Composable
-fun SheikhControlPanel(
+fun ControlPanel(
     hintAboutSheikh: String,
     clickFavorite: () -> Unit,
     clickMore: () -> Unit ,
     clickRandom: () -> Unit ,
     clickPlay: () -> Unit ,
+    hasHint:Boolean=true
 ) {
 
-    Text(
-        text = hintAboutSheikh,
-        modifier = Modifier
-            .padding(MaterialTheme.dimension.padding16)
-            .alpha(.7f),
-        style = MaterialTheme.typography.labelSmall
-    )
+    if(hasHint) {
+        Text(
+            text = hintAboutSheikh,
+            modifier = Modifier
+                .padding(MaterialTheme.dimension.padding16)
+                .alpha(.7f),
+            style = MaterialTheme.typography.labelSmall
+        )
+    }
     Row(
         Modifier.padding(horizontal = MaterialTheme.dimension.padding16),
         verticalAlignment = Alignment.CenterVertically,
