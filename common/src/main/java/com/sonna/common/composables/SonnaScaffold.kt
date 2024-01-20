@@ -16,16 +16,17 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SonnaScaffold(
-    titleOfTopBar: String,
+    titleOfTopBar: String = "",
     navigationBack: () -> Unit = {},
     isAppBarExisting: Boolean = false,
+    isTopBarVisibleDuringScroll: Boolean = false,
     content: @Composable (PaddingValues) -> Unit,
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
     val isScrolled = remember { derivedStateOf { scrollBehavior.state.contentOffset < -100f } }
     Scaffold(
         topBar = {
-            AnimatedVisibility(visible = isAppBarExisting && isScrolled.value) {
+            AnimatedVisibility(visible = isAppBarExisting && (!isTopBarVisibleDuringScroll || isScrolled.value)) {
                 SonnaAppBar(
                     scrollBehavior = scrollBehavior,
                     navigationBack = navigationBack,
