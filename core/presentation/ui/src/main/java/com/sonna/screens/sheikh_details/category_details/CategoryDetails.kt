@@ -9,6 +9,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import com.sonna.common.R
 import com.sonna.common.composables.SonnaBottomSheet
 import com.sonna.common.composables.SonnaScaffold
@@ -52,7 +53,7 @@ fun CategoryDetailsContent(categoryDetailsState: CategoryDetailsState) {
         )
 
         Voices(
-            title = R.string.tracks,
+            title = stringResource(id =R.string.tracks),
             isList=true,
             voices = categoryDetailsState.voicesOfCategory, clickMore = {
                 stateBottomSheetVisibility = true
