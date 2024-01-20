@@ -11,7 +11,9 @@ import com.sonna.common.R
 
 
 val montserrat = FontFamily(
-    Font(R.font.montserrat_bold))
+    Font(R.font.montserrat_bold, weight = FontWeight.Bold),
+    Font(R.font.montserrat_regular, weight =FontWeight. Normal),
+)
 
 val amiri = FontFamily(
     Font(R.font.amiri_egular),
@@ -63,6 +65,7 @@ val Typography = Typography(
     labelSmall = TextStyle(
         fontSize = 11.sp,
         fontFamily = montserrat,
+        fontWeight = FontWeight.Normal,
         platformStyle = PlatformTextStyle(
             includeFontPadding = false,
         ),
