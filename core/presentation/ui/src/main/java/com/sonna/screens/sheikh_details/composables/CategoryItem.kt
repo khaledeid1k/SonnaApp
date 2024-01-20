@@ -18,10 +18,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import com.sonna.common.theme.dimension
-import com.sonna.screens.sheikh_details.CategoryVoiceState
+import com.sonna.screens.sheikh_details.Category
 
 @Composable
-fun CategoriesVoicesItem(categoryVoiceState : CategoryVoiceState) {
+fun CategoriesItem(category : Category) {
     Row (
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically,
@@ -30,7 +30,7 @@ fun CategoriesVoicesItem(categoryVoiceState : CategoryVoiceState) {
             top= MaterialTheme.dimension.padding16
         )){
 
-        Text(text = categoryVoiceState.numberOfVoice.toString())
+        Text(text = category.numberOfVoice.toString())
 
         Image(
             contentScale = ContentScale.Crop,
@@ -39,16 +39,16 @@ fun CategoriesVoicesItem(categoryVoiceState : CategoryVoiceState) {
                 .width(MaterialTheme.dimension.width100)
                 .clip(RoundedCornerShape( MaterialTheme.dimension.spacing16))
                 .padding(horizontal = MaterialTheme.dimension.spacing16),
-            painter = painterResource(id = categoryVoiceState.picture),
+            painter = painterResource(id = category.picture),
             contentDescription = "")
 
         Column {
-            Text( text = categoryVoiceState.nameOfVoice,
+            Text( text = category.nameOfVoice,
                 style= MaterialTheme.typography.titleSmall,
 
                 )
 
-            Text(text = categoryVoiceState.dateOfVoice.toString(),
+            Text(text = category.dateOfVoice.toString(),
                 modifier = Modifier.alpha(0.7f),
                 style = MaterialTheme.typography.labelSmall)
         }

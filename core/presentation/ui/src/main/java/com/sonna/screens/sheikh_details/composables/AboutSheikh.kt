@@ -20,11 +20,11 @@ import androidx.compose.ui.res.stringResource
 import com.sonna.common.composables.Title
 import com.sonna.common.theme.dimension
 import com.sonna.common.R
-import com.sonna.screens.sheikh_details.AboutState
+import com.sonna.screens.sheikh_details.About
 
 
 @Composable
-fun AboutSheikh(aboutState: AboutState) {
+fun AboutSheikh(about: About) {
     Column {
 
         Title(
@@ -41,7 +41,7 @@ fun AboutSheikh(aboutState: AboutState) {
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(MaterialTheme.dimension.radius6))
                     .height(MaterialTheme.dimension.height191),
-                painter = painterResource(id = aboutState.picture),
+                painter = painterResource(id = about.picture),
                 contentDescription = "",
                 contentScale = ContentScale.Crop
             )
@@ -50,7 +50,7 @@ fun AboutSheikh(aboutState: AboutState) {
                     .align(Alignment.BottomEnd)
                     .padding(MaterialTheme.dimension.padding16),
 
-                text = aboutState.description,
+                text = about.description,
                 style = MaterialTheme.typography.titleSmall,
                 color = Color.White
             )
