@@ -27,11 +27,11 @@ import com.sonna.screens.sheikh_details.Voice
 
 
 @Composable
-fun VoicesItem(voice:Voice, clickMore:()->Unit) {
+fun VoicesItem(modifier: Modifier=Modifier,voice:Voice, clickMore:()->Unit) {
     Row (
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.padding(
+        modifier = modifier.padding(
             start = MaterialTheme.dimension.spacing16,
             top=MaterialTheme.dimension.padding16
             )){
