@@ -8,6 +8,7 @@ data class Dimens(
 // region Radius Dimensions
     val radius0: Dp = 0.dp,
     val radius6: Dp = 6.dp,
+    val radius8: Dp = 8.dp,
     val radius10: Dp = 10.dp,
     val radius16: Dp = 16.dp,
     val radius23: Dp = 23.dp,
@@ -48,6 +49,7 @@ data class Dimens(
 //endregion
 
 //region  padding
+    val padding2: Dp = 2.dp,
     val padding4: Dp = 4.dp,
     val padding8: Dp = 8.dp,
     val padding16: Dp = 16.dp,
