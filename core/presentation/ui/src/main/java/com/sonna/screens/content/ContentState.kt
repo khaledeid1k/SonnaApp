@@ -1,15 +1,15 @@
 package com.sonna.screens.content
 
 data class ContentState(
-    val lastSurahName:String,
-    val lastVerseNum:Int,
-    val tabs:List<String> = listOf("Quran","Hadith"),
-    val surahesList:List<SurahState> = emptyList()
+    val lastSurahName: String = "",
+    val lastVerseNum: Int = 0,
+    val tabs: List<String> = listOf("Quran", "Hadith", "Azkar"),
+    val surahesList: List<SurahState> = emptyList()
 )
 
 data class SurahState(
-    val index:Int,
-    val name:String,
-    val englishName:String,
-    val numOfVerses:Int
+    val index: Int = 0,
+    val name: String = "",
+    val englishName: String = "",
+    val numOfVerses: Int = 0
 )

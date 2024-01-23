@@ -9,21 +9,25 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import com.sonna.common.theme.dimension
 
 @Composable
 fun ContentListCard(
-    surahIndex: Int,
-    surahName: String,
-    surahEnglishName: String,
-    numOfVerses: Int
+    surahIndex: Int = 0,
+    surahName: String = "",
+    surahEnglishName: String = "",
+    numOfVerses: Int = 0
 ) {
     Row(
         modifier = Modifier
@@ -31,7 +35,8 @@ fun ContentListCard(
             .padding(
                 horizontal = MaterialTheme.dimension.padding8,
                 vertical = MaterialTheme.dimension.padding4
-            )
+            ),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Card(
             modifier = Modifier
@@ -54,5 +59,13 @@ fun ContentListCard(
             Text(text = surahName)
             Text(text = "$surahEnglishName $numOfVerses", color = Color.LightGray)
         }
+        Spacer(modifier = Modifier.weight(1f))
+        Icon(imageVector = Icons.Rounded.Star, tint = MaterialTheme.colorScheme.primaryContainer, contentDescription = "")
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ContentListCardPreview(){
+    ContentListCard()
 }
