@@ -57,7 +57,7 @@ fun ContentListCard(
             verticalArrangement = Arrangement.Center
         ) {
             Text(text = surahName)
-            Text(text = "$surahEnglishName $numOfVerses", color = Color.LightGray)
+            Text(text = "$surahEnglishName ($numOfVerses)", color = Color.LightGray)
         }
         Spacer(modifier = Modifier.weight(1f))
         Icon(imageVector = Icons.Rounded.Star, tint = MaterialTheme.colorScheme.primaryContainer, contentDescription = "")

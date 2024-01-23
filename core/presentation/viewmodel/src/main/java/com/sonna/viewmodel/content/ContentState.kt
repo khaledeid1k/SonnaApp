@@ -1,15 +1,18 @@
-package com.sonna.screens.content
+package com.sonna.viewmodel.content
+
+import com.sonna.domain.entity.quran.SurahEntity
 
 data class ContentState(
     val lastSurahName: String = "",
     val lastVerseNum: Int = 0,
+    val selectedTabIndex: Int = 0,
     val tabs: List<String> = listOf("Quran", "Hadith", "Azkar"),
     val surahesList: List<SurahState> = emptyList()
 )
 
 data class SurahState(
-    val index: Int = 0,
-    val name: String = "",
-    val englishName: String = "",
-    val numOfVerses: Int = 0
+    val englishName: String,
+    val name: String,
+    val number: Int,
+    val numberOfAyahs: Int,
 )

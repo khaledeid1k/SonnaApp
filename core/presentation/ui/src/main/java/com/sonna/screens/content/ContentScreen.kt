@@ -11,39 +11,42 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.sonna.common.previews.ThemePreviews
 import com.sonna.common.theme.dimension
 import com.sonna.screens.content.composables.ContentListCard
 import com.sonna.screens.content.composables.LastReadCard
+import com.sonna.viewmodel.content.ContentState
 import com.sonna.viewmodel.content.ContentViewModel
 
 @Composable
 fun ContentScreen(
     mViewModel: ContentViewModel = hiltViewModel()
 ) {
-    ContentScreenContent()
+    val state by mViewModel.state.collectAsState()
+    ContentScreenContent(state, mViewModel::changeTab)
 }
 
 @Composable
 fun ContentScreenContent(
-    state:ContentState = ContentState()
+    state: ContentState = ContentState(),
+    onTapChange: (Int) -> Unit
 ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = MaterialTheme.dimension.padding24)
+            //.padding(horizontal = MaterialTheme.dimension.padding24)
     ) {
         LastReadCard(surahName = "الفاتحة", verseNum = 5)
-        TabRow(selectedTabIndex = 0) {
+        TabRow(selectedTabIndex = state.selectedTabIndex) {
             for (i in 0..<state.tabs.size) {
                 Tab(
                     text = { Text(state.tabs[i]) },
-                    selected = i == 0,
-                    onClick = { },
+                    selected = i == state.selectedTabIndex,
+                    onClick = { onTapChange(i) },
                 )
             }
         }
@@ -51,12 +54,12 @@ fun ContentScreenContent(
             contentPadding = PaddingValues(vertical = MaterialTheme.dimension.padding16),
             verticalArrangement = Arrangement.spacedBy(MaterialTheme.dimension.padding8)
         ) {
-            items(count = 5) {
+            items(count = state.surahesList.size) {
                 ContentListCard(
-                    surahIndex = 1,
-                    surahName = "الفاتحة",
-                    surahEnglishName = "the opening",
-                    numOfVerses = 7
+                    surahIndex = state.surahesList[it].number,
+                    surahName = state.surahesList[it].name,
+                    surahEnglishName = state.surahesList[it].englishName,
+                    numOfVerses = state.surahesList[it].numberOfAyahs
                 )
             }
         }
@@ -69,5 +72,5 @@ fun ContentScreenContent(
 @Preview(showBackground = true)
 @Composable
 fun PreviewContentScreen() {
-    ContentScreenContent()
+    //ContentScreenContent()
 }
