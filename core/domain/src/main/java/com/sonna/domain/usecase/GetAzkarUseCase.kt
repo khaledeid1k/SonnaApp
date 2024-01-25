@@ -6,18 +6,11 @@ import com.sonna.domain.repository.ContentRepository
 class GetAzkarUseCase(
     private val contentRepository: ContentRepository
 ) {
-    suspend operator fun invoke() = contentRepository.getAzkar()
+    suspend operator fun invoke(fromLocal:Boolean=false) = contentRepository.getAzkar(fromLocal)
 
-    /*suspend fun getAzkarCategory(): List<String> {
-        val categories = mutableListOf<String>()
-        contentRepository.getAzkar().forEach {
-            categories.add(it.category)
-        }
-        return categories.toList()
-    }*/
 
-    suspend fun getAzkarCategories(): List<AzkarCategoryEntity> =
-        contentRepository.getAzkar().azkarList
+    suspend fun getAzkarCategories(fromLocal:Boolean=false): List<AzkarCategoryEntity> =
+        this(fromLocal).azkarList
             .groupingBy { it.category }
             .eachCount()
             .map { (name, count) -> AzkarCategoryEntity(name, count) }

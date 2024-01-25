@@ -5,6 +5,7 @@ import com.sonna.domain.usecase.GetAzkarUseCase
 import com.sonna.domain.usecase.GetLastHadith
 import com.sonna.domain.usecase.GetSurahesUseCase
 import com.sonna.domain.usecase.InsertSurahUseCase
+import com.sonna.domain.usecase.InsertZekrUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,5 +33,9 @@ object UseCaseModule {
     @Provides
     fun provideGetAzkarUseCase(contentRepository: ContentRepository): GetAzkarUseCase {
         return GetAzkarUseCase(contentRepository)
+    }
+    @Provides
+    fun provideInsertZekrUseCase(contentRepository: ContentRepository): InsertZekrUseCase {
+        return InsertZekrUseCase(contentRepository)
     }
 }

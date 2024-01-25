@@ -7,6 +7,7 @@ import com.sonna.domain.entity.quran.SurahEntity
 import com.sonna.domain.usecase.GetAzkarUseCase
 import com.sonna.domain.usecase.InsertSurahUseCase
 import com.sonna.domain.usecase.GetSurahesUseCase
+import com.sonna.domain.usecase.InsertZekrUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -18,6 +19,7 @@ import javax.inject.Inject
 class ContentViewModel @Inject constructor(
     val getSurahesUseCase: GetSurahesUseCase,
     val getAzkarUseCase: GetAzkarUseCase,
+    val insertZekrUseCase: InsertZekrUseCase,
     val insertSurahUseCase: InsertSurahUseCase
 ) : ViewModel() {
     companion object {
@@ -28,6 +30,8 @@ class ContentViewModel @Inject constructor(
         Log.d(TAG, "init is called: ")
         getSurahes()
         getAzkar()
+        storeAzkar()
+
     }
 
     private val _state = MutableStateFlow(ContentState())
@@ -49,11 +53,33 @@ class ContentViewModel @Inject constructor(
     private fun getAzkar() {
         viewModelScope.launch {
             try {
-                val result = getAzkarUseCase.getAzkarCategories().map { it.toState() }
+                var result = getAzkarUseCase.getAzkarCategories(true).map { it.toState() }
+                if (result.isEmpty()) {
+                    result = getAzkarUseCase.getAzkarCategories().map { it.toState() }
+                }
                 _state.update { it.copy(azkarList = result) }
                 Log.d(TAG, "getAzkar: $result")
             } catch (e: Exception) {
                 Log.e(TAG, "getAzkar: ${e.message}", e)
+            }
+        }
+    }
+
+    private fun storeAzkar() {
+        viewModelScope.launch {
+            try {
+                var result = getAzkarUseCase(true)
+                if (result.azkarList.isEmpty()) {
+                    result = getAzkarUseCase()
+                    result.azkarList.forEach {
+                        insertZekrUseCase(it)
+                    }
+                    Log.d(TAG, "storeAzkar: $result")
+                }else{
+                    Log.d(TAG, "notStoreAzkar: $result")
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "storeAzkar: ${e.message}", e)
             }
         }
     }
