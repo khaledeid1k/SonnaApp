@@ -1,6 +1,8 @@
 package com.sonna.domain.entity.azkar
 
-class AzkarEntity : ArrayList<AzkarEntityItem>()
+data class AzkarEntity(
+    val azkarList : List<AzkarEntityItem>
+)
 
 data class AzkarEntityItem(
     val category: String,

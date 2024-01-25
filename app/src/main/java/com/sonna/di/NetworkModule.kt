@@ -1,5 +1,6 @@
 package com.sonna.di
 
+import com.google.gson.GsonBuilder
 import com.sonna.remote.ContentApiServicesAzkar
 import com.sonna.remote.ContentApiServicesQuran
 import com.sonna.remote.ContentRemoteDataSource
@@ -13,6 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Qualifier
 import javax.inject.Singleton
+
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -57,9 +59,12 @@ object NetworkModule {
     @Singleton
     @Azkar
     fun provideRetrofitAzkar(okHttpClient:OkHttpClient):Retrofit{
+        val gson = GsonBuilder()
+            .setLenient()
+            .create()
         return Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://github.com/khaledeid1k/Quran-App-Data/blob/main")
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .baseUrl("https://raw.githubusercontent.com/khaledeid1k/Quran-App-Data/main/")
             .client(okHttpClient)
             .build()
     }

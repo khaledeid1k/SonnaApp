@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sonna.domain.entity.quran.SurahEntity
+import com.sonna.domain.usecase.GetAzkarUseCase
 import com.sonna.domain.usecase.InsertSurahUseCase
 import com.sonna.domain.usecase.GetSurahesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,6 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ContentViewModel @Inject constructor(
     val getSurahesUseCase: GetSurahesUseCase,
+    val getAzkarUseCase: GetAzkarUseCase,
     val insertSurahUseCase: InsertSurahUseCase
 ) : ViewModel() {
     companion object {
@@ -25,6 +27,7 @@ class ContentViewModel @Inject constructor(
     init {
         Log.d(TAG, "init is called: ")
         getSurahes()
+        getAzkar()
     }
 
     private val _state = MutableStateFlow(ContentState())
@@ -39,6 +42,18 @@ class ContentViewModel @Inject constructor(
                 //insertSurahUseCase(result.data[0])
             } catch (e: Exception) {
                 Log.e(TAG, "getSurahes: ${e.message}", e)
+            }
+        }
+    }
+
+    private fun getAzkar() {
+        viewModelScope.launch {
+            try {
+                val result = getAzkarUseCase.getAzkarCategories().map { it.toState() }
+                _state.update { it.copy(azkarList = result) }
+                Log.d(TAG, "getAzkar: $result")
+            } catch (e: Exception) {
+                Log.e(TAG, "getAzkar: ${e.message}", e)
             }
         }
     }

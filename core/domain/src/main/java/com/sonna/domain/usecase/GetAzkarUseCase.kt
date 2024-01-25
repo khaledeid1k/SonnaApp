@@ -1,5 +1,6 @@
 package com.sonna.domain.usecase
 
+import com.sonna.domain.entity.azkar.AzkarCategoryEntity
 import com.sonna.domain.repository.ContentRepository
 
 class GetAzkarUseCase(
@@ -15,5 +16,9 @@ class GetAzkarUseCase(
         return categories.toList()
     }*/
 
-    suspend fun getAzkarCategories(): List<String> = contentRepository.getAzkar().distinctBy { it.category }.map { it.category }
+    suspend fun getAzkarCategories(): List<AzkarCategoryEntity> =
+        contentRepository.getAzkar().azkarList
+            .groupingBy { it.category }
+            .eachCount()
+            .map { (name, count) -> AzkarCategoryEntity(name, count) }
 }
