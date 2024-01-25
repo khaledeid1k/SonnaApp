@@ -42,6 +42,21 @@
     <string name="playlist">"Playlist"</string>
     <string name="tracks">"Tracks"</string>
     <string name="see_all">""See All"</string>
+    <string name="besm_alla_arhman_arhem">"بسم الله الرحمن الرحيم"</string>
+    <string name="sunan_bi_awud_en">"Sunan Abi Dawud"</string>
+    <string name="sunan_bukhari_en">"Sahih Bukhari"</string>
+    <string name="sunan_majah_en">"Sunan Ibn Majah"</string>
+    <string name="sunan_muwatta_en">"Al-Muwatta (Imam Malik)"</string>
+    <string name="sunan_muslim_en">"Sahih Muslim"</string>
+    <string name="sunan_nasa_en">"Sunan al-Nasa'i"</string>
+    <string name="sunan_great_mosque_en">"the Great Mosque(Sannamdhi)"</string>
+    <string name="sunan_bi_awud_ar">"سنن أبي داود"</string>
+    <string name="sunan_bukhari_ar">"صحيح البخاري"</string>
+    <string name="sunan_majah_ar">"سنن ابن ماجه"</string>
+    <string name="sunan_muwatta_ar">"الموطأ (الأمام مالك)"</string>
+    <string name="sunan_muslim_ar">"صحيح مسلم"</string>
+    <string name="sunan_nasa_ar">"سنن النسائي"</string>
+    <string name="sunan_great_mosque_ar">"الجامع الكبير(الأمام الترمذي)"</string>
 
 
 

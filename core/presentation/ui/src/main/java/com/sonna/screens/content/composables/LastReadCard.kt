@@ -36,7 +36,7 @@ fun LastReadCard(
 ){
     Card(
         modifier = Modifier
-            .padding(MaterialTheme.dimension.padding24)
+            .padding(MaterialTheme.dimension.padding16)
             .fillMaxWidth()
             .height(MaterialTheme.dimension.height202),
         shape = RoundedCornerShape(MaterialTheme.dimension.radius16),

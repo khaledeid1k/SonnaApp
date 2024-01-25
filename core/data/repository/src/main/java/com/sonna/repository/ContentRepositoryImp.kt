@@ -1,5 +1,6 @@
 package com.sonna.repository
 
+import com.sonna.domain.entity.hadith.HadithEntity
 import com.sonna.domain.entity.quran.AllSurahesEntity
 import com.sonna.domain.entity.quran.SurahEntity
 import com.sonna.domain.repository.ContentRepository
@@ -20,5 +21,9 @@ class ContentRepositoryImp(
 
     override suspend fun insertSurah(surahEntity: SurahEntity): Long {
         return contentLocalDataSource.insertSurah(surahEntity.toModel())
+    }
+
+    override suspend fun getHadithDarimi(): List<HadithEntity> {
+     return   remoteDataSource.getDarimiBook().toEntity()
     }
 }

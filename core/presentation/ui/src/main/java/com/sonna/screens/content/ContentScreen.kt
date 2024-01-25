@@ -4,8 +4,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
@@ -16,6 +16,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.common.theme.dimension
 import com.sonna.screens.content.composables.ContentListCard
 import com.sonna.screens.content.composables.LastReadCard
@@ -33,12 +34,11 @@ fun ContentScreen(
 @Composable
 fun ContentScreenContent(
     state: ContentState = ContentState(),
-    onTapChange: (Int) -> Unit
+    onTapChange: (Int) -> Unit = {}
 ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            //.padding(horizontal = MaterialTheme.dimension.padding24)
     ) {
         LastReadCard(surahName = "الفاتحة", verseNum = 5)
         TabRow(selectedTabIndex = state.selectedTabIndex) {
@@ -54,12 +54,12 @@ fun ContentScreenContent(
             contentPadding = PaddingValues(vertical = MaterialTheme.dimension.padding16),
             verticalArrangement = Arrangement.spacedBy(MaterialTheme.dimension.padding8)
         ) {
-            items(count = state.surahesList.size) {
+            items(state.ahadith) { item ->
                 ContentListCard(
-                    surahIndex = state.surahesList[it].number,
-                    surahName = state.surahesList[it].name,
-                    surahEnglishName = state.surahesList[it].englishName,
-                    numOfVerses = state.surahesList[it].numberOfAyahs
+                    surahIndex = item.number,
+                    surahName = item.name,
+                    surahEnglishName = item.englishName,
+                    numOfVerses = item.numberOfAyahs
                 )
             }
         }
@@ -72,5 +72,7 @@ fun ContentScreenContent(
 @Preview(showBackground = true)
 @Composable
 fun PreviewContentScreen() {
-    //ContentScreenContent()
+    SonnaAppTheme {
+        ContentScreenContent()
+    }
 }

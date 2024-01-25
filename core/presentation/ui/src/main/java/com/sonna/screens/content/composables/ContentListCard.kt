@@ -19,7 +19,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
+import com.sonna.common.previews.ThemePreviews
+import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.common.theme.dimension
 
 @Composable
@@ -64,8 +65,10 @@ fun ContentListCard(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 fun ContentListCardPreview(){
+    SonnaAppTheme {
     ContentListCard()
+}
 }

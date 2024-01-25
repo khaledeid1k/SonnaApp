@@ -4,14 +4,13 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.sonna.common.previews.ThemePreviews
+import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.common.theme.dimension
 import com.sonna.screens.details.composables.DetailsHeader
 import com.sonna.screens.details.composables.VerseItem
@@ -29,11 +28,10 @@ fun DetailsContent(){
     Column (
         modifier = Modifier.fillMaxSize(),
     ){
-        DetailsHeader(surahName = "الفاتحة")
+        DetailsHeader()
         LazyColumn(
             modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f),
+                .fillMaxSize(),
             contentPadding = PaddingValues(MaterialTheme.dimension.padding24),
             verticalArrangement = Arrangement.spacedBy(MaterialTheme.dimension.padding16)
         ){
@@ -47,8 +45,10 @@ fun DetailsContent(){
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 fun DetailsPreview(){
+    SonnaAppTheme {
     DetailsScreen()
+    }
 }

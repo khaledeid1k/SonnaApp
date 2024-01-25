@@ -48,6 +48,7 @@ data class Dimens(
 //endregion
 
 //region  padding
+    val padding0: Dp = 0.dp,
     val padding4: Dp = 4.dp,
     val padding8: Dp = 8.dp,
     val padding16: Dp = 16.dp,
