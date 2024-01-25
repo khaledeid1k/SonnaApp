@@ -33,7 +33,7 @@ class ContentViewModel @Inject constructor(
         getSurahes()
         getAzkar()
         storeAzkar()
-      //  getHadith()
+        getHadith()
     }
 
     private val _state = MutableStateFlow(ContentState())
@@ -55,12 +55,8 @@ class ContentViewModel @Inject constructor(
     private fun getHadith() {
         try {
             viewModelScope.launch {
-                val toState = getHadithBookUseCase.invoke().toState()
-
-//                _state.update {
-//                    it.copy(hadithes = toState)
-//                }
-
+                val ahadith = getHadithBookUseCase.invoke().toState()
+                _state.update { it.copy(ahadith=ahadith) }
             }
         }catch (e: Exception) {
             Log.e(TAG, "getHadith: ${e.message}", e)

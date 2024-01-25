@@ -12,4 +12,6 @@ interface ContentRepository {
     suspend fun getSLastHadith(): String
     suspend fun insertSurah(surahEntity: SurahEntity):Long
     suspend fun insertZekr(zekrEntity: ZekrEntity):Long
+
+    suspend fun getHadithDarimi(): List<HadithEntity>
 }

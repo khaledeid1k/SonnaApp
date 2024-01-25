@@ -34,11 +34,9 @@ class ContentRepositoryImp(
 
     override suspend fun insertZekr(zekrEntity: ZekrEntity) =
         contentLocalDataSource.insertZekr(zekrEntity.toModel())
-    override suspend fun insertSurah(surahEntity: SurahEntity): Long {
-        return contentLocalDataSource.insertSurah(surahEntity.toModel())
-    }
+
 
     override suspend fun getHadithDarimi(): List<HadithEntity> {
-     return   remoteDataSource.getDarimiBook().toEntity()
+     return   contentRemoteDataSource.getDarimiBook().toEntity()
     }
 }

@@ -1,7 +1,7 @@
 package com.sonna.di
 
 import com.google.gson.GsonBuilder
-import com.sonna.remote.ContentApiServicesAzkar
+import com.sonna.remote.ContentApiServicesAzkarAndHadith
 import com.sonna.remote.ContentApiServicesQuran
 import com.sonna.remote.ContentRemoteDataSource
 import com.sonna.remote.ContentRemoteDataSourceImp
@@ -46,25 +46,14 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    @Hadith
-    fun provideRetrofitHadith(okHttpClient:OkHttpClient):Retrofit{
-        return Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://raw.githubusercontent.com/")
-            .client(okHttpClient)
-            .build()
-    }
-
-    @Provides
-    @Singleton
-    @Azkar
-    fun provideRetrofitAzkar(okHttpClient:OkHttpClient):Retrofit{
+    @AzkarAndHadith
+    fun provideRetrofitAzkarAndHadith(okHttpClient:OkHttpClient):Retrofit{
         val gson = GsonBuilder()
             .setLenient()
             .create()
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(gson))
-            .baseUrl("https://raw.githubusercontent.com/khaledeid1k/Quran-App-Data/main/")
+            .baseUrl("https://raw.githubusercontent.com/khaledeid1k/repos_server/main/")
             .client(okHttpClient)
             .build()
     }
@@ -77,14 +66,14 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideContentApiServicesAzkar(@Azkar retrofit: Retrofit): ContentApiServicesAzkar {
-        return retrofit.create(ContentApiServicesAzkar::class.java)
+    fun provideContentApiServicesAzkarAndHadith(@AzkarAndHadith retrofit: Retrofit): ContentApiServicesAzkarAndHadith {
+        return retrofit.create(ContentApiServicesAzkarAndHadith::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideRemoteDataSource(contentApiServicesQuran: ContentApiServicesQuran,contentApiServicesAzkar: ContentApiServicesAzkar): ContentRemoteDataSource {
-        return ContentRemoteDataSourceImp(contentApiServicesQuran,contentApiServicesAzkar)
+    fun provideRemoteDataSource(contentApiServicesQuran: ContentApiServicesQuran, contentApiServicesAzkarAndHadith: ContentApiServicesAzkarAndHadith): ContentRemoteDataSource {
+        return ContentRemoteDataSourceImp(contentApiServicesQuran,contentApiServicesAzkarAndHadith)
     }
 }
 
@@ -107,16 +96,6 @@ annotation class Quran
     AnnotationTarget.VALUE_PARAMETER,
     AnnotationTarget.FIELD
 )
-annotation class Hadith
-
-@Qualifier
-@Target(
-    AnnotationTarget.FUNCTION,
-    AnnotationTarget.PROPERTY_GETTER,
-    AnnotationTarget.PROPERTY_SETTER,
-    AnnotationTarget.VALUE_PARAMETER,
-    AnnotationTarget.FIELD
-)
-annotation class Azkar
+annotation class AzkarAndHadith
 
 
