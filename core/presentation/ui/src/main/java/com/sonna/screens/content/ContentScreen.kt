@@ -54,6 +54,7 @@ fun ContentScreenContent(
             contentPadding = PaddingValues(vertical = MaterialTheme.dimension.padding16),
             verticalArrangement = Arrangement.spacedBy(MaterialTheme.dimension.padding8)
         ) {
+            if (state.selectedTabIndex==0){
             items(state.ahadith) { item ->
                 ContentListCard(
                     surahIndex = item.number,
@@ -61,7 +62,27 @@ fun ContentScreenContent(
                     surahEnglishName = item.englishName,
                     numOfVerses = item.numberOfAyahs
                 )
+            if (state.selectedTabIndex==0){
+                items(count = state.surahesList.size) {
+                    ContentListCard(
+                        surahIndex = state.surahesList[it].number,
+                        surahName = state.surahesList[it].name,
+                        surahEnglishName = state.surahesList[it].englishName,
+                        numOfVerses = state.surahesList[it].numberOfAyahs
+                    )
+                }
+            }else if (state.selectedTabIndex==state.tabs.size-1){
+                items(count = state.azkarList.size) {
+                    ContentListCard(
+                        surahIndex = it+1,
+                        surahName = state.azkarList[it].name,
+                        //surahEnglishName = state.surahesList[it].englishName,
+                        numOfVerses = state.azkarList[it].numberOfAzkar
+                    )
+                }
             }
+            }
+
         }
 
 

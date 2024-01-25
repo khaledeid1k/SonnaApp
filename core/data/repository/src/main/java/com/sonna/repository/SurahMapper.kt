@@ -1,7 +1,8 @@
 package com.sonna.repository
 
-import com.sonna.data.local.model.SurahModel
 import com.sonna.domain.entity.quran.AllSurahesEntity
+import com.sonna.domain.entity.quran.SurahEntity
+import com.sonna.local.model.SurahModel
 import com.sonna.remote.response.quran.AllSurahesResponse
 import com.sonna.remote.response.quran.SurahResponse
 
@@ -13,8 +14,8 @@ fun AllSurahesResponse.toEntity(): AllSurahesEntity {
     )
 }
 
-private fun SurahResponse.toEntity(): com.sonna.domain.entity.quran.SurahEntity {
-    return com.sonna.domain.entity.quran.SurahEntity(
+private fun SurahResponse.toEntity(): SurahEntity {
+    return SurahEntity(
         this.englishName,
         this.name,
         this.number,
@@ -22,7 +23,7 @@ private fun SurahResponse.toEntity(): com.sonna.domain.entity.quran.SurahEntity 
     )
 }
 
-fun com.sonna.domain.entity.quran.SurahEntity.toModel(): SurahModel {
+fun SurahEntity.toModel(): SurahModel {
     return SurahModel(
         englishName = englishName,
         name = name,
