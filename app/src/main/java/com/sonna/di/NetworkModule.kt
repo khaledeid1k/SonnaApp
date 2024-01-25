@@ -47,7 +47,7 @@ object NetworkModule {
     fun provideRetrofitHadith(okHttpClient:OkHttpClient):Retrofit{
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("hadith.com")
+            .baseUrl("https://raw.githubusercontent.com/")
             .client(okHttpClient)
             .build()
     }
