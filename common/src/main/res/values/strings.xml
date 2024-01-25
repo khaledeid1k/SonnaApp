@@ -41,7 +41,8 @@
     <string name="about">"About"</string>
     <string name="playlist">"Playlist"</string>
     <string name="tracks">"Tracks"</string>
-    <string name="see_all">""See All"</string>
+    <string name="see_all">"See All"</string>
+    <string name="play_form_playlist">"PLAYING FROM PLAYLIST"</string>
 
 
 
