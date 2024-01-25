@@ -1,4 +1,4 @@
-package com.sonna.data.local.model
+package com.sonna.local.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -8,13 +8,6 @@ class GetAzkarUseCase(
 ) {
     suspend operator fun invoke() = contentRepository.getAzkar()
 
-    /*suspend fun getAzkarCategory(): List<String> {
-        val categories = mutableListOf<String>()
-        contentRepository.getAzkar().forEach {
-            categories.add(it.category)
-        }
-        return categories.toList()
-    }*/
 
     suspend fun getAzkarCategories(): List<AzkarCategoryEntity> =
         contentRepository.getAzkar().azkarList

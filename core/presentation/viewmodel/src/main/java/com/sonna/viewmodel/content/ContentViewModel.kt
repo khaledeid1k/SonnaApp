@@ -7,6 +7,7 @@ import com.sonna.domain.entity.quran.SurahEntity
 import com.sonna.domain.usecase.GetAzkarUseCase
 import com.sonna.domain.usecase.InsertSurahUseCase
 import com.sonna.domain.usecase.GetSurahesUseCase
+import com.sonna.domain.usecase.InsertZekrUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -18,6 +19,7 @@ import javax.inject.Inject
 class ContentViewModel @Inject constructor(
     val getSurahesUseCase: GetSurahesUseCase,
     val getAzkarUseCase: GetAzkarUseCase,
+    val insertZekrUseCase: InsertZekrUseCase,
     val insertSurahUseCase: InsertSurahUseCase
 ) : ViewModel() {
     companion object {
@@ -27,7 +29,9 @@ class ContentViewModel @Inject constructor(
     init {
         Log.d(TAG, "init is called: ")
         getSurahes()
+        storeAzkar()
         getAzkar()
+
     }
 
     private val _state = MutableStateFlow(ContentState())
@@ -54,6 +58,20 @@ class ContentViewModel @Inject constructor(
                 Log.d(TAG, "getAzkar: $result")
             } catch (e: Exception) {
                 Log.e(TAG, "getAzkar: ${e.message}", e)
+            }
+        }
+    }
+
+    private fun storeAzkar() {
+        viewModelScope.launch {
+            try {
+                var result = 0L
+                getAzkarUseCase().azkarList.forEach{
+                    result = insertZekrUseCase(it)
+                }
+                Log.d(TAG, "storeAzkar: $result")
+            } catch (e: Exception) {
+                Log.e(TAG, "storeAzkar: ${e.message}", e)
             }
         }
     }
