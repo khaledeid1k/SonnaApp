@@ -1,6 +1,8 @@
 package com.sonna.di
 
-import com.sonna.remote.ContentApiServices
+import com.google.gson.GsonBuilder
+import com.sonna.remote.ContentApiServicesAzkar
+import com.sonna.remote.ContentApiServicesQuran
 import com.sonna.remote.ContentRemoteDataSource
 import com.sonna.remote.ContentRemoteDataSourceImp
 import dagger.Module
@@ -12,6 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Qualifier
 import javax.inject.Singleton
+
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -54,14 +57,34 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideContentApiServices(@Quran retrofit: Retrofit): ContentApiServices {
-        return retrofit.create(ContentApiServices::class.java)
+    @Azkar
+    fun provideRetrofitAzkar(okHttpClient:OkHttpClient):Retrofit{
+        val gson = GsonBuilder()
+            .setLenient()
+            .create()
+        return Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .baseUrl("https://raw.githubusercontent.com/khaledeid1k/Quran-App-Data/main/")
+            .client(okHttpClient)
+            .build()
     }
 
     @Provides
     @Singleton
-    fun provideRemoteDataSource(contentApiServices: ContentApiServices): ContentRemoteDataSource {
-        return ContentRemoteDataSourceImp(contentApiServices)
+    fun provideContentApiServicesQuran(@Quran retrofit: Retrofit): ContentApiServicesQuran {
+        return retrofit.create(ContentApiServicesQuran::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideContentApiServicesAzkar(@Azkar retrofit: Retrofit): ContentApiServicesAzkar {
+        return retrofit.create(ContentApiServicesAzkar::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRemoteDataSource(contentApiServicesQuran: ContentApiServicesQuran,contentApiServicesAzkar: ContentApiServicesAzkar): ContentRemoteDataSource {
+        return ContentRemoteDataSourceImp(contentApiServicesQuran,contentApiServicesAzkar)
     }
 }
 
@@ -85,5 +108,15 @@ annotation class Quran
     AnnotationTarget.FIELD
 )
 annotation class Hadith
+
+@Qualifier
+@Target(
+    AnnotationTarget.FUNCTION,
+    AnnotationTarget.PROPERTY_GETTER,
+    AnnotationTarget.PROPERTY_SETTER,
+    AnnotationTarget.VALUE_PARAMETER,
+    AnnotationTarget.FIELD
+)
+annotation class Azkar
 
 
