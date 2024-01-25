@@ -29,8 +29,8 @@ class ContentViewModel @Inject constructor(
     init {
         Log.d(TAG, "init is called: ")
         getSurahes()
-        storeAzkar()
         getAzkar()
+        storeAzkar()
 
     }
 
@@ -53,7 +53,10 @@ class ContentViewModel @Inject constructor(
     private fun getAzkar() {
         viewModelScope.launch {
             try {
-                val result = getAzkarUseCase.getAzkarCategories().map { it.toState() }
+                var result = getAzkarUseCase.getAzkarCategories(true).map { it.toState() }
+                if (result.isEmpty()) {
+                    result = getAzkarUseCase.getAzkarCategories().map { it.toState() }
+                }
                 _state.update { it.copy(azkarList = result) }
                 Log.d(TAG, "getAzkar: $result")
             } catch (e: Exception) {
@@ -65,11 +68,16 @@ class ContentViewModel @Inject constructor(
     private fun storeAzkar() {
         viewModelScope.launch {
             try {
-                var result = 0L
-                getAzkarUseCase().azkarList.forEach{
-                    result = insertZekrUseCase(it)
+                var result = getAzkarUseCase(true)
+                if (result.azkarList.isEmpty()) {
+                    result = getAzkarUseCase()
+                    result.azkarList.forEach {
+                        insertZekrUseCase(it)
+                    }
+                    Log.d(TAG, "storeAzkar: $result")
+                }else{
+                    Log.d(TAG, "notStoreAzkar: $result")
                 }
-                Log.d(TAG, "storeAzkar: $result")
             } catch (e: Exception) {
                 Log.e(TAG, "storeAzkar: ${e.message}", e)
             }

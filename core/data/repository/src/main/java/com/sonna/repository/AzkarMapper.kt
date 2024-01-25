@@ -25,3 +25,11 @@ fun ZekrEntity.toModel(): ZekrModel {
         zekr = this.zekr
     )
 }
+
+fun ZekrModel.toEntity(): ZekrEntity {
+    return ZekrEntity(
+        category = this.category,
+        count = this.count,
+        zekr = this.zekr
+    )
+}

@@ -16,8 +16,12 @@ class ContentRepositoryImp(
         return contentRemoteDataSource.getSurahes().toEntity()
     }
 
-    override suspend fun getAzkar(): AzkarEntity {
-        return contentRemoteDataSource.getAzkar().toEntity()
+    override suspend fun getAzkar(fromLocal: Boolean): AzkarEntity {
+        return if (fromLocal) {
+            AzkarEntity(contentLocalDataSource.getAzkar().map { it.toEntity() })
+        } else {
+            contentRemoteDataSource.getAzkar().toEntity()
+        }
     }
 
     override suspend fun getSLastHadith(): String {

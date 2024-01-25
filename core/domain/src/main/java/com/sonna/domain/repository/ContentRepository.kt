@@ -7,7 +7,7 @@ import com.sonna.domain.entity.quran.SurahEntity
 
 interface ContentRepository {
     suspend fun getSurahes(): AllSurahesEntity
-    suspend fun getAzkar(): AzkarEntity
+    suspend fun getAzkar(fromLocal:Boolean): AzkarEntity
     suspend fun getSLastHadith(): String
     suspend fun insertSurah(surahEntity: SurahEntity):Long
     suspend fun insertZekr(zekrEntity: ZekrEntity):Long
