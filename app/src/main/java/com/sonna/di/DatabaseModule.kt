@@ -6,7 +6,7 @@ import com.sonna.database.AppDatabase
 import com.sonna.local.ContentDao
 import com.sonna.local.ContentLocalDataSource
 import com.sonna.local.ContentLocalDataSourceImp
-import com.sonna.local.data_store.SonnaPreferences
+import com.sonna.local.data_store.SonnaDataStorePreferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,13 +35,13 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideContentLocalDataSource(contentDao: ContentDao,sonnaPreferences:SonnaPreferences): ContentLocalDataSource {
-        return ContentLocalDataSourceImp(contentDao,sonnaPreferences)
+    fun provideContentLocalDataSource(contentDao: ContentDao, sonnaDataStorePreferences:SonnaDataStorePreferences): ContentLocalDataSource {
+        return ContentLocalDataSourceImp(contentDao,sonnaDataStorePreferences)
     }
 
     @Provides
     @Singleton
-    fun provideDataStore(context: Context):SonnaPreferences{
-        return SonnaPreferences(context)
+    fun provideDataStore(@ApplicationContext context: Context):SonnaDataStorePreferences{
+        return SonnaDataStorePreferences(context)
     }
 }

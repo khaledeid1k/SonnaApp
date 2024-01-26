@@ -26,7 +26,7 @@ object UseCaseModule {
     }
 
     @Provides
-    fun provideLAstHadithUseCase(contentRepository: ContentRepository): GetLastHadith {
+    fun provideLastHadithUseCase(contentRepository: ContentRepository): GetLastHadith {
         return GetLastHadith(contentRepository)
     }
 
