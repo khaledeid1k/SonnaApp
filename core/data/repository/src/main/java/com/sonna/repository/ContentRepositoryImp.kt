@@ -21,4 +21,13 @@ class ContentRepositoryImp(
     override suspend fun insertSurah(surahEntity: SurahEntity): Long {
         return contentLocalDataSource.insertSurah(surahEntity.toModel())
     }
+
+    override suspend fun saveSelectedHadithBook(hadithBook: String) {
+        contentLocalDataSource.saveSelectedHadithBook(hadithBook)
+    }
+
+    override suspend fun getSelectedTHadithBook():String {
+      return  contentLocalDataSource.getSelectedTHadithBook()
+
+    }
 }
