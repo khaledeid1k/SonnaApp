@@ -14,4 +14,6 @@ interface ContentRepository {
     suspend fun insertZekr(zekrEntity: ZekrEntity):Long
 
     suspend fun getHadithDarimi(): List<HadithEntity>
+    suspend  fun saveSelectedHadithBook(hadithBook: String)
+    suspend  fun getSelectedTHadithBook(): String
 }

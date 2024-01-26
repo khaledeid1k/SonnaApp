@@ -39,4 +39,13 @@ class ContentRepositoryImp(
     override suspend fun getHadithDarimi(): List<HadithEntity> {
      return   contentRemoteDataSource.getDarimiBook().toEntity()
     }
+
+    override suspend fun saveSelectedHadithBook(hadithBook: String) {
+        contentLocalDataSource.saveSelectedHadithBook(hadithBook)
+    }
+
+    override suspend fun getSelectedTHadithBook():String {
+      return  contentLocalDataSource.getSelectedTHadithBook()
+
+    }
 }

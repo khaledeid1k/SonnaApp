@@ -29,5 +29,6 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.room.ktx)
     implementation(libs.room.runtime)
+    implementation(libs.datastore)
     ksp(libs.room.compiler)
 }

@@ -5,6 +5,8 @@ import com.sonna.local.model.ZekrModel
 
 interface ContentLocalDataSource {
     suspend fun insertSurah(surahModel: SurahModel):Long
+    suspend  fun getSelectedTHadithBook(): String
+    suspend  fun saveSelectedHadithBook(hadithBook: String)
     suspend fun insertZekr(zekrModel: ZekrModel):Long
     suspend fun getAzkar():List<ZekrModel>
 }
