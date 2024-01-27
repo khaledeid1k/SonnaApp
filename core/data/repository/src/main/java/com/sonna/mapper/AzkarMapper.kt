@@ -1,4 +1,4 @@
-package com.sonna.repository
+package com.sonna.mapper
 
 import com.sonna.domain.entity.azkar.AzkarEntity
 import com.sonna.domain.entity.azkar.ZekrEntity

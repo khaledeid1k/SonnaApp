@@ -1,4 +1,4 @@
-package com.sonna.repository
+package com.sonna.mapper
 
 import com.sonna.domain.entity.quran.AllSurahesEntity
 import com.sonna.domain.entity.quran.SurahEntity
