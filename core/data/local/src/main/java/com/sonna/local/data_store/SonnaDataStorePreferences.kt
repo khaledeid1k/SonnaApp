@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.sonna.local.model.HadithBookNames
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 
@@ -14,21 +15,17 @@ class SonnaDataStorePreferences(private val context: Context) {
         name = "SonnaDataStore"
     )
 
-    private val selectedHadithBook = stringPreferencesKey("hadith_book")
+    private val selectedHadithBookName = stringPreferencesKey("hadith_book_name")
 
-
-    suspend fun saveSelectedHadithBook(hadithBook: String) {
+    suspend fun saveSelectedHadithBookName(hadithBookName: String) {
         context.dataStore.edit { preferences ->
-            preferences[selectedHadithBook] = hadithBook
-
+            preferences[selectedHadithBookName] = hadithBookName
         }
     }
-
-    suspend fun readSelectedHadithBook(): String {
+    suspend fun readSelectedHadithBookName(): String {
         return context.dataStore.data.map { preferences ->
-            preferences[selectedHadithBook] ?: "ibn_maja.json"
+            preferences[selectedHadithBookName] ?: HadithBookNames.Darimi.name
         }.first()
     }
-
 
 }

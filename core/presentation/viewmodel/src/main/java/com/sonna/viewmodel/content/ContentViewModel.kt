@@ -3,9 +3,8 @@ package com.sonna.viewmodel.content
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sonna.domain.entity.quran.SurahEntity
 import com.sonna.domain.usecase.GetAzkarUseCase
-import com.sonna.domain.usecase.GetHadithBookUseCase
+import com.sonna.domain.usecase.GetHadithBookInfo
 import com.sonna.domain.usecase.InsertSurahUseCase
 import com.sonna.domain.usecase.GetSurahesUseCase
 import com.sonna.domain.usecase.InsertZekrUseCase
@@ -22,7 +21,7 @@ class ContentViewModel @Inject constructor(
     val getAzkarUseCase: GetAzkarUseCase,
     val insertZekrUseCase: InsertZekrUseCase,
     val insertSurahUseCase: InsertSurahUseCase,
-    private val getHadithBookUseCase: GetHadithBookUseCase
+    private val getHadithBookInfo: GetHadithBookInfo
 ) : ViewModel() {
     companion object {
         private const val TAG = "ContentViewModel"
@@ -55,8 +54,8 @@ class ContentViewModel @Inject constructor(
     private fun getHadith() {
         try {
             viewModelScope.launch {
-                val ahadith = getHadithBookUseCase.invoke().toState()
-                _state.update { it.copy(ahadith=ahadith) }
+                val hadithBookInfo = getHadithBookInfo.invoke()
+                _state.update { it.copy(hadithBookInfo=hadithBookInfo) }
             }
         }catch (e: Exception) {
             Log.e(TAG, "getHadith: ${e.message}", e)

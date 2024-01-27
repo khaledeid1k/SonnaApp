@@ -3,7 +3,6 @@ package com.sonna.domain.repository
 import com.sonna.domain.entity.hadith.HadithEntity
 import com.sonna.domain.entity.azkar.AzkarEntity
 import com.sonna.domain.entity.azkar.ZekrEntity
-import com.sonna.domain.entity.hadith.HadithBookName
 import com.sonna.domain.entity.quran.AllSurahesEntity
 import com.sonna.domain.entity.quran.SurahEntity
 
@@ -15,9 +14,12 @@ interface ContentRepository {
     suspend fun insertZekr(zekrEntity: ZekrEntity):Long
 
     suspend  fun saveSelectedHadithBook(hadithBook: String)
-    suspend  fun readSelectedHadithBook(): String
-
+    suspend  fun readSelectedHadithBook(): Pair<String,Int>
     suspend fun getHadithBook(): List<HadithEntity>
+
+
+    suspend fun saveHadithBook(hadithBook : List<HadithEntity>): List<Long>
+    suspend fun getHadith(hadithBookName: String, numberOfHadith:Int): HadithEntity
 
 
 }
