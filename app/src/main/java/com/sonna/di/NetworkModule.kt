@@ -1,10 +1,10 @@
 package com.sonna.di
 
 import com.google.gson.GsonBuilder
-import com.sonna.remote.ContentApiServicesAzkar
-import com.sonna.remote.ContentApiServicesQuran
-import com.sonna.remote.ContentRemoteDataSource
-import com.sonna.remote.ContentRemoteDataSourceImp
+import com.sonna.remote.CoreApiServicesAzkar
+import com.sonna.remote.CoreApiServicesQuran
+import com.sonna.remote.CoreRemoteDataSource
+import com.sonna.remote.CoreRemoteDataSourceImp
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -71,20 +71,20 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideContentApiServicesQuran(@Quran retrofit: Retrofit): ContentApiServicesQuran {
-        return retrofit.create(ContentApiServicesQuran::class.java)
+    fun provideContentApiServicesQuran(@Quran retrofit: Retrofit): CoreApiServicesQuran {
+        return retrofit.create(CoreApiServicesQuran::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideContentApiServicesAzkar(@Azkar retrofit: Retrofit): ContentApiServicesAzkar {
-        return retrofit.create(ContentApiServicesAzkar::class.java)
+    fun provideContentApiServicesAzkar(@Azkar retrofit: Retrofit): CoreApiServicesAzkar {
+        return retrofit.create(CoreApiServicesAzkar::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideRemoteDataSource(contentApiServicesQuran: ContentApiServicesQuran,contentApiServicesAzkar: ContentApiServicesAzkar): ContentRemoteDataSource {
-        return ContentRemoteDataSourceImp(contentApiServicesQuran,contentApiServicesAzkar)
+    fun provideRemoteDataSource(coreApiServicesQuran: CoreApiServicesQuran, coreApiServicesAzkar: CoreApiServicesAzkar): CoreRemoteDataSource {
+        return CoreRemoteDataSourceImp(coreApiServicesQuran,coreApiServicesAzkar)
     }
 }
 

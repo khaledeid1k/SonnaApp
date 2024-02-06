@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.room.Room
 import com.sonna.database.AppDatabase
 import com.sonna.local.ContentDao
-import com.sonna.local.ContentLocalDataSource
-import com.sonna.local.ContentLocalDataSourceImp
+import com.sonna.local.CoreLocalDataSource
+import com.sonna.local.CoreLocalDataSourceImp
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,7 +34,7 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideContentLocalDataSource(contentDao: ContentDao): ContentLocalDataSource {
-        return ContentLocalDataSourceImp(contentDao)
+    fun provideContentLocalDataSource(contentDao: ContentDao): CoreLocalDataSource {
+        return CoreLocalDataSourceImp(contentDao)
     }
 }
