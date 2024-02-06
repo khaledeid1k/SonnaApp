@@ -3,10 +3,9 @@ package com.sonna.viewmodel.content
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sonna.domain.entity.quran.SurahEntity
 import com.sonna.domain.usecase.GetAzkarUseCase
 import com.sonna.domain.usecase.InsertSurahUseCase
-import com.sonna.domain.usecase.GetSurahesUseCase
+import com.sonna.domain.usecase.GetQuranUseCase
 import com.sonna.domain.usecase.InsertZekrUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ContentViewModel @Inject constructor(
-    val getSurahesUseCase: GetSurahesUseCase,
+    val getQuranUseCase: GetQuranUseCase,
     val getAzkarUseCase: GetAzkarUseCase,
     val insertZekrUseCase: InsertZekrUseCase,
     val insertSurahUseCase: InsertSurahUseCase
@@ -28,7 +27,6 @@ class ContentViewModel @Inject constructor(
 
     init {
         Log.d(TAG, "init is called: ")
-        getSurahes()
         getAzkar()
         storeAzkar()
 
@@ -37,10 +35,10 @@ class ContentViewModel @Inject constructor(
     private val _state = MutableStateFlow(ContentState())
     val state = _state.asStateFlow()
 
-    private fun getSurahes() {
+    /*private fun getSurahes() {
         viewModelScope.launch {
             try {
-                val result = getSurahesUseCase().data.map { it.toState() }
+                val result = getQuranUseCase().data.map { it.toState() }
                 _state.update { it.copy(surahesList = result) }
                 Log.d(TAG, "getSurahes: $result")
                 //insertSurahUseCase(result.data[0])
@@ -48,7 +46,7 @@ class ContentViewModel @Inject constructor(
                 Log.e(TAG, "getSurahes: ${e.message}", e)
             }
         }
-    }
+    }*/
 
     private fun getAzkar() {
         viewModelScope.launch {

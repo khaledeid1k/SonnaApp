@@ -6,5 +6,5 @@ fun SurahEntity.toState():SurahState = SurahState(
     number = this.number,
     name = this.name,
     englishName = this.englishName,
-    numberOfAyahs = this.numberOfAyahs
+    numberOfAyahs = this.ayahs.size
 )

@@ -1,10 +1,10 @@
 package com.sonna.domain.usecase
 
 import com.sonna.domain.entity.quran.SurahEntity
-import com.sonna.domain.repository.ContentRepository
+import com.sonna.domain.repository.CoreRepository
 
 class InsertSurahUseCase(
-    private val contentRepository: ContentRepository
+    private val coreRepository: CoreRepository
 ) {
-    suspend operator fun invoke(surahEntity: SurahEntity) = contentRepository.insertSurah(surahEntity)
+    suspend operator fun invoke(surahEntity: SurahEntity) = coreRepository.insertSurah(surahEntity)
 }

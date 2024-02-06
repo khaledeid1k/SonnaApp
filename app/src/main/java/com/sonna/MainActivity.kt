@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.screens.content.ContentScreen
 import com.sonna.screens.sheikhs.SheikhsScreen
+import com.sonna.screens.splash.SplashScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,7 +24,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     //SettingDetailsQuranScreen()
-                    ContentScreen()
+                    //ContentScreen()
+                    SplashScreen()
                 }
             }
         }
