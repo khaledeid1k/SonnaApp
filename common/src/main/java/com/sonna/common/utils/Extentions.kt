@@ -55,28 +55,35 @@ suspend fun <T> safeCall(apiCall: suspend () -> Flow<T>): Resource<T> {
 
 fun handleApiErrors(
     failure: Resource.Failure,
-    tryAgainAction: () -> Unit
-) {
-    when (failure.errorCode) {
+): String {
+    return when (failure.errorCode) {
         Constants.HTTP_CODES.CODE_INTERNAL_SERVER_ERROR.code -> {
-            //showSnackBar("something went wrong", tryAgainAction)
+            "something went wrong (CODE_INTERNAL_SERVER_ERROR)"
         }
 
         Constants.HTTP_CODES.CODE_URL_NOT_FOUND.code -> {
-            //showSnackBar("something went wrong", tryAgainAction)
+            "something went wrong (CODE_URL_NOT_FOUND)"
         }
 
         Constants.HTTP_CODES.CONNECTION_ERROR.code -> {
-            //showSnackBar("check your internet connection", tryAgainAction)
+            "something went wrong (CONNECTION_ERROR)"
         }
 
         else -> {
-            if (failure.errorBody is ResponseBody) {
-                val error = failure.errorBody.string()
-                val baseResponse = Gson().fromJson(error, ErrorResponse::class.java)
-                //showSnackBar(baseResponse?.message ?: "something went wrong", tryAgainAction)
-            } else if (failure.errorBody is String) {
-                //showSnackBar(failure.errorBody, tryAgainAction)
+            when (failure.errorBody) {
+                is ResponseBody -> {
+                    val error = failure.errorBody.string()
+                    val baseResponse = Gson().fromJson(error, ErrorResponse::class.java)
+                    "something went wrong (${baseResponse?.message ?: "something went wrong"})"
+                }
+
+                is String -> {
+                    "something went wrong (${failure.errorBody})"
+                }
+
+                else -> {
+                    "something went wrong"
+                }
             }
         }
     }

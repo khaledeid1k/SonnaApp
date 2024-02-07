@@ -19,14 +19,14 @@ class CoreRepositoryImp(
     }
 
     override suspend fun getAzkar(fromLocal: Boolean) = flow {
-            if (fromLocal) {
-                emit(AzkarEntity(coreLocalDataSource.getAzkar().map { it.toEntity() }))
-            } else {
-                coreRemoteDataSource.getAzkar().collect {
-                    emit(it.toEntity())
-                }
+        if (fromLocal) {
+            emit(AzkarEntity(coreLocalDataSource.getAzkar().map { it.toEntity() }))
+        } else {
+            coreRemoteDataSource.getAzkar().collect {
+                emit(it.toEntity())
             }
         }
+    }
 
     override suspend fun insertSurah(surahEntity: SurahEntity) =
         coreLocalDataSource.insertSurah(surahEntity.toModel())

@@ -4,6 +4,6 @@ import com.sonna.remote.response.quran.QuranResponse
 import retrofit2.http.GET
 
 interface CoreApiServicesQuran {
-    @GET("quran/quran-uthmani")
+    @GET("")
     suspend fun getQuran(): QuranResponse
 }
