@@ -51,12 +51,12 @@ class ContentViewModel @Inject constructor(
     private fun getAzkar() {
         viewModelScope.launch {
             try {
-                var result = getAzkarUseCase.getAzkarCategories(true).map { it.toState() }
+                /*var result = getAzkarUseCase.getAzkarCategories(true).map { it.toState() }
                 if (result.isEmpty()) {
                     result = getAzkarUseCase.getAzkarCategories().map { it.toState() }
                 }
                 _state.update { it.copy(azkarList = result) }
-                Log.d(TAG, "getAzkar: $result")
+                Log.d(TAG, "getAzkar: $result")*/
             } catch (e: Exception) {
                 Log.e(TAG, "getAzkar: ${e.message}", e)
             }
@@ -67,7 +67,7 @@ class ContentViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 var result = getAzkarUseCase(true)
-                if (result.azkarList.isEmpty()) {
+                /*if (result.azkarList.isEmpty()) {
                     result = getAzkarUseCase()
                     result.azkarList.forEach {
                         insertZekrUseCase(it)
@@ -75,7 +75,7 @@ class ContentViewModel @Inject constructor(
                     Log.d(TAG, "storeAzkar: $result")
                 }else{
                     Log.d(TAG, "notStoreAzkar: $result")
-                }
+                }*/
             } catch (e: Exception) {
                 Log.e(TAG, "storeAzkar: ${e.message}", e)
             }

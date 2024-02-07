@@ -26,6 +26,7 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:data:remote"))
     implementation(project(":core:data:local"))
+    implementation(project(mapOf("path" to ":common")))
     implementation(libs.core.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

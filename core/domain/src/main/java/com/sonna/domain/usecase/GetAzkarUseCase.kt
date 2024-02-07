@@ -9,9 +9,9 @@ class GetAzkarUseCase(
     suspend operator fun invoke(fromLocal:Boolean=false) = coreRepository.getAzkar(fromLocal)
 
 
-    suspend fun getAzkarCategories(fromLocal:Boolean=false): List<AzkarCategoryEntity> =
+    /*suspend fun getAzkarCategories(fromLocal:Boolean=false): List<AzkarCategoryEntity> =
         this(fromLocal).azkarList
             .groupingBy { it.category }
             .eachCount()
-            .map { (name, count) -> AzkarCategoryEntity(name, count) }
+            .map { (name, count) -> AzkarCategoryEntity(name, count) }*/
 }
