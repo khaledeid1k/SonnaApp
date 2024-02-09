@@ -21,9 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.sonna.common.R
-import com.sonna.viewmodel.content.ContentState
-import com.sonna.viewmodel.splash.BaseState
-import com.sonna.viewmodel.splash.SplashState
+import com.sonna.viewmodel.splash.SplashUiState
 import com.sonna.viewmodel.splash.SplashViewModel
 
 @Composable
@@ -35,7 +33,7 @@ fun SplashScreen(
 }
 
 @Composable
-fun SplashContent(state: BaseState<SplashState>) {
+fun SplashContent(state: SplashUiState) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -44,16 +42,16 @@ fun SplashContent(state: BaseState<SplashState>) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(painter = painterResource(id = R.drawable.quran), contentDescription = null)
-        if (state.loading) {
+        if (state.isLoading) {
             CircularProgressIndicator(
                 modifier = Modifier.width(64.dp),
                 color = MaterialTheme.colorScheme.secondary,
                 trackColor = MaterialTheme.colorScheme.surfaceVariant,
             )
         }
-        if (state.error!=null){
+        if (state.error != null) {
             state.error?.let {
-                Text(text = it, style = TextStyle(color = Color.Red))
+                Text(text = it.error, style = TextStyle(color = Color.Red))
             }
         }
 

@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.sonna.local.model.SurahModel
 import com.sonna.local.model.ZekrModel
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ContentDao {

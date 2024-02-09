@@ -1,30 +1,30 @@
 package com.sonna.repository
 
+import com.sonna.common.bases.BaseRepository
 import com.sonna.domain.entity.azkar.AzkarEntity
 import com.sonna.domain.entity.azkar.ZekrEntity
 import com.sonna.domain.entity.quran.SurahEntity
 import com.sonna.domain.repository.CoreRepository
 import com.sonna.local.CoreLocalDataSource
 import com.sonna.remote.CoreRemoteDataSource
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 class CoreRepositoryImp(
     private val coreRemoteDataSource: CoreRemoteDataSource,
     private val coreLocalDataSource: CoreLocalDataSource
-) : CoreRepository {
-    override suspend fun getQuran() = flow {
-        coreRemoteDataSource.getQuran().collect {
-            emit(it.toEntity())
-        }
-    }
+) : CoreRepository, BaseRepository() {
+    override suspend fun getQuran() =
+        wrapResponseWithErrorHandler { coreRemoteDataSource.getQuran() }.map { it.toEntity() }
 
-    override suspend fun getAzkar(fromLocal: Boolean) = flow {
-        if (fromLocal) {
-            emit(AzkarEntity(coreLocalDataSource.getAzkar().map { it.toEntity() }))
+    override suspend fun getAzkar(fromLocal: Boolean): Flow<AzkarEntity> {
+        return if (fromLocal) {
+            wrapLocalResponseWithErrorHandler { coreLocalDataSource.getAzkar() }
+                .map {
+                    AzkarEntity(it.map { model -> model.toEntity() })
+                }
         } else {
-            coreRemoteDataSource.getAzkar().collect {
-                emit(it.toEntity())
-            }
+            wrapResponseWithErrorHandler { coreRemoteDataSource.getAzkar() }.map { it.toEntity() }
         }
     }
 
