@@ -39,7 +39,7 @@ object NetworkModule {
     fun provideRetrofitQuran(okHttpClient:OkHttpClient):Retrofit{
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://api.alquran.cloud/")
+            .baseUrl("https://api.alquran.cloud/v1/")
             .client(okHttpClient)
             .build()
     }
