@@ -1,5 +1,6 @@
 package com.sonna.viewmodel.splash
 
+import android.util.Log
 import com.sonna.common.bases.BaseErrorUiState
 import com.sonna.common.bases.BaseViewModel
 import com.sonna.domain.entity.azkar.AzkarEntity
@@ -9,6 +10,7 @@ import com.sonna.domain.usecase.GetQuranUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
+import kotlin.math.log
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
@@ -41,15 +43,24 @@ class SplashViewModel @Inject constructor(
     }
 
     private fun onGetQuranSuccess(quranEntity: QuranEntity) {
-        updateState { it.copy(surahes = quranEntity.surahes, isLoading = false) }
+        updateState {
+            it.copy(
+                surahes = quranEntity.surahes,
+                isQuranLoading = false
+            )
+        }
     }
 
     private fun onGetAzkarSuccess(azkarEntity: AzkarEntity) {
-
-        updateState { it.copy(azkar = azkarEntity.azkarList, isLoading = false) }
+        updateState {
+            it.copy(
+                azkar = azkarEntity.azkarList,
+                isAzkarLoading = false
+            )
+        }
     }
 
     private fun onError(error: BaseErrorUiState) {
-        updateState { it.copy(error = error, isLoading = false) }
+        updateState { it.copy(error = error, isQuranLoading = false, isAzkarLoading = false) }
     }
 }

@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.sonna.common.R
 import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.common.theme.dimension
@@ -24,8 +25,9 @@ import com.sonna.viewmodel.home.HomeViewModel
 
 
 @Composable
-fun HomeScreen(homeViewModel : HomeViewModel = hiltViewModel()) {
-
+fun HomeScreen(
+    navController: NavController?=null,
+    homeViewModel : HomeViewModel = hiltViewModel()) {
 }
 
 

@@ -8,7 +8,7 @@ import com.sonna.domain.entity.quran.SurahEntity
 data class SplashUiState(
     val surahes: List<SurahEntity> = emptyList(),
     val azkar: List<ZekrEntity> = emptyList(),
-    val isLoading: Boolean = true,
-    val isSavedJob: Boolean = false,
+    val isQuranLoading: Boolean = true,
+    val isAzkarLoading: Boolean = true,
     val error: BaseErrorUiState? = null,
 )

@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.sonna.common.theme.dimension
 import com.sonna.screens.details.composables.DetailsHeader
 import com.sonna.screens.details.composables.VerseItem
@@ -19,6 +20,7 @@ import com.sonna.viewmodel.details.DetailsViewModel
 
 @Composable
 fun DetailsScreen(
+    navController: NavController?=null,
     mViewModel:DetailsViewModel = hiltViewModel()
 ){
     DetailsContent()

@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 import com.sonna.common.R
 import com.sonna.common.composables.BackHeader
 import com.sonna.common.previews.ThemePreviews
@@ -19,7 +20,9 @@ import com.sonna.screens.sheikhs.composables.SheikhsItem
 import com.sonna.screens.sheikhs.composables.SheikhsList
 
 @Composable
-fun SheikhsScreen() {
+fun SheikhsScreen(
+    navController: NavController?=null,
+) {
     SheikhsContent(SheikhsState())
 }
 
