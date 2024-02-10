@@ -7,6 +7,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import com.sonna.common.R
 import com.sonna.screens.setting.composables.SettingsFeatures
 import com.sonna.common.composables.BackHeader
@@ -14,7 +15,9 @@ import com.sonna.common.theme.dimension
 
 
 @Composable
-fun SettingScreen() {
+fun SettingScreen(
+    navController: NavController?=null,
+) {
     SettingContent(SettingState())
 }
 
