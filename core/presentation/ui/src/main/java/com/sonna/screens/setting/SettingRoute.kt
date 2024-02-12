@@ -3,9 +3,9 @@ package com.sonna.screens.setting
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.sonna.common.utils.AppDestinations
+import com.sonna.common.routes.Screens
 
-private val ROUTE = AppDestinations.SettingScreen.route
+private val ROUTE = Screens.SettingScreen.route
 fun NavController.navigateToSetting() {
     navigate(ROUTE)
 }

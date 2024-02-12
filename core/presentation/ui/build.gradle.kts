@@ -43,5 +43,6 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.constraintlayout.compose)
     ksp(libs.hilt.android.compiler)
 }

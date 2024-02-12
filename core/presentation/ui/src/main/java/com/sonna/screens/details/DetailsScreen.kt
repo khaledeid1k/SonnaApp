@@ -9,10 +9,10 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.sonna.common.previews.ThemePreviews
+import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.common.theme.dimension
 import com.sonna.screens.details.composables.DetailsHeader
 import com.sonna.screens.details.composables.VerseItem
@@ -20,17 +20,17 @@ import com.sonna.viewmodel.details.DetailsViewModel
 
 @Composable
 fun DetailsScreen(
-    navController: NavController?=null,
-    mViewModel:DetailsViewModel = hiltViewModel()
-){
+    navController: NavController,
+    mViewModel: DetailsViewModel = hiltViewModel()
+) {
     DetailsContent()
 }
 
 @Composable
-fun DetailsContent(){
-    Column (
+fun DetailsContent() {
+    Column(
         modifier = Modifier.fillMaxSize(),
-    ){
+    ) {
         DetailsHeader(surahName = "الفاتحة")
         LazyColumn(
             modifier = Modifier
@@ -38,8 +38,8 @@ fun DetailsContent(){
                 .weight(1f),
             contentPadding = PaddingValues(MaterialTheme.dimension.padding24),
             verticalArrangement = Arrangement.spacedBy(MaterialTheme.dimension.padding16)
-        ){
-            items(7){
+        ) {
+            items(7) {
                 VerseItem(
                     arabicVerse = "الحمد لله رب العالمين",
                     englishVerse = "[All] praise is [due] to Allah, Lord of the worlds –"
@@ -49,8 +49,10 @@ fun DetailsContent(){
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
-fun DetailsPreview(){
-    DetailsScreen()
+fun DetailsPreview() {
+    SonnaAppTheme {
+        DetailsContent()
+    }
 }

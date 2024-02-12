@@ -3,6 +3,7 @@ package com.sonna.screens.home.composables
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -33,13 +34,17 @@ fun HomeCardItem(
     color: Color,
     height: Dp,
     @StringRes title: Int,
-    @DrawableRes image: Int
+    @DrawableRes image: Int,
+    onClick: () -> Unit
 ) {
     Card(
         modifier = modifier
             .height(height)
-            .fillMaxWidth(),
-        colors =CardDefaults.cardColors(containerColor = color),
+            .fillMaxWidth()
+            .clickable {
+                onClick()
+            },
+        colors = CardDefaults.cardColors(containerColor = color),
         shape = RoundedCornerShape(MaterialTheme.dimension.radius23)
     ) {
         Box(
@@ -47,16 +52,20 @@ fun HomeCardItem(
         ) {
             Title(
                 modifier = Modifier
-                    .padding(top =MaterialTheme. dimension.spacing16, start =MaterialTheme. dimension.spacing16)
-                ,
+                    .padding(
+                        top = MaterialTheme.dimension.spacing16,
+                        start = MaterialTheme.dimension.spacing16
+                    ),
                 text = stringResource(id = title),
                 textsStyle = MaterialTheme.typography.titleSmall
             )
             Image(
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
-                    .padding(end = MaterialTheme.dimension.spacing16, bottom = MaterialTheme.dimension.spacing16)
-                ,
+                    .padding(
+                        end = MaterialTheme.dimension.spacing16,
+                        bottom = MaterialTheme.dimension.spacing16
+                    ),
                 painter = painterResource(id = image),
                 contentDescription = ""
             )
@@ -70,9 +79,10 @@ fun HomeCardItem(
 fun HomeCardPreview() {
     SonnaAppTheme {
         HomeCardItem(
-        color = Color.White,
-        height = 191.dp,
-         title = R.string.popular,
-         image = R.drawable.quarn)
+            color = Color.White,
+            height = 191.dp,
+            title = R.string.popular,
+            image = R.drawable.quarn
+        ) {}
     }
 }

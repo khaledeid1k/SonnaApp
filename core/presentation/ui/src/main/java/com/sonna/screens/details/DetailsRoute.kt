@@ -3,9 +3,9 @@ package com.sonna.screens.details
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.sonna.common.utils.AppDestinations
+import com.sonna.common.routes.Screens
 
-private val ROUTE = AppDestinations.DetailsScreen.route
+private val ROUTE = Screens.DetailsScreen.route
 fun NavController.navigateToDetails() {
     navigate(ROUTE)
 }
