@@ -1,21 +1,21 @@
 [versions]
-agp = "8.2.1"
+agp = "8.2.2"
 hiltNavigationCompose = "1.1.0"
 kotlin = "1.9.22"
-core-ktx = "1.9.0"
+core-ktx = "1.12.0"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
-lifecycle-runtime-ktx = "2.6.2"
+lifecycle-runtime-ktx = "2.7.0"
 activity-compose = "1.8.2"
-compose-bom = "2023.10.01"
-coil= "2.5.0"
-viewModel="2.6.2"
-viewModelLife="2.2.0"
-viewModelEx="2.2.0"
-lottie = "3.4.0"
-splash = "1.0.0-beta02"
-uiTooling = "1.5.4"
+compose-bom = "2024.01.00"
+coil = "2.5.0"
+viewModel = "2.7.0"
+viewModelLife = "2.7.0"
+viewModelEx = "2.2.0"
+lottie = "6.1.0"
+splash = "1.0.1"
+uiTooling = "1.6.0"
 hilt-android = "2.48"
 ksp = "1.9.10-1.0.13"
 hilt-android-compiler = "2.48"
@@ -47,8 +47,8 @@ ui = { group = "androidx.compose.ui", name = "ui" }
 ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx-coroutines-android"  }
-constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayout-compose"  }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx-coroutines-android" }
+constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayout-compose" }
 
 material3 = { group = "androidx.compose.material3", name = "material3" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt-android" }
@@ -59,12 +59,12 @@ gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room-ktx" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-runtime" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room-compiler" }
-viewModel= { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewModel" }
-viewModelEx= { group = "androidx.lifecycle", name = "lifecycle-extensions", version.ref = "viewModelEx" }
-viewModelLifecycle= { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "viewModelLife"}
-lottie= { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
-coil= { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
-splashScreen= { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
+viewModel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewModel" }
+viewModelEx = { group = "androidx.lifecycle", name = "lifecycle-extensions", version.ref = "viewModelEx" }
+viewModelLifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "viewModelLife" }
+lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
+coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+splashScreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "uiTooling" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat-appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "com-google-android-material-material" }
