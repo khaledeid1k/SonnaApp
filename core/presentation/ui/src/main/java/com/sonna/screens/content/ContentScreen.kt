@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Tab
@@ -14,9 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.sonna.common.previews.ThemePreviews
+import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.common.theme.dimension
 import com.sonna.screens.content.composables.ContentListCard
 import com.sonna.screens.content.composables.LastReadCard
@@ -25,7 +25,7 @@ import com.sonna.viewmodel.content.ContentViewModel
 
 @Composable
 fun ContentScreen(
-    navController: NavController? = null,
+    navController: NavController,
     mViewModel: ContentViewModel = hiltViewModel()
 ) {
     val state by mViewModel.state.collectAsState()
@@ -35,7 +35,7 @@ fun ContentScreen(
 @Composable
 fun ContentScreenContent(
     state: ContentState = ContentState(),
-    onTapChange: (Int) -> Unit
+    onTapChange: (Int) -> Unit = {}
 ) {
     Column(
         modifier = Modifier
@@ -83,8 +83,10 @@ fun ContentScreenContent(
 }
 
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 fun PreviewContentScreen() {
-    //ContentScreenContent()
+    SonnaAppTheme {
+        ContentScreenContent()
+    }
 }
