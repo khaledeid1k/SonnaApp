@@ -6,10 +6,9 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.sonna.local.model.SurahModel
 import com.sonna.local.model.ZekrModel
-import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface ContentDao {
+interface CoreDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSurah(surahModel: SurahModel): Long
 

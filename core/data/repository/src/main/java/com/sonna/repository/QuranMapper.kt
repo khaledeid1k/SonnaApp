@@ -3,6 +3,7 @@ package com.sonna.repository
 import com.sonna.domain.entity.quran.AyahEntity
 import com.sonna.domain.entity.quran.QuranEntity
 import com.sonna.domain.entity.quran.SurahEntity
+import com.sonna.local.model.AyahModel
 import com.sonna.local.model.SurahModel
 import com.sonna.remote.response.quran.AyahResponse
 import com.sonna.remote.response.quran.QuranResponse
@@ -43,9 +44,25 @@ private fun AyahResponse.toEntity(): AyahEntity {
 
 fun SurahEntity.toModel(): SurahModel {
     return SurahModel(
-        englishName = englishName,
-        name = name,
-        number = number,
-        numberOfAyahs = this.ayahs.size
+        ayahs = this.ayahs.map { it.toModel() },
+        englishName = this.englishName,
+        englishNameTranslation = this.englishNameTranslation,
+        name = this.name,
+        number = this.number,
+        revelationType = this.revelationType
+    )
+}
+
+fun AyahEntity.toModel(): AyahModel {
+    return AyahModel(
+        hizbQuarter = this.hizbQuarter,
+        juz = this.juz,
+        manzil = this.manzil,
+        number = this.number,
+        numberInSurah = this.numberInSurah,
+        page = this.page,
+        ruku = this.ruku,
+        sajda = this.sajda,
+        text = this.text
     )
 }

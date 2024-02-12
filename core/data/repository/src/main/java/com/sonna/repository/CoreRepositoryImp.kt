@@ -29,7 +29,7 @@ class CoreRepositoryImp(
     }
 
     override suspend fun insertSurah(surahEntity: SurahEntity) =
-        coreLocalDataSource.insertSurah(surahEntity.toModel())
+        wrapLocalResponseWithErrorHandler { coreLocalDataSource.insertSurah(surahEntity.toModel()) }
 
     override suspend fun insertZekr(zekrEntity: ZekrEntity) =
         coreLocalDataSource.insertZekr(zekrEntity.toModel())
