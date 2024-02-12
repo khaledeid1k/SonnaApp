@@ -12,7 +12,6 @@ import com.sonna.common.composables.BackHeader
 import com.sonna.common.previews.ThemePreviews
 import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.common.theme.dimension
-import com.sonna.screens.content.navigateToContent
 import com.sonna.screens.setting.composables.SettingsFeatures
 
 
@@ -20,9 +19,7 @@ import com.sonna.screens.setting.composables.SettingsFeatures
 fun SettingScreen(
     navController: NavController,
 ) {
-    SettingContent(SettingState()) {
-        navController.navigateToContent()
-    }
+    SettingContent(SettingState()) {}
 }
 
 @Composable

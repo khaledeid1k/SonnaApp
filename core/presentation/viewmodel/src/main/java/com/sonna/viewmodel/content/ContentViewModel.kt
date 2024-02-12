@@ -1,8 +1,10 @@
 package com.sonna.viewmodel.content
 
 import android.util.Log
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sonna.common.routes.ContentArgs
 import com.sonna.domain.usecase.GetAzkarUseCase
 import com.sonna.domain.usecase.InsertSurahUseCase
 import com.sonna.domain.usecase.GetQuranUseCase
@@ -16,24 +18,26 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ContentViewModel @Inject constructor(
+    savedStateHandle: SavedStateHandle,
     val getQuranUseCase: GetQuranUseCase,
     val getAzkarUseCase: GetAzkarUseCase,
     val insertZekrUseCase: InsertZekrUseCase,
-    val insertSurahUseCase: InsertSurahUseCase
+    val insertSurahUseCase: InsertSurahUseCase,
 ) : ViewModel() {
     companion object {
         private const val TAG = "ContentViewModel"
     }
 
-    init {
-        Log.d(TAG, "init is called: ")
-        getAzkar()
-        storeAzkar()
-
-    }
-
     private val _state = MutableStateFlow(ContentState())
     val state = _state.asStateFlow()
+    private val args = ContentArgs(savedStateHandle)
+
+    init {
+        changeTab(args.tabIndexArgs?.toInt() ?: 0)
+        getAzkar()
+        storeAzkar()
+    }
+
 
     /*private fun getSurahes() {
         viewModelScope.launch {
