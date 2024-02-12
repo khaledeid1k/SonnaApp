@@ -34,9 +34,9 @@ fun HomeScreen(
     navController: NavController,
     homeViewModel: HomeViewModel = hiltViewModel()
 ) {
-    HomeContent(homeState = HomeState()) {
-        when (it) {
-            Screens.ContentScreen -> navController.navigateToContent()
+    HomeContent(homeState = HomeState()) { route, tabIndex ->
+        when (route) {
+            Screens.ContentScreen -> navController.navigateToContent(tabIndex)
             Screens.DetailsScreen -> navController.navigateToDetails()
             Screens.HomeScreen -> navController.navigateToHome()
             Screens.SettingScreen -> navController.navigateToSetting()
@@ -48,7 +48,10 @@ fun HomeScreen(
 
 
 @Composable
-fun HomeContent(homeState: HomeState = HomeState(), onClick: (route: Screens) -> Unit = {}) {
+fun HomeContent(
+    homeState: HomeState = HomeState(),
+    onClick: (route: Screens, tabIndex: Int) -> Unit = { _, _ -> }
+) {
     Column {
         Title(
             modifier = Modifier.padding(start = MaterialTheme.dimension.spacing16),
@@ -68,7 +71,25 @@ fun HomeContent(homeState: HomeState = HomeState(), onClick: (route: Screens) ->
                     image = item.image,
                     title = item.title
                 ) {
-                    onClick(Screens.ContentScreen)
+                    when (item.route) {
+                        Screens.ContentScreen -> {
+                            when (item.title) {
+                                R.string.quran -> {
+                                    onClick(item.route, 0)
+                                }
+
+                                R.string.hadith -> {
+                                    onClick(item.route, 1)
+                                }
+
+                                R.string.azkar -> {
+                                    onClick(item.route, 2)
+                                }
+                            }
+                        }
+
+                        else -> onClick(item.route, -1)
+                    }
                 }
             }
         }
