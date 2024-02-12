@@ -12,6 +12,7 @@ import com.sonna.screens.content.contentRoute
 import com.sonna.screens.details.detailsRoute
 import com.sonna.screens.home.homeRoute
 import com.sonna.screens.setting.settingRoute
+import com.sonna.screens.sheikhs.sheikhsRoute
 import com.sonna.screens.splash.splashRoute
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -34,6 +35,7 @@ fun AppNavGraph(navController: NavHostController) {
         contentRoute(navController)
         detailsRoute(navController)
         settingRoute(navController)
+        sheikhsRoute(navController)
     }
 }
 

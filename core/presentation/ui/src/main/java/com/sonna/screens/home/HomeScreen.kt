@@ -68,7 +68,7 @@ fun HomeContent(homeState: HomeState = HomeState(), onClick: (route: Screens) ->
                     image = item.image,
                     title = item.title
                 ) {
-                    onClick(Screens.ContentScreen)
+                    onClick(item.route)
                 }
             }
         }

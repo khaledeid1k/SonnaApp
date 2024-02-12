@@ -40,15 +40,14 @@ fun HomeCardItem(
     Card(
         modifier = modifier
             .height(height)
-            .fillMaxWidth()
-            .clickable {
-                onClick()
-            },
+            .fillMaxWidth(),
         colors = CardDefaults.cardColors(containerColor = color),
         shape = RoundedCornerShape(MaterialTheme.dimension.radius23)
     ) {
         Box(
-            modifier = modifier.fillMaxSize()
+            modifier = modifier.fillMaxSize().clickable {
+                onClick()
+            }
         ) {
             Title(
                 modifier = Modifier
