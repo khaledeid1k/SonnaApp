@@ -40,22 +40,22 @@ fun SettingDetailsQuranContent() {
             iconOfItem = R.drawable.surah,
             nameOfItem=R.string.surah,
             valueOfFeature ="AL Fatha" ,
-        ), itemClick = {},changeValueOfSetting={})
+        ),changeValueOfSetting={})
         ValueSettingDetails(SettingDetailState(
             iconOfItem = R.drawable.aya,
             nameOfItem=R.string.aya,
             valueOfFeature ="AL Fatha" ,
-        ), itemClick = {},changeValueOfSetting={})
+        ),changeValueOfSetting={})
         ValueSettingDetails(SettingDetailState(
             iconOfItem = R.drawable.quran_reader,
             nameOfItem=R.string.reader,
             valueOfFeature ="AL Fatha" ,
-        ), itemClick = {},changeValueOfSetting={})
+        ),changeValueOfSetting={})
         ValueSettingDetails(SettingDetailState(
             iconOfItem = R.drawable.time,
             nameOfItem=R.string.time_show_aya,
             valueOfFeature ="AL Fatha" ,
-        ), itemClick = {},changeValueOfSetting={})
+        ),changeValueOfSetting={})
         SwitchSettingDetails(SettingDetailState(
             iconOfItem = R.drawable.open,
             nameOfItem=R.string.show_when_open_phone,
@@ -66,7 +66,7 @@ fun SettingDetailsQuranContent() {
             iconOfItem = R.drawable.download,
             nameOfItem=R.string.download_surah,
             valueOfFeature ="AL Fatha" ,
-        ), itemClick = {},changeValueOfSetting={})
+        ),changeValueOfSetting={})
 
         SwitchSettingDetails(SettingDetailState(
             iconOfItem = R.drawable.close,

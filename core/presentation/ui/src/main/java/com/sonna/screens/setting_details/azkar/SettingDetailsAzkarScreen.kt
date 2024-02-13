@@ -38,19 +38,19 @@ fun SettingDetailsAzkarContent() {
                 iconOfItem = R.drawable.morning_azkar,
                 nameOfItem= R.string.morning_azkar,
                 valueOfFeature ="AL Fatha" ,
-            ), itemClick = {},changeValueOfSetting={})
+            ),changeValueOfSetting={})
         ValueSettingDetails(
             SettingDetailState(
                 iconOfItem = R.drawable.night_azkar,
                 nameOfItem= R.string.morning_azkar,
                 valueOfFeature ="AL Fatha" ,
-            ), itemClick = {},changeValueOfSetting={})
+            ),changeValueOfSetting={})
         ValueSettingDetails(
             SettingDetailState(
                 iconOfItem = R.drawable.sleep_azkar,
                 nameOfItem= R.string.sleeping_azkar,
                 valueOfFeature ="AL Fatha" ,
-            ), itemClick = {},changeValueOfSetting={})
+            ),changeValueOfSetting={})
 
 
 

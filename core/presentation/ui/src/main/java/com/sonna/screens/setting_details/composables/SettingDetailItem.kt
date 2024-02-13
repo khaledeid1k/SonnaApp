@@ -26,6 +26,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.sonna.common.composables.DividerLine
 import com.sonna.common.composables.SpacerVertical
+import com.sonna.common.previews.ThemePreviews
+import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.common.theme.dimension
 import com.sonna.screens.setting_details.SettingDetailState
 
@@ -33,14 +35,12 @@ import com.sonna.screens.setting_details.SettingDetailState
 @Composable
 fun ValueSettingDetails(
     settingDetailState: SettingDetailState,
-    changeValueOfSetting: () -> Unit,
-    itemClick: () -> Unit={}) {
+    changeValueOfSetting: () -> Unit) {
 Column {
     SpacerVertical(spaceSize=MaterialTheme.dimension.spacing10)
     Row(
         modifier = Modifier
-            .wrapContentSize()
-            .clickable { itemClick() },
+            .wrapContentSize(),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -63,7 +63,8 @@ Column {
 
         Text(
             text = settingDetailState.valueOfFeature,
-            modifier = Modifier.alpha(0.7f)
+            modifier = Modifier
+                .alpha(0.7f)
                 .clickable {
                     changeValueOfSetting()
                 }
@@ -123,19 +124,20 @@ fun SwitchSettingDetails(settingDetailState: SettingDetailState,
     }
 
 }
-@Preview
+@ThemePreviews
 @Composable
 fun ValueSettingDetailsPreview() {
-    ValueSettingDetails(settingDetailState=SettingDetailState(),{}){}
+    SonnaAppTheme {
+        ValueSettingDetails(settingDetailState = SettingDetailState()) {}
+    }
 }
 
-
-
-
-@Preview
+@ThemePreviews
 @Composable
 fun  SwitchSettingDetailsPreview() {
-    SwitchSettingDetails(settingDetailState=SettingDetailState()){}
+    SonnaAppTheme {
+        SwitchSettingDetails(settingDetailState = SettingDetailState()) {}
+    }
 }
 
 

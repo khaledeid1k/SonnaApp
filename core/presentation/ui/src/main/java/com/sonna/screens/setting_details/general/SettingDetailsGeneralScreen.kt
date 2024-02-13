@@ -37,23 +37,23 @@ fun SettingDetailsGeneralContent() {
                 iconOfItem = R.drawable.language,
                 nameOfItem= R.string.language,
                 valueOfFeature ="AL Fatha" ,
-            ), itemClick = {},changeValueOfSetting={})
+            ),changeValueOfSetting={})
         ValueSettingDetails(
             SettingDetailState(
                 iconOfItem = R.drawable.font_size,
                 nameOfItem= R.string.font_size,
                 valueOfFeature ="AL Fatha" ,
-            ), itemClick = {},changeValueOfSetting={})
+            ),changeValueOfSetting={})
         ValueSettingDetails(
             SettingDetailState(
                 iconOfItem = R.drawable.contact_us,
                 nameOfItem= R.string.contact_us,
-            ), itemClick = {},changeValueOfSetting={})
+            ),changeValueOfSetting={})
         ValueSettingDetails(
             SettingDetailState(
                 iconOfItem = R.drawable.help_support,
                 nameOfItem= R.string.help_support,
-            ), itemClick = {},changeValueOfSetting={})
+            ),changeValueOfSetting={})
 
 
 
