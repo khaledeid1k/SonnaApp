@@ -21,15 +21,18 @@ class SplashViewModel @Inject constructor(
     companion object {
         private const val TAG = "SplashViewModel"
     }
+
     private var numOfSurahes = 0
+
     init {
         getQuran()
         getAzkar()
     }
 
     private fun getQuran() {
+        Log.d(TAG, "getQuran: ")
         tryToExecute(
-            { getQuranUseCase() },
+            { getQuranUseCase(true) },
             ::onGetQuranSuccess,
             ::onError
         )
@@ -44,27 +47,42 @@ class SplashViewModel @Inject constructor(
     }
 
     private fun insertSurah(surahEntity: SurahEntity) {
-        tryToExecute({ insertSurahUseCase(surahEntity) },
-            onSuccess = { _ ->
-                numOfSurahes++
-                if (numOfSurahes==114){
-                    updateState { it.copy(isQuranLoading = false) }
-                }
-                Log.d(TAG, "insertSurah: $numOfSurahes")
-            },
-            onError = { error ->
-                Log.e(TAG, "insertSurah: ${error.message}")
-            })
+        tryToExecute(
+            { insertSurahUseCase(surahEntity) },
+            onSuccess = ::onInsertSuccess,
+            onError = ::onError
+        )
+    }
+
+    private fun onInsertSuccess(flag: Long) {
+        numOfSurahes++
+        if (numOfSurahes == 114) {
+            updateState { it.copy(isQuranLoading = false) }
+        }
+        Log.d(TAG, "insertSurah: $numOfSurahes")
     }
 
     private fun onGetQuranSuccess(quranEntity: QuranEntity) {
+        if (quranEntity.surahes.isEmpty()) {
+            Log.d(TAG, "onGetQuranSuccess: local is empty")
+            tryToExecute(
+                { getQuranUseCase(false) },
+                onSuccess = ::onGetQuranFromNetworkSuccess,
+                onError = ::onError
+            )
+        } else {
+            Log.d(TAG, "onGetQuranSuccess: local is not empty")
+            updateState {
+                it.copy(
+                    isQuranLoading = false
+                )
+            }
+        }
+    }
+
+    private fun onGetQuranFromNetworkSuccess(quranEntity: QuranEntity) {
         quranEntity.surahes.forEach {
             insertSurah(it)
-        }
-        updateState {
-            it.copy(
-                surahes = quranEntity.surahes,
-            )
         }
     }
 
@@ -78,6 +96,7 @@ class SplashViewModel @Inject constructor(
     }
 
     private fun onError(error: BaseErrorUiState) {
+        Log.e(TAG, "onError: ${error.message}")
         updateState { it.copy(error = error, isQuranLoading = false, isAzkarLoading = false) }
     }
 }
