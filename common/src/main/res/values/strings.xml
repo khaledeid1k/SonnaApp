@@ -58,7 +58,17 @@
     <string name="sunan_great_mosque_ar">"الجامع الكبير(الأمام الترمذي)"</string>
     <string name="see_all">"See All"</string>
     <string name="play_form_playlist">"PLAYING FROM PLAYLIST"</string>
-
+    <string-array name="hadith_books">
+        <item>Darimi</item>
+        <item>Ahmed</item>
+        <item>AbiDaud</item>
+        <item>Bukhari</item>
+        <item>IbnMaja</item>
+        <item>Malik</item>
+        <item>Muslim</item>
+        <item>Nasai</item>
+        <item>Trmizi</item>
+    </string-array>
 
 
 </resources>
