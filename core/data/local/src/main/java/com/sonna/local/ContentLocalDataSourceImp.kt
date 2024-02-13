@@ -2,7 +2,7 @@ package com.sonna.local
 
 import com.sonna.local.data_store.SonnaDataStorePreferences
 import com.sonna.local.model.HadithBookDownloadedModel
-import com.sonna.local.model.HadithBookModel
+import com.sonna.local.model.HadithModel
 import com.sonna.local.model.SurahModel
 import com.sonna.local.model.ZekrModel
 
@@ -20,7 +20,7 @@ class ContentLocalDataSourceImp(
     }
     override suspend fun insertZekr(zekrModel: ZekrModel) = contentDao.insertZekr(zekrModel)
     override suspend fun getAzkar() = contentDao.getAzkar()
-    override suspend fun saveHadithBook(hadithBook: List<HadithBookModel>) : List<Long> {
+    override suspend fun saveHadithBook(hadithBook: List<HadithModel>) : List<Long> {
       return  contentDao.saveHadithBook(hadithBook)
     }
 
@@ -28,7 +28,7 @@ class ContentLocalDataSourceImp(
     override suspend fun getSingleHadith(
         hadith: String,
         numberOfHadith: Int
-    ): HadithBookModel {
+    ): HadithModel {
         return contentDao.getSingleHadith(hadith, numberOfHadith)
     }
 
