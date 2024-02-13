@@ -6,10 +6,9 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.sonna.local.model.SurahModel
 import com.sonna.local.model.ZekrModel
-import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface ContentDao {
+interface CoreDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSurah(surahModel: SurahModel): Long
 
@@ -19,18 +18,10 @@ interface ContentDao {
     @Query("SELECT * FROM zekrmodel")
     suspend fun getAzkar(): List<ZekrModel>
 
-    /*@Query("SELECT * FROM cart_table")
-    fun getCartItems(): Flow<List<CartItem>>
+    @Query("SELECT * FROM surahmodel ORDER BY number")
+    suspend fun getQuran(): List<SurahModel>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertCartItem(cartItem: CartItem): Long
+    @Query("SELECT * FROM surahmodel WHERE number = :surahIndex")
+    suspend fun getSurah(surahIndex: Int): SurahModel
 
-    @Delete
-    suspend fun deleteCartItem(cartItem: CartItem): Int
-
-    @Query("DELETE FROM cart_table")
-    suspend fun deleteAllCartItems()
-
-    @Update
-    suspend fun updateCartItem(cartItem: CartItem)*/
 }

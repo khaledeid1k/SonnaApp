@@ -3,6 +3,7 @@ package com.sonna.di
 import com.sonna.domain.repository.CoreRepository
 import com.sonna.domain.usecase.GetAzkarUseCase
 import com.sonna.domain.usecase.GetQuranUseCase
+import com.sonna.domain.usecase.GetSurahUseCase
 import com.sonna.domain.usecase.InsertSurahUseCase
 import com.sonna.domain.usecase.InsertZekrUseCase
 import dagger.Module
@@ -30,5 +31,10 @@ object UseCaseModule {
     @Provides
     fun provideInsertZekrUseCase(coreRepository: CoreRepository): InsertZekrUseCase {
         return InsertZekrUseCase(coreRepository)
+    }
+
+    @Provides
+    fun provideGetSurahUseCase(coreRepository: CoreRepository): GetSurahUseCase {
+        return GetSurahUseCase(coreRepository)
     }
 }

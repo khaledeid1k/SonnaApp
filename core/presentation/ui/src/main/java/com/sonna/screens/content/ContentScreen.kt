@@ -20,7 +20,8 @@ import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.common.theme.dimension
 import com.sonna.screens.content.composables.ContentListCard
 import com.sonna.screens.content.composables.LastReadCard
-import com.sonna.viewmodel.content.ContentState
+import com.sonna.screens.details.navigateToDetails
+import com.sonna.viewmodel.content.ContentUiState
 import com.sonna.viewmodel.content.ContentViewModel
 
 @Composable
@@ -29,13 +30,16 @@ fun ContentScreen(
     mViewModel: ContentViewModel = hiltViewModel()
 ) {
     val state by mViewModel.state.collectAsState()
-    ContentScreenContent(state, mViewModel::changeTab)
+    ContentScreenContent(state, mViewModel::changeTab) { tabIndex, itemIndex ->
+        navController.navigateToDetails(tabIndex, itemIndex)
+    }
 }
 
 @Composable
 fun ContentScreenContent(
-    state: ContentState = ContentState(),
-    onTapChange: (Int) -> Unit = {}
+    state: ContentUiState = ContentUiState(),
+    onTapChange: (Int) -> Unit = {},
+    onItemClick: (tabIndex: Int, itemIndex: Int) -> Unit = { _, _ -> }
 ) {
     Column(
         modifier = Modifier
@@ -59,18 +63,20 @@ fun ContentScreenContent(
             if (state.selectedTabIndex == 0) {
                 items(count = state.surahesList.size) {
                     ContentListCard(
+                        tabIndex = 0,
                         surahIndex = state.surahesList[it].number,
                         surahName = state.surahesList[it].name,
                         surahEnglishName = state.surahesList[it].englishName,
-                        numOfVerses = state.surahesList[it].numberOfAyahs
+                        numOfVerses = state.surahesList[it].numberOfAyahs,
+                        onClick = onItemClick
                     )
                 }
             } else if (state.selectedTabIndex == state.tabs.size - 1) {
                 items(count = state.azkarList.size) {
                     ContentListCard(
+                        tabIndex = state.selectedTabIndex,
                         surahIndex = it + 1,
                         surahName = state.azkarList[it].name,
-                        //surahEnglishName = state.surahesList[it].englishName,
                         numOfVerses = state.azkarList[it].numberOfAzkar
                     )
                 }

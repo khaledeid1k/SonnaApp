@@ -28,8 +28,8 @@ abstract class BaseViewModel<STATE>(initialUiState: STATE) : ViewModel() {
 
     fun <T> tryToExecute(
         callee: suspend () -> Flow<T>,
-        onSuccess: (T) -> Unit,
-        onError: (BaseErrorUiState) -> Unit,
+        onSuccess: (T) -> Unit={_->},
+        onError: (BaseErrorUiState) -> Unit={_->},
         dispatcher: CoroutineDispatcher = Dispatchers.IO
     ) {
         viewModelScope.launch(dispatcher) {

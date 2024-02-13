@@ -1,5 +1,6 @@
 package com.sonna.screens.content.composables
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -24,10 +25,12 @@ import com.sonna.common.theme.dimension
 
 @Composable
 fun ContentListCard(
+    tabIndex: Int = 0,
     surahIndex: Int = 0,
     surahName: String = "",
     surahEnglishName: String = "",
-    numOfVerses: Int = 0
+    numOfVerses: Int = 0,
+    onClick: (tabIndex:Int,itemIndex:Int) -> Unit = {_,_->}
 ) {
     Row(
         modifier = Modifier
@@ -35,7 +38,8 @@ fun ContentListCard(
             .padding(
                 horizontal = MaterialTheme.dimension.padding8,
                 vertical = MaterialTheme.dimension.padding4
-            ),
+            )
+            .clickable { onClick(tabIndex,surahIndex) },
         verticalAlignment = Alignment.CenterVertically
     ) {
         Card(
@@ -60,12 +64,16 @@ fun ContentListCard(
             Text(text = "$surahEnglishName ($numOfVerses)", color = Color.LightGray)
         }
         Spacer(modifier = Modifier.weight(1f))
-        Icon(imageVector = Icons.Rounded.Star, tint = MaterialTheme.colorScheme.primaryContainer, contentDescription = "")
+        Icon(
+            imageVector = Icons.Rounded.Star,
+            tint = MaterialTheme.colorScheme.primaryContainer,
+            contentDescription = ""
+        )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun ContentListCardPreview(){
+fun ContentListCardPreview() {
     ContentListCard()
 }
