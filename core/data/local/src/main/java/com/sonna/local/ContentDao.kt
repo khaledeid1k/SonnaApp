@@ -4,6 +4,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.sonna.local.model.HadithBookDownloadedModel
+import com.sonna.local.model.HadithBookModel
 import com.sonna.local.model.SurahModel
 import com.sonna.local.model.ZekrModel
 
@@ -17,19 +19,14 @@ interface ContentDao {
 
     @Query("SELECT * FROM zekrmodel")
     suspend fun getAzkar(): List<ZekrModel>
-
-    /*@Query("SELECT * FROM cart_table")
-    fun getCartItems(): Flow<List<CartItem>>
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun saveHadithBook(hadithBook : List<HadithBookModel>) : List<Long>
+    @Query("SELECT * FROM hadith_book_model WHERE hadith LIKE :hadith AND number = :numberOfHadith")
+    suspend fun getSingleHadith(hadith: String, numberOfHadith:Int): HadithBookModel
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertCartItem(cartItem: CartItem): Long
+    suspend fun saveDownloadedHadithBookName(hadithBookDownloadedModel: HadithBookDownloadedModel):Long
+    @Query("SELECT EXISTS(SELECT * FROM hadith_book_names WHERE hadithBookName = :hadithBookName)")
+    suspend fun isHadithBookDownloaded(hadithBookName: String): Boolean
 
-    @Delete
-    suspend fun deleteCartItem(cartItem: CartItem): Int
-
-    @Query("DELETE FROM cart_table")
-    suspend fun deleteAllCartItems()
-
-    @Update
-    suspend fun updateCartItem(cartItem: CartItem)*/
 }

@@ -3,6 +3,7 @@ package com.sonna.repository
 import com.sonna.domain.entity.hadith.HadithEntity
 import com.sonna.domain.entity.azkar.AzkarEntity
 import com.sonna.domain.entity.azkar.ZekrEntity
+import com.sonna.domain.entity.hadith.HadithBookDownloadedEntity
 import com.sonna.local.model.HadithBookNames
 import com.sonna.domain.entity.quran.AllSurahesEntity
 import com.sonna.domain.entity.quran.SurahEntity
@@ -40,9 +41,7 @@ class ContentRepositoryImp(
         contentLocalDataSource.insertZekr(zekrEntity.toModel())
 
 
-    override suspend fun saveSelectedHadithBook(hadithBook: String) {
-        contentLocalDataSource.saveSelectedHadithBook(hadithBook)
-    }
+
 
     override suspend fun readSelectedHadithBook(): Pair<String,Int> {
         val readSelectedHadithBook = contentLocalDataSource.readSelectedHadithBookName()
@@ -52,7 +51,11 @@ class ContentRepositoryImp(
     }
 
 
-    override suspend fun getHadithBook(): List<HadithEntity> {
+    override suspend fun saveSelectedHadithBook(hadithBook: String) {
+        contentLocalDataSource.saveSelectedHadithBook(hadithBook)
+    }
+
+    override suspend fun getHadithBook(hadithName:String): List<HadithEntity> {
         val bookFetcherMap = mapOf<String, suspend () -> HadithResponse>(
             HadithBookNames.Darimi.name to contentRemoteDataSource::getDarimiHadithBook,
             HadithBookNames.Ahmed.name to contentRemoteDataSource::getAhmedBook,
@@ -64,20 +67,25 @@ class ContentRepositoryImp(
             HadithBookNames.Nasai.name to contentRemoteDataSource::getNasaiBook,
             HadithBookNames.Trmizi.name to contentRemoteDataSource::getTrmiziBook,
         )
-
-        return bookFetcherMap[readSelectedHadithBook().first]?.invoke()?.toEntity() ?: emptyList()
+        return bookFetcherMap[hadithName]?.invoke()?.toEntity() ?: emptyList()
     }
-
-
 
     override suspend fun saveHadithBook(hadithBook: List<HadithEntity>): List<Long> {
         return contentLocalDataSource.saveHadithBook(hadithBook.toModel())
     }
 
-    override suspend fun getHadith(
+    override suspend fun getSingleHadith(
         hadithBookName: String,
         numberOfHadith: Int
     ): HadithEntity {
-        return contentLocalDataSource.getHadith(hadithBookName, numberOfHadith).toEntity()
+        return contentLocalDataSource.getSingleHadith(hadithBookName, numberOfHadith).toEntity()
+    }
+
+    override suspend fun saveDownloadedHadithBookName(hadithBookDownloadedModel: HadithBookDownloadedEntity): Long {
+        return contentLocalDataSource.saveDownloadedHadithBookName(hadithBookDownloadedModel.toEntity())
+    }
+
+    override suspend fun isHadithBookDownloaded(hadithBookName: String): Boolean {
+        return contentLocalDataSource.isHadithBookDownloaded(hadithBookName)
     }
 }
