@@ -21,18 +21,7 @@ interface CoreDao {
     @Query("SELECT * FROM surahmodel ORDER BY number")
     suspend fun getQuran(): List<SurahModel>
 
-    /*@Query("SELECT * FROM cart_table")
-    fun getCartItems(): Flow<List<CartItem>>
+    @Query("SELECT * FROM surahmodel WHERE number = :surahIndex")
+    suspend fun getSurah(surahIndex: Int): SurahModel
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertCartItem(cartItem: CartItem): Long
-
-    @Delete
-    suspend fun deleteCartItem(cartItem: CartItem): Int
-
-    @Query("DELETE FROM cart_table")
-    suspend fun deleteAllCartItems()
-
-    @Update
-    suspend fun updateCartItem(cartItem: CartItem)*/
 }

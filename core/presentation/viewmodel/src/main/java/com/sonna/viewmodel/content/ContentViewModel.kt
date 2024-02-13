@@ -31,19 +31,17 @@ class ContentViewModel @Inject constructor(
 
     private fun getSurahes() {
         tryToExecute(
-            {getQuranUseCase(fromLocal = true)},
+            { getQuranUseCase(fromLocal = true) },
             ::onGetSurahesSuccess,
             ::onError
         )
     }
 
-    private fun  onGetSurahesSuccess(surahes:QuranEntity){
-        updateState { it.copy(surahesList = surahes.surahes.map {entity-> entity.toState() }) }
+    private fun onGetSurahesSuccess(surahes: QuranEntity) {
+        updateState { it.copy(surahesList = surahes.surahes.map { entity -> entity.toState() }) }
     }
 
-    private fun onError(error: BaseErrorUiState) {
-        updateState { it.copy(error = error) }
-    }
+    private fun onError(error: BaseErrorUiState) = updateState { it.copy(error = error) }
 
     private fun getAzkar() {}
 

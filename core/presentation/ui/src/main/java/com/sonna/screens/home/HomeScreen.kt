@@ -37,11 +37,11 @@ fun HomeScreen(
     HomeContent(homeState = HomeState()) { route, tabIndex ->
         when (route) {
             Screens.ContentScreen -> navController.navigateToContent(tabIndex)
-            Screens.DetailsScreen -> navController.navigateToDetails()
             Screens.HomeScreen -> navController.navigateToHome()
             Screens.SettingScreen -> navController.navigateToSetting()
             Screens.SheikhsScreen -> navController.navigateToSheikhs()
             Screens.SplashScreen -> navController.navigateToSplash()
+            else->{}
         }
     }
 }

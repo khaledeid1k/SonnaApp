@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface CoreRepository {
     suspend fun getQuran(fromLocal:Boolean): Flow<QuranEntity>
+    suspend fun getSurah(surahIndex:Int): Flow<SurahEntity>
     suspend fun getAzkar(fromLocal:Boolean): Flow<AzkarEntity>
     suspend fun insertSurah(surahEntity: SurahEntity):Flow<Long>
     suspend fun insertZekr(zekrEntity: ZekrEntity):Long
