@@ -66,3 +66,28 @@ fun AyahEntity.toModel(): AyahModel {
         text = this.text
     )
 }
+
+fun SurahModel.toEntity(): SurahEntity {
+    return SurahEntity(
+        ayahs = this.ayahs.map { it.toEntity() },
+        englishName = this.englishName,
+        englishNameTranslation = this.englishNameTranslation,
+        name = this.name,
+        number = this.number,
+        revelationType = this.revelationType
+    )
+}
+
+fun AyahModel.toEntity(): AyahEntity {
+    return AyahEntity(
+        hizbQuarter = this.hizbQuarter,
+        juz = this.juz,
+        manzil = this.manzil,
+        number = this.number,
+        numberInSurah = this.numberInSurah,
+        page = this.page,
+        ruku = this.ruku,
+        sajda = this.sajda,
+        text = this.text
+    )
+}

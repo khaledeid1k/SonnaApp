@@ -7,7 +7,11 @@ import kotlinx.coroutines.flow.flow
 class CoreLocalDataSourceImp(
     private val coreDao: CoreDao,
 ) : CoreLocalDataSource {
-    override suspend fun insertSurah(surahModel: SurahModel) = flow { emit(coreDao.insertSurah(surahModel)) }
+    override suspend fun insertSurah(surahModel: SurahModel) =
+        flow { emit(coreDao.insertSurah(surahModel)) }
+
+    override suspend fun getQuran() = flow { emit(coreDao.getQuran()) }
+
     override suspend fun insertZekr(zekrModel: ZekrModel) = coreDao.insertZekr(zekrModel)
     override suspend fun getAzkar() = flow { emit(coreDao.getAzkar()) }
 }

@@ -20,7 +20,7 @@ import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.common.theme.dimension
 import com.sonna.screens.content.composables.ContentListCard
 import com.sonna.screens.content.composables.LastReadCard
-import com.sonna.viewmodel.content.ContentState
+import com.sonna.viewmodel.content.ContentUiState
 import com.sonna.viewmodel.content.ContentViewModel
 
 @Composable
@@ -34,7 +34,7 @@ fun ContentScreen(
 
 @Composable
 fun ContentScreenContent(
-    state: ContentState = ContentState(),
+    state: ContentUiState = ContentUiState(),
     onTapChange: (Int) -> Unit = {}
 ) {
     Column(

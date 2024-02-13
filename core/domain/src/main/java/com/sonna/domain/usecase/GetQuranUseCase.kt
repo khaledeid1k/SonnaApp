@@ -5,5 +5,5 @@ import com.sonna.domain.repository.CoreRepository
 class GetQuranUseCase(
     private val coreRepository: CoreRepository
 ) {
-    suspend operator fun invoke() = coreRepository.getQuran()
+    suspend operator fun invoke(fromLocal: Boolean = false) = coreRepository.getQuran(fromLocal)
 }

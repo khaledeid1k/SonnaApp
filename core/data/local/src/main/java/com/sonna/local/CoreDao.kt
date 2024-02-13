@@ -18,6 +18,9 @@ interface CoreDao {
     @Query("SELECT * FROM zekrmodel")
     suspend fun getAzkar(): List<ZekrModel>
 
+    @Query("SELECT * FROM surahmodel ORDER BY number")
+    suspend fun getQuran(): List<SurahModel>
+
     /*@Query("SELECT * FROM cart_table")
     fun getCartItems(): Flow<List<CartItem>>
 

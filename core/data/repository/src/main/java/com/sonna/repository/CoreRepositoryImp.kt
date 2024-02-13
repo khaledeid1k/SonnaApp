@@ -3,6 +3,7 @@ package com.sonna.repository
 import com.sonna.common.bases.BaseRepository
 import com.sonna.domain.entity.azkar.AzkarEntity
 import com.sonna.domain.entity.azkar.ZekrEntity
+import com.sonna.domain.entity.quran.QuranEntity
 import com.sonna.domain.entity.quran.SurahEntity
 import com.sonna.domain.repository.CoreRepository
 import com.sonna.local.CoreLocalDataSource
@@ -14,8 +15,16 @@ class CoreRepositoryImp(
     private val coreRemoteDataSource: CoreRemoteDataSource,
     private val coreLocalDataSource: CoreLocalDataSource
 ) : CoreRepository, BaseRepository() {
-    override suspend fun getQuran() =
-        wrapResponseWithErrorHandler { coreRemoteDataSource.getQuran() }.map { it.toEntity() }
+    override suspend fun getQuran(fromLocal: Boolean): Flow<QuranEntity> {
+        return if (fromLocal) {
+            wrapLocalResponseWithErrorHandler { coreLocalDataSource.getQuran() }
+                .map {
+                    QuranEntity(it.map { model -> model.toEntity() })
+                }
+        } else {
+            wrapResponseWithErrorHandler { coreRemoteDataSource.getQuran() }.map { it.toEntity() }
+        }
+    }
 
     override suspend fun getAzkar(fromLocal: Boolean): Flow<AzkarEntity> {
         return if (fromLocal) {

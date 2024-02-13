@@ -22,6 +22,6 @@ data class AyahModel(
     val numberInSurah: Int,
     val page: Int,
     val ruku: Int,
-    val sajda: Any,
+    val sajda: Boolean,
     val text: String
 )
