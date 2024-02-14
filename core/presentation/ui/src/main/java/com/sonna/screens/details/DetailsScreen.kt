@@ -37,7 +37,10 @@ fun DetailsContent(
     Column(
         modifier = Modifier.fillMaxSize(),
     ) {
-        DetailsHeader(surahName = state.title)
+        DetailsHeader(
+            surahName = state.title,
+            showBasmala = state.title!="سُورَةُ التَّوۡبَةِ"
+        )
         LazyColumn(
             modifier = Modifier
                 .fillMaxWidth()
