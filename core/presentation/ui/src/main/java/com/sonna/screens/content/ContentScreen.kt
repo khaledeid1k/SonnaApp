@@ -30,8 +30,8 @@ fun ContentScreen(
     mViewModel: ContentViewModel = hiltViewModel()
 ) {
     val state by mViewModel.state.collectAsState()
-    ContentScreenContent(state, mViewModel::changeTab) { tabIndex, itemIndex ->
-        navController.navigateToDetails(tabIndex, itemIndex)
+    ContentScreenContent(state, mViewModel::changeTab) { tabIndex, itemIndex, itemTitle ->
+        navController.navigateToDetails(tabIndex, itemIndex, itemTitle)
     }
 }
 
@@ -39,7 +39,7 @@ fun ContentScreen(
 fun ContentScreenContent(
     state: ContentUiState = ContentUiState(),
     onTapChange: (Int) -> Unit = {},
-    onItemClick: (tabIndex: Int, itemIndex: Int) -> Unit = { _, _ -> }
+    onItemClick: (tabIndex: Int, itemIndex: Int, itemTitle: String) -> Unit = { _, _, _ -> }
 ) {
     Column(
         modifier = Modifier
@@ -77,7 +77,8 @@ fun ContentScreenContent(
                         tabIndex = state.selectedTabIndex,
                         surahIndex = it + 1,
                         surahName = state.azkarList[it].name,
-                        numOfVerses = state.azkarList[it].numberOfAzkar
+                        numOfVerses = state.azkarList[it].numberOfAzkar,
+                        onClick = onItemClick
                     )
                 }
             }

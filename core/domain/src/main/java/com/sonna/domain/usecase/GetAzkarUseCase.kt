@@ -7,7 +7,9 @@ import kotlinx.coroutines.flow.map
 class GetAzkarUseCase(
     private val coreRepository: CoreRepository
 ) {
-    suspend operator fun invoke(fromLocal: Boolean = false) = coreRepository.getAzkar(fromLocal)
+    suspend operator fun invoke(fromLocal: Boolean = false, category: String = "") =
+        coreRepository.getAzkar(fromLocal, category)
+
     suspend fun getAzkarCategories(fromLocal: Boolean = false) = this(fromLocal).map {
         it.azkarList.groupingBy { zekr -> zekr.category }
             .eachCount()

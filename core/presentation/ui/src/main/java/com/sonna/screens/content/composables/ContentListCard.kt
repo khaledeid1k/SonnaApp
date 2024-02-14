@@ -30,7 +30,7 @@ fun ContentListCard(
     surahName: String = "",
     surahEnglishName: String = "",
     numOfVerses: Int = 0,
-    onClick: (tabIndex:Int,itemIndex:Int) -> Unit = {_,_->}
+    onClick: (tabIndex:Int,itemIndex:Int,itemTitle:String) -> Unit = {_,_,_->}
 ) {
     Row(
         modifier = Modifier
@@ -39,7 +39,7 @@ fun ContentListCard(
                 horizontal = MaterialTheme.dimension.padding8,
                 vertical = MaterialTheme.dimension.padding4
             )
-            .clickable { onClick(tabIndex,surahIndex) },
+            .clickable { onClick(tabIndex,surahIndex,surahName) },
         verticalAlignment = Alignment.CenterVertically
     ) {
         Card(
