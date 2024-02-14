@@ -22,5 +22,5 @@ data class AyahEntity(
     val page: Int,
     val ruku: Int,
     val sajda: Boolean,
-    val text: String
+    var text: String
 )
