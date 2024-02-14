@@ -4,7 +4,9 @@ import androidx.lifecycle.SavedStateHandle
 import com.sonna.common.bases.BaseErrorUiState
 import com.sonna.common.bases.BaseViewModel
 import com.sonna.common.routes.DetailsArgs
+import com.sonna.domain.entity.azkar.AzkarEntity
 import com.sonna.domain.entity.quran.SurahEntity
+import com.sonna.domain.usecase.GetAzkarUseCase
 import com.sonna.domain.usecase.GetSurahUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -12,7 +14,8 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    val getSurahUseCase: GetSurahUseCase
+    val getSurahUseCase: GetSurahUseCase,
+    val getAzkarUseCase: GetAzkarUseCase
 ) : BaseViewModel<DetailsUiState>(DetailsUiState()) {
     companion object {
         private const val TAG = "DetailsViewModel"
@@ -21,8 +24,12 @@ class DetailsViewModel @Inject constructor(
     private val args = DetailsArgs(savedStateHandle)
 
     init {
-        if ((args.tabIndexArgs?.toInt() ?: 0) == 0) {
+        val tabIndex = (args.tabIndexArgs?.toInt() ?: 0)
+        changeTabIndex(tabIndex)
+        if (tabIndex == 0) {
             getSurah(args.itemIndexArgs?.toInt() ?: 0)
+        } else if (tabIndex == 2) {
+            getAzkar(args.itemTitle ?: "")
         }
     }
 
@@ -44,6 +51,24 @@ class DetailsViewModel @Inject constructor(
         }
     }
 
+    private fun getAzkar(zekrCategory: String) {
+        tryToExecute(
+            { getAzkarUseCase(true, zekrCategory) },
+            ::onGetAzkarSuccess,
+            ::onError
+        )
+    }
+
+    private fun onGetAzkarSuccess(azkarEntity: AzkarEntity) {
+        updateState {
+            it.copy(
+                title = azkarEntity.azkarList[0].category,
+                azkar = azkarEntity.azkarList.map { it.toState() },
+            )
+        }
+    }
+
+    private fun changeTabIndex(tabIndex:Int) = updateState { it.copy(tabIndex = tabIndex) }
 
     private fun onError(error: BaseErrorUiState) = updateState { it.copy(error = error) }
 

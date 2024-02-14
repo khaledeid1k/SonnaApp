@@ -28,8 +28,8 @@ class CoreRepositoryImp(
         wrapLocalResponseWithErrorHandler { coreLocalDataSource.getSurah(surahIndex) }
             .map { it.toEntity() }
 
-    override suspend fun getAzkar(fromLocal: Boolean) = if (fromLocal) {
-        wrapLocalResponseWithErrorHandler { coreLocalDataSource.getAzkar() }
+    override suspend fun getAzkar(fromLocal: Boolean, category: String) = if (fromLocal) {
+        wrapLocalResponseWithErrorHandler { coreLocalDataSource.getAzkar(category) }
             .map {
                 AzkarEntity(it.map { model -> model.toEntity() })
             }
@@ -41,5 +41,7 @@ class CoreRepositoryImp(
         wrapLocalResponseWithErrorHandler { coreLocalDataSource.insertSurah(surahEntity.toModel()) }
 
     override suspend fun insertZekr(zekrEntity: ZekrEntity) =
-        coreLocalDataSource.insertZekr(zekrEntity.toModel())
+        wrapLocalResponseWithErrorHandler { coreLocalDataSource.insertZekr(zekrEntity.toModel()) }
+
+    //coreLocalDataSource.insertZekr(zekrEntity.toModel())
 }

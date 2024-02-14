@@ -39,7 +39,7 @@ fun DetailsContent(
     ) {
         DetailsHeader(
             surahName = state.title,
-            showBasmala = state.title!="سُورَةُ التَّوۡبَةِ"
+            showBasmala = state.title != "سُورَةُ التَّوۡبَةِ" && state.tabIndex == 0
         )
         LazyColumn(
             modifier = Modifier
@@ -48,12 +48,22 @@ fun DetailsContent(
             contentPadding = PaddingValues(MaterialTheme.dimension.padding24),
             verticalArrangement = Arrangement.spacedBy(MaterialTheme.dimension.padding16)
         ) {
-            items(state.ayahs.size) {
-                VerseItem(
-                    arabicVerse = state.ayahs[it].text,
-                    englishVerse = "[All] praise is [due] to Allah, Lord of the worlds –"
-                )
+            if (state.tabIndex == 0) {
+                items(state.ayahs.size) {
+                    VerseItem(
+                        arabicVerse = state.ayahs[it].text,
+                        englishVerse = "[All] praise is [due] to Allah, Lord of the worlds –"
+                    )
+                }
+            } else {
+                items(state.azkar.size) {
+                    VerseItem(
+                        arabicVerse = state.azkar[it].text,
+                        englishVerse = "[All] praise is [due] to Allah, Lord of the worlds –"
+                    )
+                }
             }
+
         }
     }
 }
