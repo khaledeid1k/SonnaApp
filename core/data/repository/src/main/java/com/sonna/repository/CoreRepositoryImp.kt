@@ -41,5 +41,7 @@ class CoreRepositoryImp(
         wrapLocalResponseWithErrorHandler { coreLocalDataSource.insertSurah(surahEntity.toModel()) }
 
     override suspend fun insertZekr(zekrEntity: ZekrEntity) =
-        coreLocalDataSource.insertZekr(zekrEntity.toModel())
+        wrapLocalResponseWithErrorHandler { coreLocalDataSource.insertZekr(zekrEntity.toModel()) }
+
+    //coreLocalDataSource.insertZekr(zekrEntity.toModel())
 }

@@ -11,5 +11,5 @@ interface CoreRepository {
     suspend fun getSurah(surahIndex:Int): Flow<SurahEntity>
     suspend fun getAzkar(fromLocal:Boolean): Flow<AzkarEntity>
     suspend fun insertSurah(surahEntity: SurahEntity):Flow<Long>
-    suspend fun insertZekr(zekrEntity: ZekrEntity):Long
+    suspend fun insertZekr(zekrEntity: ZekrEntity):Flow<Long>
 }

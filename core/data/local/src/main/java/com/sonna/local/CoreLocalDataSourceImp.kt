@@ -14,6 +14,8 @@ class CoreLocalDataSourceImp(
     override suspend fun getQuran() = flow { emit(coreDao.getQuran()) }
     override suspend fun getSurah(surahIndex: Int) = flow { emit(coreDao.getSurah(surahIndex)) }
 
-    override suspend fun insertZekr(zekrModel: ZekrModel) = coreDao.insertZekr(zekrModel)
+    override suspend fun insertZekr(zekrModel: ZekrModel) =
+        flow { emit(coreDao.insertZekr(zekrModel)) }
+
     override suspend fun getAzkar() = flow { emit(coreDao.getAzkar()) }
 }
