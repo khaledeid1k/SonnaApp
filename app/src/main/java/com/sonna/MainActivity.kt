@@ -9,6 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.screens.content.ContentScreen
+import com.sonna.screens.setting_details.hadith.SettingDetailsHadithContent
 import com.sonna.screens.sheikhs.SheikhsScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,8 +23,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ContentScreen()
-
+                    //ContentScreen()
+                    SettingDetailsHadithContent()
                 }
             }
         }
