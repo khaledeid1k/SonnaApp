@@ -13,11 +13,13 @@ import com.sonna.mapper.toEntity
 import com.sonna.mapper.toModel
 import com.sonna.remote.ContentRemoteDataSource
 import com.sonna.remote.response.hadith.HadithResponse
+import kotlinx.coroutines.flow.Flow
+import retrofit2.Response
 
 class ContentRepositoryImp(
     private val contentRemoteDataSource: ContentRemoteDataSource,
     private val contentLocalDataSource: ContentLocalDataSource
-) : ContentRepository {
+) : ContentRepository , BaseRepository() {
     override suspend fun getSurahes(): AllSurahesEntity {
         return contentRemoteDataSource.getSurahes().toEntity()
     }
@@ -55,8 +57,8 @@ class ContentRepositoryImp(
         contentLocalDataSource.saveSelectedHadithBook(hadithBook)
     }
 
-    override suspend fun getHadithBook(hadithName:String): List<HadithEntity> {
-        val bookFetcherMap = mapOf<String, suspend () -> HadithResponse>(
+    override suspend fun getHadithBook(hadithName:String): Flow<List<HadithEntity> >{
+        val bookFetcherMap = mapOf<String, suspend () -> Response<HadithResponse>>(
             HadithBookNames.Darimi.name to contentRemoteDataSource::getDarimiHadithBook,
             HadithBookNames.Ahmed.name to contentRemoteDataSource::getAhmedBook,
             HadithBookNames.AbiDaud.name to contentRemoteDataSource::getAbiDaudBook,
@@ -67,7 +69,9 @@ class ContentRepositoryImp(
             HadithBookNames.Nasai.name to contentRemoteDataSource::getNasaiBook,
             HadithBookNames.Trmizi.name to contentRemoteDataSource::getTrmiziBook,
         )
-        return bookFetcherMap[hadithName]?.invoke()?.toEntity() ?: emptyList()
+      ?.toEntity() ?: emptyList()
+
+        return wrapResponse {   bookFetcherMap[hadithName]?.invoke() }
     }
 
     override suspend fun saveHadithBook(hadithBook: List<HadithEntity>): List<Long> {
