@@ -30,5 +30,6 @@ dependencies {
     implementation(libs.room.ktx)
     implementation(libs.room.runtime)
     implementation(libs.datastore)
+    implementation(project(":core:domain"))
     ksp(libs.room.compiler)
 }
