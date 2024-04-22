@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.sonna.domain.entity.hadith.HadithBookNames
 import com.sonna.local.model.HadithBookDownloadedModel
 import com.sonna.local.model.HadithModel
 import com.sonna.local.model.SurahModel
@@ -27,6 +28,6 @@ interface ContentDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveDownloadedHadithBookName(hadithBookDownloadedModel: HadithBookDownloadedModel):Long
     @Query("SELECT EXISTS(SELECT * FROM hadith_book_names WHERE hadithBookName = :hadithBookName)")
-    suspend fun isHadithBookDownloaded(hadithBookName: String): Boolean
+    suspend fun isHadithBookDownloaded(hadithBookName: HadithBookNames): Boolean
 
 }
