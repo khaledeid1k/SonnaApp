@@ -53,8 +53,7 @@ fun SettingDetailsHadithContent() {
         if (openDialogHadithBooks.value) {
             DialogOfHadithBooks(
                 onDismissRequest = { openDialogHadithBooks.value = false },
-                startDownload = {},
-                hadithSettingState=HadithSettingState()
+                hadithDialogSettingState = HadithSettingState().hadithDialogSettingState
             )
         }
 

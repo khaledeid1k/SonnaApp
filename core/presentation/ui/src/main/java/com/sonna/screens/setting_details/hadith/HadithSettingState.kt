@@ -1,8 +1,12 @@
 package com.sonna.screens.setting_details.hadith
 
 class HadithSettingState {
-    val hadithBooks:List<HadithDownloadState> = listOf(
-        HadithDownloadState("Darimi"),
+    val hadithDialogSettingState: HadithDialogSettingState = HadithDialogSettingState()
+}
+
+class HadithDialogSettingState {
+    val hadithBooks: List<HadithDownloadState> = listOf(
+        HadithDownloadState("Darimi", true),
         HadithDownloadState("Ahmed"),
         HadithDownloadState("AbiDaud"),
         HadithDownloadState("Bukhari"),
@@ -12,8 +16,9 @@ class HadithSettingState {
         HadithDownloadState("Nasai"),
         HadithDownloadState("Trmizi"),
     )
+    val selectedHadithBookName: String = "Darimi"
 }
 
 data class HadithDownloadState(
-   val  hadithBook:String, val download:Boolean=false
+    val hadithBookText: String, val download: Boolean = false
 )
