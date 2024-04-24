@@ -1,5 +1,6 @@
 package com.sonna.local
 
+import com.sonna.domain.entity.hadith.HadithBookNames
 import com.sonna.local.model.HadithBookDownloadedModel
 import com.sonna.local.model.HadithModel
 import com.sonna.local.model.SurahModel
@@ -15,7 +16,7 @@ interface ContentLocalDataSource {
     suspend fun getSingleHadith(hadith: String, numberOfHadith:Int): HadithModel
 
     suspend fun saveDownloadedHadithBookName(hadithBookDownloadedModel: HadithBookDownloadedModel):Long
-    suspend fun isHadithBookDownloaded(hadithBookName: String): Boolean
+    suspend fun isHadithBookDownloaded(hadithBookName: HadithBookNames): Boolean
 
 
 }

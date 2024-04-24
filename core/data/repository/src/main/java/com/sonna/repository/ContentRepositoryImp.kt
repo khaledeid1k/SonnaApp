@@ -1,10 +1,10 @@
 package com.sonna.repository
 
-import com.sonna.domain.entity.hadith.HadithEntity
 import com.sonna.domain.entity.azkar.AzkarEntity
 import com.sonna.domain.entity.azkar.ZekrEntity
 import com.sonna.domain.entity.hadith.HadithBookDownloadedEntity
-import com.sonna.local.model.HadithBookNames
+import com.sonna.domain.entity.hadith.HadithBookNames
+import com.sonna.domain.entity.hadith.HadithEntity
 import com.sonna.domain.entity.quran.AllSurahesEntity
 import com.sonna.domain.entity.quran.SurahEntity
 import com.sonna.domain.repository.ContentRepository
@@ -13,8 +13,8 @@ import com.sonna.mapper.toEntity
 import com.sonna.mapper.toModel
 import com.sonna.remote.ContentRemoteDataSource
 import com.sonna.remote.response.hadith.HadithResponse
-import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
+
 
 class ContentRepositoryImp(
     private val contentRemoteDataSource: ContentRemoteDataSource,
@@ -57,21 +57,20 @@ class ContentRepositoryImp(
         contentLocalDataSource.saveSelectedHadithBook(hadithBook)
     }
 
-    override suspend fun getHadithBook(hadithName:String): Flow<List<HadithEntity> >{
-        val bookFetcherMap = mapOf<String, suspend () -> Response<HadithResponse>>(
-            HadithBookNames.Darimi.name to contentRemoteDataSource::getDarimiHadithBook,
-            HadithBookNames.Ahmed.name to contentRemoteDataSource::getAhmedBook,
-            HadithBookNames.AbiDaud.name to contentRemoteDataSource::getAbiDaudBook,
-            HadithBookNames.Bukhari.name to contentRemoteDataSource::getBukariBook,
-            HadithBookNames.IbnMaja.name to contentRemoteDataSource::getIbnMajaBook,
-            HadithBookNames.Malik.name to contentRemoteDataSource::getMalikBook,
-            HadithBookNames.Muslim.name to contentRemoteDataSource::getMuslimBook,
-            HadithBookNames.Nasai.name to contentRemoteDataSource::getNasaiBook,
-            HadithBookNames.Trmizi.name to contentRemoteDataSource::getTrmiziBook,
+    override suspend fun getHadithBook(hadithName: HadithBookNames): List<HadithEntity> {
+        val bookFetcherMap = mapOf<HadithBookNames, suspend () -> Response<HadithResponse>>(
+            HadithBookNames.Darimi to contentRemoteDataSource::getDarimiHadithBook,
+            HadithBookNames.Ahmed to contentRemoteDataSource::getAhmedBook,
+            HadithBookNames.AbiDaud to contentRemoteDataSource::getAbiDaudBook,
+            HadithBookNames.Bukhari to contentRemoteDataSource::getBukariBook,
+            HadithBookNames.IbnMaja to contentRemoteDataSource::getIbnMajaBook,
+            HadithBookNames.Malik to contentRemoteDataSource::getMalikBook,
+            HadithBookNames.Muslim to contentRemoteDataSource::getMuslimBook,
+            HadithBookNames.Nasai to contentRemoteDataSource::getNasaiBook,
+            HadithBookNames.Trmizi to contentRemoteDataSource::getTrmiziBook,
         )
-      ?.toEntity() ?: emptyList()
 
-        return wrapResponse {   bookFetcherMap[hadithName]?.invoke() }
+        return wrapResponse { bookFetcherMap[hadithName]!!.invoke() }.toEntity()
     }
 
     override suspend fun saveHadithBook(hadithBook: List<HadithEntity>): List<Long> {
@@ -89,7 +88,7 @@ class ContentRepositoryImp(
         return contentLocalDataSource.saveDownloadedHadithBookName(hadithBookDownloadedModel.toEntity())
     }
 
-    override suspend fun isHadithBookDownloaded(hadithBookName: String): Boolean {
+    override suspend fun isHadithBookDownloaded(hadithBookName: HadithBookNames): Boolean {
         return contentLocalDataSource.isHadithBookDownloaded(hadithBookName)
     }
 }

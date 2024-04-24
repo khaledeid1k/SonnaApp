@@ -1,5 +1,6 @@
 package com.sonna.local
 
+import com.sonna.domain.entity.hadith.HadithBookNames
 import com.sonna.local.data_store.SonnaDataStorePreferences
 import com.sonna.local.model.HadithBookDownloadedModel
 import com.sonna.local.model.HadithModel
@@ -36,7 +37,7 @@ class ContentLocalDataSourceImp(
        return contentDao.saveDownloadedHadithBookName(hadithBookDownloadedModel)
     }
 
-    override suspend fun isHadithBookDownloaded(hadithBookName: String): Boolean {
+    override suspend fun isHadithBookDownloaded(hadithBookName: HadithBookNames): Boolean {
        return contentDao.isHadithBookDownloaded(hadithBookName)
     }
 
