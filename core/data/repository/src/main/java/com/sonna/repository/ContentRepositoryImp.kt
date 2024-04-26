@@ -42,7 +42,10 @@ class ContentRepositoryImp(
     override suspend fun insertZekr(zekrEntity: ZekrEntity) =
         contentLocalDataSource.insertZekr(zekrEntity.toModel())
 
+    override fun downloadFile(url: String, hadithBookName: String): Long {
+        return contentRemoteDataSource.downloadFile(url, hadithBookName)
 
+    }
 
 
     override suspend fun readSelectedHadithBook(): Pair<String,Int> {

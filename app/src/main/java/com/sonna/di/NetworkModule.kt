@@ -1,13 +1,16 @@
 package com.sonna.di
 
+import android.content.Context
 import com.google.gson.GsonBuilder
 import com.sonna.remote.ContentApiServicesAzkarAndHadith
 import com.sonna.remote.ContentApiServicesQuran
 import com.sonna.remote.ContentRemoteDataSource
 import com.sonna.remote.ContentRemoteDataSourceImp
+import com.sonna.remote.download_manger.DownloaderFile
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -22,7 +25,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideHttpClient():OkHttpClient{
+    fun provideHttpClient(): OkHttpClient {
         val httpClient = OkHttpClient.Builder()
         httpClient.addInterceptor { chain ->
             val request = chain.request().newBuilder()
@@ -36,7 +39,7 @@ object NetworkModule {
     @Provides
     @Singleton
     @Quran
-    fun provideRetrofitQuran(okHttpClient:OkHttpClient):Retrofit{
+    fun provideRetrofitQuran(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl("https://api.alquran.cloud/v1/")
@@ -47,7 +50,7 @@ object NetworkModule {
     @Provides
     @Singleton
     @AzkarAndHadith
-    fun provideRetrofitAzkarAndHadith(okHttpClient:OkHttpClient):Retrofit{
+    fun provideRetrofitAzkarAndHadith(okHttpClient: OkHttpClient): Retrofit {
         val gson = GsonBuilder()
             .setLenient()
             .create()
@@ -72,8 +75,22 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRemoteDataSource(contentApiServicesQuran: ContentApiServicesQuran, contentApiServicesAzkarAndHadith: ContentApiServicesAzkarAndHadith): ContentRemoteDataSource {
-        return ContentRemoteDataSourceImp(contentApiServicesQuran,contentApiServicesAzkarAndHadith)
+    fun provideDownloaderFile(@ApplicationContext context: Context): DownloaderFile {
+        return DownloaderFile(context)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRemoteDataSource(
+        contentApiServicesQuran: ContentApiServicesQuran,
+        contentApiServicesAzkarAndHadith: ContentApiServicesAzkarAndHadith,
+        downloaderFile: DownloaderFile,
+    ): ContentRemoteDataSource {
+        return ContentRemoteDataSourceImp(
+            contentApiServicesQuran,
+            contentApiServicesAzkarAndHadith,
+            downloaderFile
+        )
     }
 }
 

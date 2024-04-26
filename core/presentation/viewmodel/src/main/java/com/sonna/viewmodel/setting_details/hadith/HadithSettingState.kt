@@ -1,4 +1,4 @@
-package com.sonna.screens.setting_details.hadith
+package com.sonna.viewmodel.setting_details.hadith
 
 class HadithSettingState {
     val hadithDialogSettingState: HadithDialogSettingState = HadithDialogSettingState()

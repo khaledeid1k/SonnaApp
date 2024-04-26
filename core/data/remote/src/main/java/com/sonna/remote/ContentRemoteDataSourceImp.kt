@@ -1,11 +1,13 @@
 package com.sonna.remote
 
+import com.sonna.remote.download_manger.DownloaderFile
 import com.sonna.remote.response.hadith.HadithResponse
 import retrofit2.Response
 
 class ContentRemoteDataSourceImp(
     private val contentApiServicesQuran: ContentApiServicesQuran,
-    private val contentApiServicesAzkarAndHadith: ContentApiServicesAzkarAndHadith
+    private val contentApiServicesAzkarAndHadith: ContentApiServicesAzkarAndHadith,
+    private val downloaderFile: DownloaderFile,
 ) : ContentRemoteDataSource {
     override suspend fun getDarimiHadithBook():  Response<HadithResponse> {
         return contentApiServicesAzkarAndHadith.getDarimiBook()
@@ -41,6 +43,10 @@ class ContentRemoteDataSourceImp(
 
     override suspend fun getTrmiziBook():  Response<HadithResponse> {
         return contentApiServicesAzkarAndHadith.getTrmiziBook()
+    }
+
+    override fun downloadFile(url: String, hadithBookName: String): Long {
+        return downloaderFile.downloadFile(url, hadithBookName)
     }
 
     override suspend fun getSurahes() = contentApiServicesQuran.getSurahes()

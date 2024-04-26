@@ -8,7 +8,7 @@ data class HadithEntity(
 )
 
 //enum class HadithBookNames { Darimi, Ahmed, AbiDaud, Bukhari, IbnMaja, Malik, Muslim, Nasai, Trmizi; }
-
+//todo what best solution for save hadith books names
 enum class HadithBookNames(val numberOfHadithBook: Int) {
     Darimi(3367),
     Ahmed(26363),
@@ -22,7 +22,7 @@ enum class HadithBookNames(val numberOfHadithBook: Int) {
 
     companion object {
         fun fromName(name: String): HadithBookNames {
-            return values().first { it.name == name }
+            return entries.first { it.name == name }
         }
     }
 }

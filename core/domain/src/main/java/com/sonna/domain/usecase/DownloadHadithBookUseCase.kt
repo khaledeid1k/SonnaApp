@@ -11,13 +11,18 @@ class DownloadHadithBookUseCase(private val contentRepository: ContentRepository
         isHadithBookDownloaded(hadithBookName)
 
     private suspend fun isHadithBookDownloaded(hadithBookName: HadithBookNames) {
-        downloadHadithBook(contentRepository.isHadithBookDownloaded(hadithBookName), hadithBookName)
+
+        contentRepository.downloadFile(
+            "https://raw.githubusercontent.com/khaledeid1k/repos_server/main/Hadith/abi_daud.json",
+            hadithBookName.name
+        )
+        //  downloadHadithBook(contentRepository.isHadithBookDownloaded(hadithBookName), hadithBookName)
     }
 
     private suspend fun downloadHadithBook(isDownloaded: Boolean, hadithBookName: HadithBookNames) {
         if (!isDownloaded) {
             val hadithBook = contentRepository.getHadithBook(hadithBookName)
-            // ToDo( after download finish save in data base)
+            // Todo( after download finish save in data base)
             saveHadithBookToDataBase(hadithBook, hadithBookName.name)
         } else {
             saveSelectedHadithBook(hadithBookName.name)

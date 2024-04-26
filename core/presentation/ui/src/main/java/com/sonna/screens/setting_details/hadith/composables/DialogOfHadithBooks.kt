@@ -26,16 +26,17 @@ import com.sonna.common.R
 import com.sonna.common.previews.ThemePreviews
 import com.sonna.common.theme.SonnaAppTheme
 import com.sonna.common.theme.dimension
-import com.sonna.screens.setting_details.hadith.HadithDialogSettingState
-import com.sonna.screens.setting_details.hadith.HadithSettingState
+import com.sonna.viewmodel.setting_details.hadith.HadithDialogSettingState
+import com.sonna.viewmodel.setting_details.hadith.HadithSettingState
 
 @Composable
 fun DialogOfHadithBooks(
+    hadithSettingState: HadithSettingState,
     onDismissRequest: () -> Unit = {},
     isHadithBookDownloaded: Boolean = false,
     changeSelectedHadithDB: (String) -> Unit = {},
     downloadHadithBook: (String) -> Unit = {},
-    hadithDialogSettingState: HadithDialogSettingState = HadithSettingState().hadithDialogSettingState
+    hadithDialogSettingState: HadithDialogSettingState = hadithSettingState.hadithDialogSettingState
 ) {
     var selectedOption by remember { mutableStateOf(hadithDialogSettingState.selectedHadithBookName) }
 
@@ -61,12 +62,12 @@ fun DialogOfHadithBooks(
                         download = it.download,
 
                         changeSelectedHadith = { newValue ->
-                            if (isHadithBookDownloaded) {
-                                changeSelectedHadithDB(newValue)
+//                            if (isHadithBookDownloaded) {
+//                                changeSelectedHadithDB(newValue)
                                 selectedOption = newValue
-                            } else {
-                                downloadHadithBook(newValue)
-                            }
+//                            } else {
+                            // downloadHadithBook(newValue)
+                            //    }
                         },
 
                         selectedOption = selectedOption,
@@ -118,6 +119,6 @@ private fun HadithBookName(
 @Composable
 fun DialogOfHadithBooksPreview() {
     SonnaAppTheme {
-        DialogOfHadithBooks()
+        DialogOfHadithBooks(HadithSettingState())
     }
 }

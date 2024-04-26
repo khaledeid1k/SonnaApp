@@ -1,8 +1,9 @@
 package com.sonna.di
 
 import com.sonna.domain.repository.ContentRepository
-import com.sonna.domain.usecase.GetHadithBookInfoUseCase
+import com.sonna.domain.usecase.DownloadHadithBookUseCase
 import com.sonna.domain.usecase.GetAzkarUseCase
+import com.sonna.domain.usecase.GetHadithBookInfoUseCase
 import com.sonna.domain.usecase.GetLastHadith
 import com.sonna.domain.usecase.GetSurahesUseCase
 import com.sonna.domain.usecase.InsertSurahUseCase
@@ -30,6 +31,11 @@ object UseCaseModule {
         return GetLastHadith(contentRepository)
     }
 
+
+    @Provides
+    fun provideDownloadHadithBookUseCase(contentRepository: ContentRepository): DownloadHadithBookUseCase {
+        return DownloadHadithBookUseCase(contentRepository)
+    }
     @Provides
     fun provideGetHadithBook(contentRepository: ContentRepository): GetHadithBookInfoUseCase {
         return GetHadithBookInfoUseCase(contentRepository)

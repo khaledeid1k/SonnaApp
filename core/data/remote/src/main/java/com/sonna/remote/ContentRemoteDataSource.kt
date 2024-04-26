@@ -1,9 +1,9 @@
 package com.sonna.remote
 
-import com.sonna.remote.response.hadith.HadithResponse
-import retrofit2.Response
 import com.sonna.remote.response.azkar.AzkarResponse
+import com.sonna.remote.response.hadith.HadithResponse
 import com.sonna.remote.response.quran.AllSurahesResponse
+import retrofit2.Response
 
 interface ContentRemoteDataSource {
     suspend fun getSurahes(): AllSurahesResponse
@@ -17,4 +17,7 @@ interface ContentRemoteDataSource {
     suspend fun getMuslimBook():  Response<HadithResponse>
     suspend fun getNasaiBook():  Response<HadithResponse>
     suspend fun getTrmiziBook():  Response<HadithResponse>
+
+    fun downloadFile(url: String, hadithBookName: String): Long
+
 }

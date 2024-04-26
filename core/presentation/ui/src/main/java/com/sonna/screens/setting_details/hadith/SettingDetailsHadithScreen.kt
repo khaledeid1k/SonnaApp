@@ -7,9 +7,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.sonna.common.R
 import com.sonna.common.composables.BackHeader
 import com.sonna.common.composables.SpacerVertical
@@ -20,16 +23,24 @@ import com.sonna.screens.setting_details.SettingDetailState
 import com.sonna.screens.setting_details.composables.SwitchSettingDetails
 import com.sonna.screens.setting_details.composables.ValueSettingDetails
 import com.sonna.screens.setting_details.hadith.composables.DialogOfHadithBooks
+import com.sonna.viewmodel.setting_details.hadith.HadithSettingState
+import com.sonna.viewmodel.setting_details.hadith.SettingHadithActions
+import com.sonna.viewmodel.setting_details.hadith.SettingHadithViewModel
 
 
 @Composable
 fun SettingDetailsHadithScreen() {
-    SettingDetailsHadithContent()
+    val viewModel: SettingHadithViewModel = hiltViewModel()
+    val state: HadithSettingState by viewModel.state.collectAsState()
+    SettingDetailsHadithContent(state, viewModel)
 }
 
 
 @Composable
-fun SettingDetailsHadithContent() {
+fun SettingDetailsHadithContent(
+    hadithSettingState: HadithSettingState,
+    settingHadithActions: SettingHadithActions
+) {
 
     val openDialogHadithBooks = remember { mutableStateOf(false) }
 
@@ -53,7 +64,9 @@ fun SettingDetailsHadithContent() {
         if (openDialogHadithBooks.value) {
             DialogOfHadithBooks(
                 onDismissRequest = { openDialogHadithBooks.value = false },
-                hadithDialogSettingState = HadithSettingState().hadithDialogSettingState
+                hadithDialogSettingState = hadithSettingState.hadithDialogSettingState,
+                hadithSettingState = hadithSettingState,
+                downloadHadithBook = { settingHadithActions.downloadHadithBook(it) }
             )
         }
 
@@ -92,6 +105,6 @@ fun SettingDetailsHadithContent() {
 @Composable
 fun SettingDetailsHadithPreview() {
     SonnaAppTheme {
-        SettingDetailsHadithContent()
+        //  SettingDetailsHadithContent(HadithSettingState(),object :SettingHadithActions{})
     }
 }
