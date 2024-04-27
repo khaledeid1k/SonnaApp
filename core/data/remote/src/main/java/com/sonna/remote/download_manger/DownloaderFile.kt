@@ -6,9 +6,10 @@ import android.os.Environment
 import androidx.core.net.toUri
 
 class DownloaderFile(private val context: Context) {
-    private val downloadManger = context.getSystemService(DownloadManager::class.java)
+    private val downloadManager = context.getSystemService(DownloadManager::class.java)
     fun downloadFile(url: String, hadithBookName: String): Long {
         val request = DownloadManager.Request(url.toUri())
+            //val request = DownloadManager.Request("https://docs.google.com/document/d/1mzE8yiWoVUlwqbLN9COx6FwfiSDk2yLeoUKV_qQPlrU/edit?usp=drive_link".toUri())
             .setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI)
             .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
             .setTitle(hadithBookName)
@@ -17,8 +18,6 @@ class DownloaderFile(private val context: Context) {
                 Environment.DIRECTORY_DOWNLOADS,
                 hadithBookName
             )
-
-
-        return downloadManger.enqueue(request)
+        return downloadManager.enqueue(request)
     }
 }
